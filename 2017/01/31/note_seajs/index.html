@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>模块化开发seajs笔记 | Haven</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="概述什么是模块化开发
+将软件产品看作为一系列功能模块的组合
+通过特定的方式实现软件所需模块的划分、管理、加载
+
+为什么使用模块化开发">
+<meta property="og:type" content="article">
+<meta property="og:title" content="模块化开发seajs笔记">
+<meta property="og:url" content="http://yoursite.com/2017/01/31/note_seajs/index.html">
+<meta property="og:site_name" content="Haven">
+<meta property="og:description" content="概述什么是模块化开发
+将软件产品看作为一系列功能模块的组合
+通过特定的方式实现软件所需模块的划分、管理、加载
+
+为什么使用模块化开发">
+<meta property="og:updated_time" content="2017-03-03T10:13:21.569Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="模块化开发seajs笔记">
+<meta name="twitter:description" content="概述什么是模块化开发
+将软件产品看作为一系列功能模块的组合
+通过特定的方式实现软件所需模块的划分、管理、加载
+
+为什么使用模块化开发">
+  
+    <link rel="alternative" href="/atom.xml" title="Haven" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+      <link rel="stylesheet" href="/css/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          rootUrl: '/',
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/head.jpg" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/" title="Hi Mate">Haven Xie</a></h1>
+        </hgroup>
+
+        
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">博客首页</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=7dzZ39XV2tvY1dytnJzDjoKA" title="mail">mail</a>
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/havenxie" title="github">github</a>
+                            
+                                <a class="fl zhihu" target="_blank" href="https://www.zhihu.com/people/promi/activities" title="zhihu">zhihu</a>
+                            
+                                <a class="fl weibo" target="_blank" href="http://weibo.com/u/2892421013?refer_flag=1001030201_&is_all=1" title="weibo">weibo</a>
+                            
+                                <a class="fl QQ" target="_blank" href="http://user.qzone.qq.com/1428876581/main" title="QQ">QQ</a>
+                            
+                                <a class="fl wechat" target="_blank" href="javascript:;" title="wechat">wechat</a>
+                            
+                                <a class="fl douban" target="_blank" href="https://www.douban.com/people/156900832/" title="douban">douban</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://havenxie.github.io/">更多</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">纯逗比、真宅男、爱旅行、喜欢接触新鲜事物、迎接新的挑战，更爱游离于错综复杂的编码与逻辑中</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">Haven Xie</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/head.jpg" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Me">Haven Xie</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">博客首页</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=7dzZ39XV2tvY1dytnJzDjoKA" title="mail">mail</a>
+                    
+                        <a class="github" target="_blank" href="https://github.com/havenxie" title="github">github</a>
+                    
+                        <a class="zhihu" target="_blank" href="https://www.zhihu.com/people/promi/activities" title="zhihu">zhihu</a>
+                    
+                        <a class="weibo" target="_blank" href="http://weibo.com/u/2892421013?refer_flag=1001030201_&is_all=1" title="weibo">weibo</a>
+                    
+                        <a class="QQ" target="_blank" href="http://user.qzone.qq.com/1428876581/main" title="QQ">QQ</a>
+                    
+                        <a class="wechat" target="_blank" href="javascript:;" title="wechat">wechat</a>
+                    
+                        <a class="douban" target="_blank" href="https://www.douban.com/people/156900832/" title="douban">douban</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-note_seajs" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/01/31/note_seajs/" class="article-date">
+      <time datetime="2017-01-31T11:57:31.000Z" itemprop="datePublished">2017-01-31</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      模块化开发seajs笔记
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><h3 id="什么是模块化开发"><a href="#什么是模块化开发" class="headerlink" title="什么是模块化开发"></a>什么是模块化开发</h3><ul>
+<li>将软件产品看作为一系列功能模块的组合</li>
+<li>通过特定的方式实现软件所需模块的划分、管理、加载</li>
+</ul>
+<h3 id="为什么使用模块化开发"><a href="#为什么使用模块化开发" class="headerlink" title="为什么使用模块化开发"></a>为什么使用模块化开发</h3><a id="more"></a>
+<ul>
+<li><a href="https://github.com/seajs/seajs/issues/547" target="_blank" rel="external">https://github.com/seajs/seajs/issues/547</a></li>
+<li>协同</li>
+<li>代码复用</li>
+<li>解决问题<ul>
+<li>大量的文件引入</li>
+<li>命名冲突</li>
+<li>文件依赖<ul>
+<li>存在</li>
+<li>顺序</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="实现模块化的推演"><a href="#实现模块化的推演" class="headerlink" title="实现模块化的推演"></a>实现模块化的推演</h3><h4 id="step-01-全局函数"><a href="#step-01-全局函数" class="headerlink" title="step-01 全局函数"></a>step-01 全局函数</h4><h4 id="step-02-封装对象"><a href="#step-02-封装对象" class="headerlink" title="step-02 封装对象"></a>step-02 封装对象</h4><h4 id="step-03-划分私有空间"><a href="#step-03-划分私有空间" class="headerlink" title="step-03 划分私有空间"></a>step-03 划分私有空间</h4><h4 id="step-04-模块的扩展与维护"><a href="#step-04-模块的扩展与维护" class="headerlink" title="step-04 模块的扩展与维护"></a>step-04 模块的扩展与维护</h4><h4 id="step-05-第三方依赖管理"><a href="#step-05-第三方依赖管理" class="headerlink" title="step-05 第三方依赖管理"></a>step-05 第三方依赖管理</h4><p>在什么场景下使用模块化开发<br>  业务复杂<br>  重用逻辑非常多<br>  扩展性要求较高</p>
+<hr>
+<h2 id="实现规范"><a href="#实现规范" class="headerlink" title="实现规范"></a>实现规范</h2><h3 id="CommonJS规范"><a href="#CommonJS规范" class="headerlink" title="CommonJS规范"></a>CommonJS规范</h3><h3 id="AMD规范"><a href="#AMD规范" class="headerlink" title="AMD规范"></a>AMD规范</h3><h3 id="CMD规范"><a href="#CMD规范" class="headerlink" title="CMD规范"></a>CMD规范</h3><hr>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><h3 id="Seajs"><a href="#Seajs" class="headerlink" title="Seajs"></a>Seajs</h3><h4 id="使用步骤"><a href="#使用步骤" class="headerlink" title="使用步骤"></a>使用步骤</h4><ol>
+<li>在页面中引入sea.js文件</li>
+<li>定义一个主模块文件，比如：main.js</li>
+<li>在主模块文件中通过define的方式定义一个模块，并导出公共成员</li>
+<li>在页面的行内脚本中通过seajs.use(‘path’,fn)的方式使用模块</li>
+<li>回调函数的参数传过来的就是模块中导出的成员对象</li>
+</ol>
+<h4 id="定义一个模块"><a href="#定义一个模块" class="headerlink" title="定义一个模块"></a>定义一个模块</h4><ul>
+<li>define</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">define(<span class="function"><span class="keyword">function</span>(<span class="params">require, exports, module</span>) </span>&#123;</div><div class="line">  exports.add = <span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> a + b;</div><div class="line">  &#125;;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h4 id="使用一个模块"><a href="#使用一个模块" class="headerlink" title="使用一个模块"></a>使用一个模块</h4><ul>
+<li>seajs.use<ul>
+<li>一般用于入口模块</li>
+<li>一般只会使用一次</li>
+</ul>
+</li>
+<li>require<ul>
+<li>模块与模块之间</li>
+</ul>
+</li>
+</ul>
+<h4 id="导出成员的方式"><a href="#导出成员的方式" class="headerlink" title="导出成员的方式"></a>导出成员的方式</h4><ul>
+<li>module.exports</li>
+<li>exports.xxx</li>
+<li>return</li>
+<li>三种方式的优先级</li>
+</ul>
+<h4 id="异步加载模块"><a href="#异步加载模块" class="headerlink" title="异步加载模块"></a>异步加载模块</h4><ul>
+<li>默认require的效果是同步的，会阻塞代码的执行，造成界面卡顿</li>
+<li>require.async();</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">require</span>.async(<span class="string">'path'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">module</span>) </span>&#123;</div><div class="line"></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h4 id="使用第三方依赖（jQuery）"><a href="#使用第三方依赖（jQuery）" class="headerlink" title="使用第三方依赖（jQuery）"></a>使用第三方依赖（jQuery）</h4><ul>
+<li>由于CMD是国产货，jquery默认不支持</li>
+<li>改造</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 适配CMD</span></div><div class="line"><span class="keyword">if</span> (<span class="keyword">typeof</span> define === <span class="string">"function"</span> &amp;&amp; !define.amd) &#123;</div><div class="line">  <span class="comment">// 当前有define函数，并且不是AMD的情况</span></div><div class="line">  <span class="comment">// jquery在新版本中如果使用AMD或CMD方式，不会去往全局挂载jquery对象</span></div><div class="line">  define(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> jQuery.noConflict(<span class="literal">true</span>);</div><div class="line">  &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="Seajs配置"><a href="#Seajs配置" class="headerlink" title="Seajs配置"></a>Seajs配置</h4><ul>
+<li><a href="https://github.com/seajs/seajs/issues/262" target="_blank" rel="external">配置</a></li>
+<li>seajs.config<ul>
+<li>base</li>
+<li>alias</li>
+</ul>
+</li>
+</ul>
+<h4 id="使用案例"><a href="#使用案例" class="headerlink" title="使用案例"></a>使用案例</h4><ul>
+<li>Tab标签页</li>
+</ul>
+<h3 id="RequireJS"><a href="#RequireJS" class="headerlink" title="RequireJS"></a>RequireJS</h3>
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2017/01/31/note_seajs/">模块化开发seajs笔记</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 Haven Xie 的个人博客">Haven Xie</a></p>
+        <p><span>发布时间:</span>2017年01月31日 - 19时57分</p>
+        <p><span>最后更新:</span>2017年03月03日 - 18时13分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2017/01/31/note_seajs/" title="模块化开发seajs笔记">http://yoursite.com/2017/01/31/note_seajs/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2017/01/31/note_seajs/　　作者: Haven Xie" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a href="/2017/02/05/note_angularjs/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          AngularJS笔记
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/01/21/note_other/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">常用命令及sublime笔记</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概述"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是模块化开发"><span class="toc-number">1.1.</span> <span class="toc-text">什么是模块化开发</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#为什么使用模块化开发"><span class="toc-number">1.2.</span> <span class="toc-text">为什么使用模块化开发</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实现模块化的推演"><span class="toc-number">1.3.</span> <span class="toc-text">实现模块化的推演</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#step-01-全局函数"><span class="toc-number">1.3.1.</span> <span class="toc-text">step-01 全局函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#step-02-封装对象"><span class="toc-number">1.3.2.</span> <span class="toc-text">step-02 封装对象</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#step-03-划分私有空间"><span class="toc-number">1.3.3.</span> <span class="toc-text">step-03 划分私有空间</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#step-04-模块的扩展与维护"><span class="toc-number">1.3.4.</span> <span class="toc-text">step-04 模块的扩展与维护</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#step-05-第三方依赖管理"><span class="toc-number">1.3.5.</span> <span class="toc-text">step-05 第三方依赖管理</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实现规范"><span class="toc-number">2.</span> <span class="toc-text">实现规范</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#CommonJS规范"><span class="toc-number">2.1.</span> <span class="toc-text">CommonJS规范</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AMD规范"><span class="toc-number">2.2.</span> <span class="toc-text">AMD规范</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CMD规范"><span class="toc-number">2.3.</span> <span class="toc-text">CMD规范</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实现"><span class="toc-number">3.</span> <span class="toc-text">实现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Seajs"><span class="toc-number">3.1.</span> <span class="toc-text">Seajs</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#使用步骤"><span class="toc-number">3.1.1.</span> <span class="toc-text">使用步骤</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#定义一个模块"><span class="toc-number">3.1.2.</span> <span class="toc-text">定义一个模块</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#使用一个模块"><span class="toc-number">3.1.3.</span> <span class="toc-text">使用一个模块</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#导出成员的方式"><span class="toc-number">3.1.4.</span> <span class="toc-text">导出成员的方式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#异步加载模块"><span class="toc-number">3.1.5.</span> <span class="toc-text">异步加载模块</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#使用第三方依赖（jQuery）"><span class="toc-number">3.1.6.</span> <span class="toc-text">使用第三方依赖（jQuery）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Seajs配置"><span class="toc-number">3.1.7.</span> <span class="toc-text">Seajs配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#使用案例"><span class="toc-number">3.1.8.</span> <span class="toc-text">使用案例</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RequireJS"><span class="toc-number">3.2.</span> <span class="toc-text">RequireJS</span></a></li></ol></li></ol>
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
+    
+      <div class="duoshuo" id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="2017/01/31/note_seajs/" data-title="模块化开发seajs笔记" data-url="http://yoursite.com/2017/01/31/note_seajs/"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:"null"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = '/js/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+    <!-- 多说公共JS代码 end -->
+</div>
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2017/02/05/note_angularjs/" title="上一篇: AngularJS笔记">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2017/01/21/note_other/" title="下一篇: 常用命令及sublime笔记">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/02/05/note_angularjs/">AngularJS笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/31/note_seajs/">模块化开发seajs笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/21/note_other/">常用命令及sublime笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/15/note_$/">jQuery笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/08/note_dom/">DOM笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/02/note_js/">JS笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/25/note_css3/">CSS3笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/11/note_css/">CSS笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/04/note_html/">HTML笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/03/note_git/">GIT基本使用笔记</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2017-03 Haven Xie
+            </div>
+            <div class="footer-right">
+                <a href="https://github.com/havenxie/" target="_blank">Demo</a>  Theme <a href="https://github.com/havenxie/" target="_blank">black</a> by Haven
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >访问用户数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 24;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>
