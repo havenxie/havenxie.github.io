@@ -17,7 +17,7 @@
 []    表示全部可选项
 ||    表示或者
 |     表示多选一">
-<meta property="og:updated_time" content="2017-03-03T12:48:41.477Z">
+<meta property="og:updated_time" content="2017-03-06T09:39:59.131Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS3笔记">
 <meta name="twitter:description" content="CSS3手册使用
@@ -340,8 +340,8 @@
 <li>opacity子元素会继承父元素的透明度，在实际开发中会带来干扰；</li>
 <li>transparent 设置透明度时完全类似于“玻璃”一样的透明；</li>
 </ol>
-<h2 id="文本"><a href="#文本" class="headerlink" title="文本"></a>文本</h2><p>多行文本文字溢出处理，非标准属性，可应用于移动端<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">p</span> &#123;</div><div class="line">    <span class="attribute">overflow</span>: hidden;</div><div class="line">    <span class="attribute">text-overflow</span>: ellipsis;</div><div class="line">    <span class="attribute">display</span>: -webkit-box;</div><div class="line">    <span class="attribute">-webkit-line-clamp</span>: <span class="number">2</span>;</div><div class="line">    <span class="attribute">-webkit-box-orient</span>: vertical;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>文本基线对其方式：<br>vertical-align：baseline | sub | super | top | text-top | middle | bottom | text-bottom | <percentage> | <length></length></percentage></p>
+<h2 id="文本"><a href="#文本" class="headerlink" title="文本"></a>文本</h2><p>多行文本文字溢出处理，非标准属性，可应用于移动端，显示不完就会显示省略号(…)<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">p &#123;</div><div class="line">    overflow: hidden;</div><div class="line">    text-overflow: ellipsis;</div><div class="line">    display: -webkit-box;</div><div class="line">    -webkit-line-clamp: 2;/*设置要显示的行数*/</div><div class="line">    -webkit-box-orient: vertical;</div><div class="line">    width: 80px;</div><div class="line">&#125;</div><div class="line">&lt;p&gt;这里是要显示的内容，如果显示不完就会显示省略号&lt;/p&gt;</div></pre></td></tr></table></figure></p>
+<p>文本基线对其方式：<br>vertical-align：baseline | sub | super | top | text-top | middle | bottom | text-bottom | <code>&lt;percentage&gt;</code> | <code>&lt;length&gt;</code></p>
 <ul>
 <li>baseline： 把当前盒的基线与父级盒的基线对齐。如果该盒没有基线，就将底部外边距的边界和父级的基线对齐 </li>
 <li>sub： 把当前盒的基线降低到合适的位置作为父级盒的下标（该值不影响该元素文本的字体大小） </li>
@@ -351,20 +351,21 @@
 <li>middle： 把当前盒的垂直中心和父级盒的基线加上父级的半x-height对齐 </li>
 <li>top： 把当前盒的top与行盒的top对齐 </li>
 <li>bottom： 把当前盒的bottom与行盒的bottom对齐 </li>
-<li><percentage>： 把当前盒提升（正值）或者降低（负值）这个距离，百分比相对line-height计算。当值为0%时等同于baseline。 </percentage></li>
-<li><length>： 把当前盒提升（正值）或者降低（负值）这个距离。当值为0时等同于baseline。（CSS2） </length></li>
+<li><code>&lt;percentage&gt;</code>： 把当前盒提升（正值）或者降低（负值）这个距离，百分比相对line-height计算。当值为0%时等同于baseline。 </li>
+<li><code>&lt;length&gt;</code>： 把当前盒提升（正值）或者降低（负值）这个距离。当值为0时等同于baseline。（CSS2） </li>
 </ul>
 <h3 id="其他的属性因为兼容性太差就算了"><a href="#其他的属性因为兼容性太差就算了" class="headerlink" title="其他的属性因为兼容性太差就算了"></a>其他的属性因为兼容性太差就算了</h3><h2 id="边框"><a href="#边框" class="headerlink" title="边框"></a>边框</h2><blockquote>
 <p> 其边框圆角、边框阴影属性，应用十分广泛，兼容性也相对较好，具有符合渐进增强原则的特征.</p>
 </blockquote>
 <h3 id="边框圆角"><a href="#边框圆角" class="headerlink" title="边框圆角"></a>边框圆角</h3><p>当圆角半径小于或等于边框宽度时，元素内角是直角</p>
 <h3 id="边框阴影"><a href="#边框阴影" class="headerlink" title="边框阴影"></a>边框阴影</h3><blockquote>
-<p> 设置边框阴影不会影响盒子的布局，即不会影响其兄弟元素的布局<br> spread可以与blur、h-shadow、v-shadow相互抵消，blur不可为负值<br> 可以设置多重边框阴影，实现更好的效果，增强立体感。<br>box-shadow<br>box-shadow：none | <shadow> [ , <shadow> ]*</shadow></shadow></p>
-<p><shadow> = inset? &amp;&amp; <length>{2,4} &amp;&amp; <color>?<br>none： 无阴影<br>水平偏移量：第1个长度值用来设置对象的阴影水平偏移值。可以为负值<br>竖直偏移量：第2个长度值用来设置对象的阴影垂直偏移值。可以为负值<br>模糊度：如果提供了第3个长度值则用来设置对象的阴影模糊值。不允许负值<br>扩展：  如果提供了第4个长度值则用来设置对象的阴影外延值。可以为负值。和偏移量呈数学运算<br>颜色：  设置对象的阴影的颜色。<br>inset： 设置对象的阴影类型为内阴影。该值为空时，则对象的阴影类型为外阴影 </color></length></shadow></p>
+<p> 设置边框阴影不会影响盒子的布局，即不会影响其兄弟元素的布局<br> spread可以与blur、h-shadow、v-shadow相互抵消，blur不可为负值<br> 可以设置多重边框阴影，实现更好的效果，增强立体感。</p>
 </blockquote>
+<p>`box-shadow：none | <shadow> [ , <shadow> ]*</shadow></shadow></p>
+<p><shadow> = inset? &amp;&amp; <length>{2,4} &amp;&amp; <color>?`<br>none： 无阴影<br>水平偏移量：第1个长度值用来设置对象的阴影水平偏移值。可以为负值<br>竖直偏移量：第2个长度值用来设置对象的阴影垂直偏移值。可以为负值<br>模糊度：如果提供了第3个长度值则用来设置对象的阴影模糊值。不允许负值<br>扩展：  如果提供了第4个长度值则用来设置对象的阴影外延值。可以为负值。和偏移量呈数学运算<br>颜色：  设置对象的阴影的颜色。<br>inset： 设置对象的阴影类型为内阴影。该值为空时，则对象的阴影类型为外阴影 </color></length></shadow></p>
 <p>盒子的阴影不会影响盒子的布局</p>
 <h3 id="边框图片"><a href="#边框图片" class="headerlink" title="边框图片"></a>边框图片</h3><blockquote>
-<p> border-image<br> border-image：&lt;’ border-image-source ‘&gt; || &lt;’ border-image-slice ‘&gt; [ / &lt;’ border-image-width ‘&gt; | / &lt;’ border-image-width ‘&gt;? / &lt;’ border-image-outset ‘&gt; ]? || &lt;’ border-image-repeat ‘&gt;</p>
+<p> <code>border-image：&lt;&#39; border-image-source &#39;&gt; || &lt;&#39; border-image-slice &#39;&gt; [ / &lt;&#39; border-image-width &#39;&gt; | / &lt;&#39; border-image-width &#39;&gt;? / &lt;&#39; border-image-outset &#39;&gt; ]? || &lt;&#39; border-image-repeat &#39;&gt;</code></p>
 </blockquote>
 <p>取值：</p>
 <ul>
@@ -422,10 +423,10 @@
 <li>contain: 将背景图片等比缩放到宽度或高度与容器的宽度或高度相等，图片背景始终被包含在容器内。</li>
 </ul>
 <h2 id="渐变"><a href="#渐变" class="headerlink" title="渐变"></a>渐变</h2><blockquote>
-<p> 线性渐变、径向渐变、重复渐变。</p>
+<p> 线性渐变、径向渐变、重复渐变(包括重复线性渐变和重复径向渐变)。</p>
 </blockquote>
 <h3 id="线性渐变"><a href="#线性渐变" class="headerlink" title="线性渐变"></a>线性渐变</h3><blockquote>
-<p> linear-graident()</p>
+<p> linear-gradient()</p>
 </blockquote>
 <ul>
 <li><code>&lt;angle&gt;</code>： 用角度值指定渐变的方向（或角度）。 </li>
@@ -445,8 +446,8 @@
 <li>用角度确定方向：background-image: linear-gradient(0, yellow, green);//方向从下到上</li>
 <li>用角度确定方向：background-image: linear-gradient(90deg, yellow, green);//方向从左到右</li>
 <li>用角度确定方向：background-image: linear-gradient(180deg, yellow, green);//方向从上到下</li>
-<li>用关键词确定方向：background-image: linear-gradient(to top, yellow, green);//方向从左到右</li>
-<li>用关键词确定background-image: linear-gradient(to left top, yellow, green);//方向从左到右</li>
+<li>用关键词确定方向：background-image: linear-gradient(to top, yellow, green);//方向从下向上</li>
+<li>用关键词确定方向: background-image: linear-gradient(to left top, yellow, green);//方向从右下到左上</li>
 <li>控制渐变：background-image: linear-gradient(to left, yellow 20%, green 40%, blue);//到百分之二十的时候是黄色，到百分之四十的时候是绿色 之后都是绿色（后面的值不能小于前面的值）</li>
 </ol>
 <h3 id="径向渐变"><a href="#径向渐变" class="headerlink" title="径向渐变"></a>径向渐变</h3><blockquote>
@@ -502,12 +503,12 @@
 <li>以上1~4条常作用在p标签，第五条常作用在h标签</li>
 </ol>
 <h2 id="伸缩布局"><a href="#伸缩布局" class="headerlink" title="伸缩布局"></a>伸缩布局</h2><ul>
-<li>flex: 复合属性，设置或检索伸缩盒对象的子元素如何分配空间。</li>
-<li>flex-grow: 设置或检索弹性盒的扩展比率</li>
-<li>flex-shrink：设置或检索弹性盒的收缩比率</li>
-<li>flex-basis: 设置或检索弹性盒伸缩基准值</li>
-<li>flex-flow: 复合属性，设置或检索伸缩盒对象的子元素排列方式</li>
-<li>flex-direction: 设置或检索伸缩盒对象的子元素在父元素中的位置</li>
+<li>flex: 复合属性，设置伸缩盒对象的子元素如何分配空间。</li>
+<li>flex-grow: 设置弹性盒的扩展比率</li>
+<li>flex-shrink：设置弹性盒的收缩比率</li>
+<li>flex-basis: 设置弹性盒伸缩基准值</li>
+<li>flex-flow: 复合属性，设置伸缩盒对象的子元素排列方式</li>
+<li>flex-direction: 设置伸缩盒对象的子元素的排列方向</li>
 <li>flex-wrap: 设置伸缩盒对象的子元素超出父容器时是否换行</li>
 <li>align-content: 设置伸缩盒堆叠伸缩行的对其方式</li>
 <li>align-items: 设置伸缩盒子元素在纵轴方向上的对齐方式</li>
@@ -595,7 +596,7 @@
         <p><span>本文标题:</span><a href="/2016/12/25/note_css3/">CSS3笔记</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Haven Xie 的个人博客">Haven Xie</a></p>
         <p><span>发布时间:</span>2016年12月25日 - 20时37分</p>
-        <p><span>最后更新:</span>2017年03月03日 - 20时48分</p>
+        <p><span>最后更新:</span>2017年03月06日 - 17时39分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/12/25/note_css3/" title="CSS3笔记">http://yoursite.com/2016/12/25/note_css3/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2016/12/25/note_css3/　　作者: Haven Xie" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
