@@ -5,25 +5,25 @@
   
   <title>模块化SeaJS笔记 | Haven</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Seajs
-Sea.js 实现了CMD规范。在Sea.js中，所有的Javascript模块都遵循CMD模块定义规范。该规范明确了模块的基本书写格式和基本交互规则。
+  <meta name="description" content="Sea.js 实现了CMD规范。在Sea.js中，所有的Javascript模块都遵循CMD模块定义规范。该规范明确了模块的基本书写格式和基本交互规则。
 
-在CMD规范中，一个模块就是一个文件，代码的书写格式如下：1define(factory);//factory工厂的意思">
+在CMD规范中，一个模块就是一个文件，代码的书写格式如下：
+1define(factory);//factory工厂的意思">
 <meta property="og:type" content="article">
 <meta property="og:title" content="模块化SeaJS笔记">
-<meta property="og:url" content="http://yoursite.com/2017/02/12/note_seajs/index.html">
+<meta property="og:url" content="http://yoursite.com/2017/02/19/note_seajs/index.html">
 <meta property="og:site_name" content="Haven">
-<meta property="og:description" content="Seajs
-Sea.js 实现了CMD规范。在Sea.js中，所有的Javascript模块都遵循CMD模块定义规范。该规范明确了模块的基本书写格式和基本交互规则。
+<meta property="og:description" content="Sea.js 实现了CMD规范。在Sea.js中，所有的Javascript模块都遵循CMD模块定义规范。该规范明确了模块的基本书写格式和基本交互规则。
 
-在CMD规范中，一个模块就是一个文件，代码的书写格式如下：1define(factory);//factory工厂的意思">
-<meta property="og:updated_time" content="2017-03-20T10:28:48.798Z">
+在CMD规范中，一个模块就是一个文件，代码的书写格式如下：
+1define(factory);//factory工厂的意思">
+<meta property="og:updated_time" content="2017-03-20T10:55:58.082Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="模块化SeaJS笔记">
-<meta name="twitter:description" content="Seajs
-Sea.js 实现了CMD规范。在Sea.js中，所有的Javascript模块都遵循CMD模块定义规范。该规范明确了模块的基本书写格式和基本交互规则。
+<meta name="twitter:description" content="Sea.js 实现了CMD规范。在Sea.js中，所有的Javascript模块都遵循CMD模块定义规范。该规范明确了模块的基本书写格式和基本交互规则。
 
-在CMD规范中，一个模块就是一个文件，代码的书写格式如下：1define(factory);//factory工厂的意思">
+在CMD规范中，一个模块就是一个文件，代码的书写格式如下：
+1define(factory);//factory工厂的意思">
   
     <link rel="alternative" href="/atom.xml" title="Haven" type="application/atom+xml">
   
@@ -228,8 +228,8 @@ Sea.js 实现了CMD规范。在Sea.js中，所有的Javascript模块都遵循CMD
       <div class="body-wrap"><article id="post-note_seajs" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/02/12/note_seajs/" class="article-date">
-      <time datetime="2017-02-12T14:09:43.000Z" itemprop="datePublished">2017-02-12</time>
+      <a href="/2017/02/19/note_seajs/" class="article-date">
+      <time datetime="2017-02-19T14:09:43.000Z" itemprop="datePublished">2017-02-19</time>
 </a>
     </div>
   
@@ -259,10 +259,11 @@ Sea.js 实现了CMD规范。在Sea.js中，所有的Javascript模块都遵循CMD
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="Seajs"><a href="#Seajs" class="headerlink" title="Seajs"></a>Seajs</h2><blockquote>
+        <blockquote>
 <p>Sea.js 实现了CMD规范。在Sea.js中，所有的Javascript模块都遵循CMD模块定义规范。该规范明确了模块的基本书写格式和基本交互规则。</p>
 </blockquote>
-<p>在CMD规范中，一个模块就是一个文件，代码的书写格式如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">define(factory);<span class="comment">//factory工厂的意思</span></div></pre></td></tr></table></figure></p>
+<p>在CMD规范中，一个模块就是一个文件，代码的书写格式如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">define(factory);<span class="comment">//factory工厂的意思</span></div></pre></td></tr></table></figure>
 <a id="more"></a>
 <h3 id="1-使用步骤"><a href="#1-使用步骤" class="headerlink" title="1 使用步骤"></a>1 使用步骤</h3><ol>
 <li>在页面中引入sea.js文件</li>
@@ -272,19 +273,21 @@ Sea.js 实现了CMD规范。在Sea.js中，所有的Javascript模块都遵循CMD
 <li>回调函数的参数传过来的就是模块中导出的成员对象</li>
 </ol>
 <hr>
-<h3 id="2-定义一个模块（define）"><a href="#2-定义一个模块（define）" class="headerlink" title="2 定义一个模块（define）"></a>2 定义一个模块（define）</h3><h5 id="2-1-define-factory"><a href="#2-1-define-factory" class="headerlink" title="2.1 define(factory)"></a>2.1 define(factory)</h5><blockquote>
+<h3 id="2-定义一个模块（define）"><a href="#2-定义一个模块（define）" class="headerlink" title="2 定义一个模块（define）"></a>2 定义一个模块（define）</h3><h4 id="2-1-define-factory"><a href="#2-1-define-factory" class="headerlink" title="2.1 define(factory)"></a>2.1 define(factory)</h4><blockquote>
 <p>define是一个全局函数，用来定义模块。</p>
 <p>factory接受factory参数，factory可以是一个函数，也可以是一个对象或字符串。</p>
 </blockquote>
-<p>factory为对象、字符串时，表示模块的借口就是该对象、字符串。比如可以定义如下一个JSON数据模块：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">define(&#123;<span class="string">"foo"</span>: <span class="string">"bar"</span>&#125;);</div></pre></td></tr></table></figure></p>
-<p>也可以通过字符串定义模板模块：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">define(<span class="string">'I am a template. My name is &#123;&#123;name&#125;&#125;'</span>);</div><div class="line"><span class="string">``</span><span class="string">` </span></div><div class="line"></div><div class="line">factory为函数时，表示是模块的构造方法。执行该构造方法，可以得到该模块向外提供的借口。factory方法在执行时，默认会传入三个参数：require、exports、和module：</div><div class="line">`<span class="string">``</span>javascript</div><div class="line">define(<span class="function"><span class="keyword">function</span>(<span class="params">require, exports, module</span>) </span>&#123;</div><div class="line">  exports.add = <span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> a + b;</div><div class="line">  &#125;;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
-<h5 id="2-2-define-id-deps-factory"><a href="#2-2-define-id-deps-factory" class="headerlink" title="2.2 define(id?, deps?, factory)"></a>2.2 define(id?, deps?, factory)</h5><blockquote>
+<p>factory为对象、字符串时，表示模块的借口就是该对象、字符串。比如可以定义如下一个JSON数据模块：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">define(&#123;<span class="string">"foo"</span>: <span class="string">"bar"</span>&#125;);</div></pre></td></tr></table></figure>
+<p>也可以通过字符串定义模板模块：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">define(<span class="string">'I am a template. My name is &#123;&#123;name&#125;&#125;'</span>);</div><div class="line"><span class="string">``</span><span class="string">` </span></div><div class="line"></div><div class="line">factory为函数时，表示是模块的构造方法。执行该构造方法，可以得到该模块向外提供的借口。factory方法在执行时，默认会传入三个参数：require、exports、和module：</div><div class="line"></div><div class="line">`<span class="string">``</span>javascript</div><div class="line">define(<span class="function"><span class="keyword">function</span>(<span class="params">require, exports, module</span>) </span>&#123;</div><div class="line">  exports.add = <span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> a + b;</div><div class="line">  &#125;;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h4 id="2-2-define-id-deps-factory"><a href="#2-2-define-id-deps-factory" class="headerlink" title="2.2 define(id?, deps?, factory)"></a>2.2 define(id?, deps?, factory)</h4><blockquote>
 <p>define也可以接受两个以上参数，字符串id表示模块标识，数组deps是模块依赖。比如：</p>
 </blockquote>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">define(<span class="string">'Hello'</span>, [<span class="string">'jquery'</span>], <span class="function"><span class="keyword">function</span>(<span class="params">require, exports, module</span>) </span>&#123;</div><div class="line">	<span class="comment">//模块代码</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 <p>id和deps参数可以省略。省略时，可以通过构建工具自动生成。</p>
 <p>注意：带id和deps参数的define用法不属于CMD规范，而属于Modules/Transport规范。</p>
-<h5 id="2-3-define-cmd"><a href="#2-3-define-cmd" class="headerlink" title="2.3 define.cmd"></a>2.3 define.cmd</h5><blockquote>
+<h4 id="2-3-define-cmd"><a href="#2-3-define-cmd" class="headerlink" title="2.3 define.cmd"></a>2.3 define.cmd</h4><blockquote>
 <p>一个空对象，可以用来判定当前页面是否有CMD模块加载：</p>
 </blockquote>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(<span class="keyword">typeof</span> define === <span class="string">'function'</span> &amp;&amp; define.cmd) &#123;</div><div class="line">	<span class="comment">//有Sea.js等CMD模块加载存在</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -292,23 +295,23 @@ Sea.js 实现了CMD规范。在Sea.js中，所有的Javascript模块都遵循CMD
 <h3 id="3-引用一个模块（require）"><a href="#3-引用一个模块（require）" class="headerlink" title="3 引用一个模块（require）"></a>3 引用一个模块（require）</h3><blockquote>
 <p>require是factory函数的第一个参数</p>
 </blockquote>
-<h5 id="3-1-require-id"><a href="#3-1-require-id" class="headerlink" title="3.1 require(id)"></a>3.1 require(id)</h5><blockquote>
+<h4 id="3-1-require-id"><a href="#3-1-require-id" class="headerlink" title="3.1 require(id)"></a>3.1 require(id)</h4><blockquote>
 <p>require时一个方法，接受模块标识（id）作为唯一参数，用来获取其他模块提供的接口。</p>
 </blockquote>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">define(<span class="function"><span class="keyword">function</span>(<span class="params">require, exports</span>) </span>&#123;</div><div class="line">	<span class="comment">//获取模块a的接口</span></div><div class="line">	<span class="keyword">var</span> a = <span class="built_in">require</span>(<span class="string">'./a'</span>);</div><div class="line"></div><div class="line">	<span class="comment">//调用模块a的方法</span></div><div class="line">	a.dosomething();</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 <p>注意：开发时，require的书写需要遵循一些简单约定。</p>
-<h5 id="3-2-require-async-id-callback"><a href="#3-2-require-async-id-callback" class="headerlink" title="3.2 require.async(id, callback?)"></a>3.2 require.async(id, callback?)</h5><blockquote>
+<h4 id="3-2-require-async-id-callback"><a href="#3-2-require-async-id-callback" class="headerlink" title="3.2 require.async(id, callback?)"></a>3.2 require.async(id, callback?)</h4><blockquote>
 <p>require.async 方法用来在模块内部异步加载模块，并且在加载完成后执行回调函数。callback参数可选。</p>
 </blockquote>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">define(<span class="function"><span class="keyword">function</span>(<span class="params">require, exports, module</span>) </span>&#123;</div><div class="line">	<span class="comment">//异步加载一个模块，加载完成时，执行回调</span></div><div class="line">	<span class="built_in">require</span>.async(<span class="string">'./b'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">b</span>) </span>&#123;</div><div class="line">		b.dosomething();</div><div class="line">	&#125;);</div><div class="line"></div><div class="line">	<span class="comment">//异步加载多个模块，加载完成时，执行回调函数</span></div><div class="line">	<span class="built_in">require</span>.async([<span class="string">'./c'</span>, <span class="string">'./d'</span>], <span class="function"><span class="keyword">function</span>(<span class="params">c, d</span>) </span>&#123;</div><div class="line">		c.dosomething();</div><div class="line">		d.dosomething();</div><div class="line">	&#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 <p>注意： require是同步往下执行，require.async 则是异步回调执行。require.async 一般用来加载可延迟异步加载的模块。</p>
-<h5 id="3-3-require-resolve-id"><a href="#3-3-require-resolve-id" class="headerlink" title="3.3 require.resolve(id)"></a>3.3 require.resolve(id)</h5><blockquote>
+<h4 id="3-3-require-resolve-id"><a href="#3-3-require-resolve-id" class="headerlink" title="3.3 require.resolve(id)"></a>3.3 require.resolve(id)</h4><blockquote>
 <p>使用模块系统内部的路径解析机制来解析并返回模块路径。该函数不会加载模块，只返回解析后的绝对路径。</p>
 </blockquote>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">define(<span class="function"><span class="keyword">function</span>(<span class="params">require, exports</span>) </span>&#123;</div><div class="line">	<span class="built_in">console</span>.log(<span class="built_in">require</span>.resolve(<span class="string">'./b'</span>));</div><div class="line">	<span class="comment">//===&gt; http://example.com/path/to/b.js</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 <p>这可以用来获取模块路径，一般用在插件环境或许动态拼接模块路径的场景下。</p>
 <hr>
-<h3 id="4-向外输出模块接口（exports）"><a href="#4-向外输出模块接口（exports）" class="headerlink" title="4 向外输出模块接口（exports）"></a>4 向外输出模块接口（exports）</h3><h5 id="4-1-exports"><a href="#4-1-exports" class="headerlink" title="4.1 exports"></a>4.1 exports</h5><blockquote>
+<h3 id="4-向外输出模块接口（exports）"><a href="#4-向外输出模块接口（exports）" class="headerlink" title="4 向外输出模块接口（exports）"></a>4 向外输出模块接口（exports）</h3><h4 id="4-1-exports"><a href="#4-1-exports" class="headerlink" title="4.1 exports"></a>4.1 exports</h4><blockquote>
 <p>exports是一个对象，用来向外提供模块接口</p>
 </blockquote>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">define(<span class="function"><span class="keyword">function</span>(<span class="params">require, exports</span>) </span>&#123;</div><div class="line">	<span class="comment">//对外提供foo属性</span></div><div class="line">	exports.foo = <span class="string">'bar'</span>;</div><div class="line"></div><div class="line">	<span class="comment">//对外提供dosomething方法</span></div><div class="line">	exports.dosomething = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
@@ -325,20 +328,20 @@ Sea.js 实现了CMD规范。在Sea.js中，所有的Javascript模块都遵循CMD
 <h3 id="5-向外输出模块接口（module）"><a href="#5-向外输出模块接口（module）" class="headerlink" title="5 向外输出模块接口（module）"></a>5 向外输出模块接口（module）</h3><blockquote>
 <p>module是一个对象，上面存储了与当前模块相关联的一些属性和方法</p>
 </blockquote>
-<h5 id="5-1-module-id"><a href="#5-1-module-id" class="headerlink" title="5.1 module.id"></a>5.1 module.id</h5><blockquote>
+<h4 id="5-1-module-id"><a href="#5-1-module-id" class="headerlink" title="5.1 module.id"></a>5.1 module.id</h4><blockquote>
 <p>模块的唯一标识</p>
 </blockquote>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">define(<span class="string">'id'</span>, [], <span class="function"><span class="keyword">function</span>(<span class="params">require, exports, module</span>) </span>&#123;</div><div class="line">	<span class="comment">//模块代码</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 <p>上面代码中，define的第一个参数就是模块标识。</p>
-<h5 id="5-2-module-uri"><a href="#5-2-module-uri" class="headerlink" title="5.2 module.uri"></a>5.2 module.uri</h5><blockquote>
+<h4 id="5-2-module-uri"><a href="#5-2-module-uri" class="headerlink" title="5.2 module.uri"></a>5.2 module.uri</h4><blockquote>
 <p>根据模块系统的路径解析规则得到模块的绝对路径</p>
 </blockquote>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">define(<span class="function"><span class="keyword">function</span>(<span class="params">require, exports, module</span>) </span>&#123;</div><div class="line">	<span class="built_in">console</span>.log(<span class="built_in">module</span>.uri);</div><div class="line">	<span class="comment">//===&gt; http://example.com/path/to/this/file/js</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 <p>一遍情况下，没有在define中手写id参数时，module.id的值就是module.uri, 两者完全相同。</p>
-<h5 id="5-3-module-dependencies"><a href="#5-3-module-dependencies" class="headerlink" title="5.3 module.dependencies"></a>5.3 module.dependencies</h5><blockquote>
+<h4 id="5-3-module-dependencies"><a href="#5-3-module-dependencies" class="headerlink" title="5.3 module.dependencies"></a>5.3 module.dependencies</h4><blockquote>
 <p>dependencies 是一个数组，表示当前模块的依赖。</p>
 </blockquote>
-<h5 id="5-4-module-exports"><a href="#5-4-module-exports" class="headerlink" title="5.4 module.exports"></a>5.4 module.exports</h5><blockquote>
+<h4 id="5-4-module-exports"><a href="#5-4-module-exports" class="headerlink" title="5.4 module.exports"></a>5.4 module.exports</h4><blockquote>
 <p>当前模块对外提供的接口</p>
 </blockquote>
 <p>传给factory构造方法的exports参数时module.exports对象的一个引用。只通过exports参数来提供接口，有时无法满足开发者的所有需求。比如模块的接口是某个类型的实例时，需要通过module.exports来实现：</p>
@@ -377,13 +380,13 @@ Sea.js 实现了CMD规范。在Sea.js中，所有的Javascript模块都遵循CMD
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2017/02/12/note_seajs/">模块化SeaJS笔记</a></p>
+        <p><span>本文标题:</span><a href="/2017/02/19/note_seajs/">模块化SeaJS笔记</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Haven Xie 的个人博客">Haven Xie</a></p>
-        <p><span>发布时间:</span>2017年02月12日 - 22时09分</p>
-        <p><span>最后更新:</span>2017年03月20日 - 18时28分</p>
+        <p><span>发布时间:</span>2017年02月19日 - 22时09分</p>
+        <p><span>最后更新:</span>2017年03月20日 - 18时55分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/02/12/note_seajs/" title="模块化SeaJS笔记">http://yoursite.com/2017/02/12/note_seajs/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2017/02/12/note_seajs/　　作者: Haven Xie" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/02/19/note_seajs/" title="模块化SeaJS笔记">http://yoursite.com/2017/02/19/note_seajs/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2017/02/19/note_seajs/　　作者: Haven Xie" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -395,15 +398,6 @@ Sea.js 实现了CMD规范。在Sea.js中，所有的Javascript模块都遵循CMD
 
 
 <nav id="article-nav">
-  
-    <a href="/2017/03/09/note_面试题/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          (no title)
-        
-      </div>
-    </a>
   
   
     <a href="/2017/02/12/note_angularjs/" id="article-nav-older" class="article-nav-link-wrap">
@@ -418,7 +412,7 @@ Sea.js 实现了CMD规范。在Sea.js中，所有的Javascript模块都遵循CMD
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Seajs"><span class="toc-number">1.</span> <span class="toc-text">Seajs</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-使用步骤"><span class="toc-number">1.1.</span> <span class="toc-text">1 使用步骤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-定义一个模块（define）"><span class="toc-number">1.2.</span> <span class="toc-text">2 定义一个模块（define）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#2-1-define-factory"><span class="toc-number">1.2.0.1.</span> <span class="toc-text">2.1 define(factory)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-2-define-id-deps-factory"><span class="toc-number">1.2.0.2.</span> <span class="toc-text">2.2 define(id?, deps?, factory)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-3-define-cmd"><span class="toc-number">1.2.0.3.</span> <span class="toc-text">2.3 define.cmd</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-引用一个模块（require）"><span class="toc-number">1.3.</span> <span class="toc-text">3 引用一个模块（require）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#3-1-require-id"><span class="toc-number">1.3.0.1.</span> <span class="toc-text">3.1 require(id)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-2-require-async-id-callback"><span class="toc-number">1.3.0.2.</span> <span class="toc-text">3.2 require.async(id, callback?)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-3-require-resolve-id"><span class="toc-number">1.3.0.3.</span> <span class="toc-text">3.3 require.resolve(id)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-向外输出模块接口（exports）"><span class="toc-number">1.4.</span> <span class="toc-text">4 向外输出模块接口（exports）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#4-1-exports"><span class="toc-number">1.4.0.1.</span> <span class="toc-text">4.1 exports</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-向外输出模块接口（module）"><span class="toc-number">1.5.</span> <span class="toc-text">5 向外输出模块接口（module）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#5-1-module-id"><span class="toc-number">1.5.0.1.</span> <span class="toc-text">5.1 module.id</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-2-module-uri"><span class="toc-number">1.5.0.2.</span> <span class="toc-text">5.2 module.uri</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-3-module-dependencies"><span class="toc-number">1.5.0.3.</span> <span class="toc-text">5.3 module.dependencies</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-4-module-exports"><span class="toc-number">1.5.0.4.</span> <span class="toc-text">5.4 module.exports</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-主入口seajs-use"><span class="toc-number">1.6.</span> <span class="toc-text">6 主入口seajs.use</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-使用第三方依赖（jQuery）"><span class="toc-number">1.7.</span> <span class="toc-text">7 使用第三方依赖（jQuery）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-Seajs配置"><span class="toc-number">1.8.</span> <span class="toc-text">8 Seajs配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-使用案例"><span class="toc-number">1.9.</span> <span class="toc-text">9 使用案例</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-使用步骤"><span class="toc-number">1.</span> <span class="toc-text">1 使用步骤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-定义一个模块（define）"><span class="toc-number">2.</span> <span class="toc-text">2 定义一个模块（define）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-define-factory"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 define(factory)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-define-id-deps-factory"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 define(id?, deps?, factory)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-define-cmd"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 define.cmd</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-引用一个模块（require）"><span class="toc-number">3.</span> <span class="toc-text">3 引用一个模块（require）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-require-id"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 require(id)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-require-async-id-callback"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 require.async(id, callback?)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-require-resolve-id"><span class="toc-number">3.3.</span> <span class="toc-text">3.3 require.resolve(id)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-向外输出模块接口（exports）"><span class="toc-number">4.</span> <span class="toc-text">4 向外输出模块接口（exports）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1-exports"><span class="toc-number">4.1.</span> <span class="toc-text">4.1 exports</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-向外输出模块接口（module）"><span class="toc-number">5.</span> <span class="toc-text">5 向外输出模块接口（module）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#5-1-module-id"><span class="toc-number">5.1.</span> <span class="toc-text">5.1 module.id</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-2-module-uri"><span class="toc-number">5.2.</span> <span class="toc-text">5.2 module.uri</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-3-module-dependencies"><span class="toc-number">5.3.</span> <span class="toc-text">5.3 module.dependencies</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-4-module-exports"><span class="toc-number">5.4.</span> <span class="toc-text">5.4 module.exports</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-主入口seajs-use"><span class="toc-number">6.</span> <span class="toc-text">6 主入口seajs.use</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-使用第三方依赖（jQuery）"><span class="toc-number">7.</span> <span class="toc-text">7 使用第三方依赖（jQuery）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-Seajs配置"><span class="toc-number">8.</span> <span class="toc-text">8 Seajs配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-使用案例"><span class="toc-number">9.</span> <span class="toc-text">9 使用案例</span></a></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -466,7 +460,7 @@ Sea.js 实现了CMD规范。在Sea.js中，所有的Javascript模块都遵循CMD
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2017/02/12/note_seajs/" data-title="模块化SeaJS笔记" data-url="http://yoursite.com/2017/02/12/note_seajs/"></div>
+    <div class="ds-thread" data-thread-key="2017/02/19/note_seajs/" data-title="模块化SeaJS笔记" data-url="http://yoursite.com/2017/02/19/note_seajs/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -489,9 +483,7 @@ Sea.js 实现了CMD规范。在Sea.js中，所有的Javascript模块都遵循CMD
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/03/09/note_面试题/" title="上一篇: ">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
@@ -500,7 +492,7 @@ Sea.js 实现了CMD规范。在Sea.js中，所有的Javascript模块都遵循CMD
             </a>
         
     </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/03/09/note_面试题/">note_面试题</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/12/note_seajs/">模块化SeaJS笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/12/note_angularjs/">AngularJS笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/05/note_锋利的jQuery/">锋利的jQuery笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/31/note_module/">模块化开发简介笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/21/note_other/">常用命令及sublime笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/15/note_$/">jQuery笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/08/note_dom/">DOM笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/02/note_js/">JS笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/25/note_css3/">CSS3笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/11/note_css/">CSS笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/04/note_html/">HTML笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/03/note_git/">GIT基本使用笔记</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/02/19/note_seajs/">模块化SeaJS笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/12/note_angularjs/">AngularJS笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/05/note_锋利的jQuery/">锋利的jQuery笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/31/note_module/">模块化开发简介笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/21/note_other/">常用命令及sublime笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/15/note_$/">jQuery笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/08/note_dom/">DOM笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/02/note_js/">JS笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/25/note_css3/">CSS3笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/11/note_css/">CSS笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/04/note_html/">HTML笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/03/note_git/">GIT基本使用笔记</a></li></ul>
     <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
     <script>
         $(".post-list").addClass("toc-article");
