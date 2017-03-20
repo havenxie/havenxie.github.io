@@ -17,7 +17,7 @@ HTML是描述文档语义的语言，是英语HyperText Markup Language的缩写
 HTML是描述文档语义的语言，是英语HyperText Markup Language的缩写，超文本标记语言。
 
 &amp;lt;!DOCTYPE html PUBLIC “-//W3C//DTD XHTML 1.0 Transitional//EN” “http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&amp;quot;&amp;">
-<meta property="og:updated_time" content="2017-03-03T12:53:12.031Z">
+<meta property="og:updated_time" content="2017-03-07T13:35:53.193Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HTML笔记">
 <meta name="twitter:description" content="[HTML部分]1.文档头
@@ -315,6 +315,10 @@ HTML是描述文档语义的语言，是英语HyperText Markup Language的缩写
 <blockquote>
 <p>链接站点的图标favicon.ico</p>
 </blockquote>
+<h3 id="5-link标签"><a href="#5-link标签" class="headerlink" title="5+.link标签"></a>5+.link标签</h3><ul>
+<li>link标签属于XHTML标签，除了加载css外，还可以加载less并且可以定义rel属性等作用。@import只能够加载css</li>
+<li>link在页面加载的时候同步被加载，@import会在html加载完毕之后才会加载对应的css文件</li>
+</ul>
 <h3 id="6-HTML基本语法特性"><a href="#6-HTML基本语法特性" class="headerlink" title="6.HTML基本语法特性"></a>6.HTML基本语法特性</h3><ul>
 <li><p>HTML对换行不敏感，对tab不敏感，换不换行、tab不tab，都不影响页面的结构。</p>
 </li>
@@ -393,6 +397,33 @@ HTML是描述文档语义的语言，是英语HyperText Markup Language的缩写
 </li>
 </ul>
 <h5 id="label标签"><a href="#label标签" class="headerlink" title="label标签"></a>label标签</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">//本质上讲，“男”、“女”这两个汉字，和input元素没有关系。</div><div class="line">&lt;input type=&quot;radio&quot; name=&quot;sex&quot; /&gt; 男</div><div class="line">&lt;input type=&quot;radio&quot; name=&quot;sex&quot; /&gt; 女</div><div class="line">//label就是解决这个问题的。任何表单都可以和label配合使用</div><div class="line">&lt;input type=&quot;radio&quot; name=&quot;sex&quot; id=&quot;man&quot; /&gt;&lt;label for=&quot;man&quot;&gt;男&lt;/label&gt;</div><div class="line">&lt;input type=&quot;radio&quot; name=&quot;sex&quot; id=&quot;wom&quot; /&gt;&lt;label for=&quot;wom&quot;&gt;女&lt;/label&gt;</div></pre></td></tr></table></figure>
+<h3 id="html5"><a href="#html5" class="headerlink" title="html5"></a>html5</h3><h4 id="语义化标签"><a href="#语义化标签" class="headerlink" title="语义化标签"></a>语义化标签</h4><blockquote>
+<p>用正确的标签做正确的事情</p>
+</blockquote>
+<ul>
+<li>语义化标签让页面内容结构化</li>
+<li>结构更清晰</li>
+<li>便于浏览器、搜索引擎解析</li>
+<li>便于屏幕阅读器读取，使页面更富文本化</li>
+<li>有利于开发人员开发和维护人员维护</li>
+</ul>
+<h4 id="新特性"><a href="#新特性" class="headerlink" title="新特性"></a>新特性</h4><blockquote>
+<p>HTML5不再是SGML的子集， 主要增加了位置、图像、存储、多任务的等功能。</p>
+</blockquote>
+<ul>
+<li>增加canvas</li>
+<li>用于媒体的audio和video元素</li>
+<li>本地离线存储localStorage可以长期保存</li>
+<li>sessionStorage的数据在浏览器关闭之后就自动消失</li>
+<li>语义化标签header、footer、article、nav、section</li>
+<li>表单控件calendar、date、time、email、url、search</li>
+<li>新的技术webworker、websocket、Geolocation</li>
+</ul>
+<h4 id="处理H5标签的兼容性"><a href="#处理H5标签的兼容性" class="headerlink" title="处理H5标签的兼容性"></a>处理H5标签的兼容性</h4><ol>
+<li>使用document.createElement()方法产生新标签，但是需要为新标签增加默认样式</li>
+<li>最好的就是引用成熟框架html5shim<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!--[if lt IE 9]&gt;</span></div><div class="line">&lt;script type="text/javascript" src="html5shim.js"&gt;&lt;</div><div class="line">/script&gt;</div><div class="line">&lt;![endif]--&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
 <h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><h4 id="字符实体"><a href="#字符实体" class="headerlink" title="字符实体"></a>字符实体</h4><ul>
 <li><code>&amp;lt;</code>表示&lt;</li>
 <li><code>&amp;gt;</code>表示&gt;</li>
@@ -410,7 +441,7 @@ HTML是描述文档语义的语言，是英语HyperText Markup Language的缩写
         <p><span>本文标题:</span><a href="/2016/12/04/note_html/">HTML笔记</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Haven Xie 的个人博客">Haven Xie</a></p>
         <p><span>发布时间:</span>2016年12月04日 - 22时07分</p>
-        <p><span>最后更新:</span>2017年03月03日 - 20时53分</p>
+        <p><span>最后更新:</span>2017年03月07日 - 21时35分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/12/04/note_html/" title="HTML笔记">http://yoursite.com/2016/12/04/note_html/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2016/12/04/note_html/　　作者: Haven Xie" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -448,7 +479,7 @@ HTML是描述文档语义的语言，是英语HyperText Markup Language的缩写
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#HTML部分"><span class="toc-number">1.</span> <span class="toc-text">[HTML部分]</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-文档头"><span class="toc-number">1.1.</span> <span class="toc-text">1.文档头</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-字符集"><span class="toc-number">1.2.</span> <span class="toc-text">2.字符集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-meta关键字和页面描述"><span class="toc-number">1.3.</span> <span class="toc-text">3.meta关键字和页面描述</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#meta除了可以设置字符集，还可以设置关键字和页面描述。"><span class="toc-number">1.3.0.1.</span> <span class="toc-text">meta除了可以设置字符集，还可以设置关键字和页面描述。</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-title标签"><span class="toc-number">1.4.</span> <span class="toc-text">4.title标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-favicon-ico图标"><span class="toc-number">1.5.</span> <span class="toc-text">5.favicon.ico图标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-HTML基本语法特性"><span class="toc-number">1.6.</span> <span class="toc-text">6.HTML基本语法特性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-HTML标签"><span class="toc-number">1.7.</span> <span class="toc-text">7.HTML标签</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#列表（无序列表、有序列表、定义列表）"><span class="toc-number">1.7.1.</span> <span class="toc-text">列表（无序列表、有序列表、定义列表）</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1-无序列表-lt-ul-gt-："><span class="toc-number">1.7.1.0.1.</span> <span class="toc-text">1.无序列表 <ul>：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2-有序列表-lt-ol-gt-："><span class="toc-number">1.7.1.0.2.</span> <span class="toc-text">2.有序列表 <ol>：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#3-定义列表-lt-dl-gt-、-lt-dt-gt-、-lt-dd-gt-："><span class="toc-number">1.7.1.0.3.</span> <span class="toc-text">3.定义列表 <dl>、<dt>、<dd>：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#div和span"><span class="toc-number">1.7.2.</span> <span class="toc-text">div和span</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#表单-form"><span class="toc-number">1.7.3.</span> <span class="toc-text">表单 form</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#input"><span class="toc-number">1.7.3.1.</span> <span class="toc-text">input</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#select、option"><span class="toc-number">1.7.3.2.</span> <span class="toc-text">select、option</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#textarea-多行文本框（文本域）"><span class="toc-number">1.7.3.3.</span> <span class="toc-text">textarea 多行文本框（文本域）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#按钮-button"><span class="toc-number">1.7.3.4.</span> <span class="toc-text">按钮 button</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#label标签"><span class="toc-number">1.7.3.5.</span> <span class="toc-text">label标签</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他"><span class="toc-number">1.8.</span> <span class="toc-text">其他</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#字符实体"><span class="toc-number">1.8.1.</span> <span class="toc-text">字符实体</span></a></li></ol></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#HTML部分"><span class="toc-number">1.</span> <span class="toc-text">[HTML部分]</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-文档头"><span class="toc-number">1.1.</span> <span class="toc-text">1.文档头</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-字符集"><span class="toc-number">1.2.</span> <span class="toc-text">2.字符集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-meta关键字和页面描述"><span class="toc-number">1.3.</span> <span class="toc-text">3.meta关键字和页面描述</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#meta除了可以设置字符集，还可以设置关键字和页面描述。"><span class="toc-number">1.3.0.1.</span> <span class="toc-text">meta除了可以设置字符集，还可以设置关键字和页面描述。</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-title标签"><span class="toc-number">1.4.</span> <span class="toc-text">4.title标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-favicon-ico图标"><span class="toc-number">1.5.</span> <span class="toc-text">5.favicon.ico图标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-link标签"><span class="toc-number">1.6.</span> <span class="toc-text">5+.link标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-HTML基本语法特性"><span class="toc-number">1.7.</span> <span class="toc-text">6.HTML基本语法特性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-HTML标签"><span class="toc-number">1.8.</span> <span class="toc-text">7.HTML标签</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#列表（无序列表、有序列表、定义列表）"><span class="toc-number">1.8.1.</span> <span class="toc-text">列表（无序列表、有序列表、定义列表）</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1-无序列表-lt-ul-gt-："><span class="toc-number">1.8.1.0.1.</span> <span class="toc-text">1.无序列表 <ul>：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2-有序列表-lt-ol-gt-："><span class="toc-number">1.8.1.0.2.</span> <span class="toc-text">2.有序列表 <ol>：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#3-定义列表-lt-dl-gt-、-lt-dt-gt-、-lt-dd-gt-："><span class="toc-number">1.8.1.0.3.</span> <span class="toc-text">3.定义列表 <dl>、<dt>、<dd>：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#div和span"><span class="toc-number">1.8.2.</span> <span class="toc-text">div和span</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#表单-form"><span class="toc-number">1.8.3.</span> <span class="toc-text">表单 form</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#input"><span class="toc-number">1.8.3.1.</span> <span class="toc-text">input</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#select、option"><span class="toc-number">1.8.3.2.</span> <span class="toc-text">select、option</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#textarea-多行文本框（文本域）"><span class="toc-number">1.8.3.3.</span> <span class="toc-text">textarea 多行文本框（文本域）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#按钮-button"><span class="toc-number">1.8.3.4.</span> <span class="toc-text">按钮 button</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#label标签"><span class="toc-number">1.8.3.5.</span> <span class="toc-text">label标签</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#html5"><span class="toc-number">1.9.</span> <span class="toc-text">html5</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#语义化标签"><span class="toc-number">1.9.1.</span> <span class="toc-text">语义化标签</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#新特性"><span class="toc-number">1.9.2.</span> <span class="toc-text">新特性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#处理H5标签的兼容性"><span class="toc-number">1.9.3.</span> <span class="toc-text">处理H5标签的兼容性</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他"><span class="toc-number">1.10.</span> <span class="toc-text">其他</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#字符实体"><span class="toc-number">1.10.1.</span> <span class="toc-text">字符实体</span></a></li></ol></li></ol></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -530,7 +561,7 @@ HTML是描述文档语义的语言，是英语HyperText Markup Language的缩写
             </a>
         
     </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/02/05/note_angularjs/">AngularJS笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/31/note_seajs/">模块化开发seajs笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/21/note_other/">常用命令及sublime笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/15/note_$/">jQuery笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/08/note_dom/">DOM笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/02/note_js/">JS笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/25/note_css3/">CSS3笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/11/note_css/">CSS笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/04/note_html/">HTML笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/03/note_git/">GIT基本使用笔记</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/03/09/note_面试题/">note_面试题</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/12/note_seajs/">模块化SeaJS笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/12/note_angularjs/">AngularJS笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/05/note_锋利的jQuery/">锋利的jQuery笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/31/note_module/">模块化开发简介笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/21/note_other/">常用命令及sublime笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/15/note_$/">jQuery笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/08/note_dom/">DOM笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/02/note_js/">JS笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/25/note_css3/">CSS3笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/11/note_css/">CSS笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/04/note_html/">HTML笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/03/note_git/">GIT基本使用笔记</a></li></ul>
     <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
     <script>
         $(".post-list").addClass("toc-article");

@@ -11,7 +11,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/01/08/note_dom/index.html">
 <meta property="og:site_name" content="Haven">
 <meta property="og:description" content="DOM和BOM每个载入浏览器的HTML都会成为Document对象。Document对象使我们可以从脚本中对HTML页面中的所有元素进行访问。Document对象是Window对象的一部分。可通过Window.document对其进行访问。">
-<meta property="og:updated_time" content="2017-03-03T10:06:56.298Z">
+<meta property="og:updated_time" content="2017-03-07T13:54:00.521Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DOM笔记">
 <meta name="twitter:description" content="DOM和BOM每个载入浏览器的HTML都会成为Document对象。Document对象使我们可以从脚本中对HTML页面中的所有元素进行访问。Document对象是Window对象的一部分。可通过Window.document对其进行访问。">
@@ -267,19 +267,22 @@
 <li>lastChild             最后一个孩子 IE678认识</li>
 <li>lastElementChild      最后一个孩子 其他浏览器认识</li>
 </ul>
-<p>孩子节点：childNode选出全部的孩子<br>childNodes：它是标准属性，它返回指定元素的子元素集合，包括HTML节点，所有属性，文本节点。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">//火狐、谷歌等高本版会把换行也看做是子节点。所以下面的ul中将会有7个节点。</div><div class="line">&lt;ul id=&quot;ul&quot;&gt;</div><div class="line">    &lt;li&gt;A&lt;/li&gt;</div><div class="line">    &lt;li&gt;B&lt;/li&gt;</div><div class="line">    &lt;li&gt;C&lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div><div class="line">//利用nodeType == 1 时候才是元素节点来获取元素节点。nodeType==2属性节点 nodeType == 3文本节点</div><div class="line">-----------------------------------------------------</div><div class="line">//ie 678  包含注释节点，在ie678下，ul将会有4个节点</div><div class="line">&lt;ul id=&quot;ul&quot;&gt;</div><div class="line">    &lt;li&gt;A&lt;/li&gt;</div><div class="line">    &lt;li&gt;B&lt;/li&gt;</div><div class="line">    &lt;li&gt;C&lt;/li&gt;</div><div class="line">    &lt;!-- &lt;li&gt;C&lt;/li&gt; --&gt;</div><div class="line">&lt;/ul&gt;</div></pre></td></tr></table></figure></p>
-<h3 id="DOM节点操作"><a href="#DOM节点操作" class="headerlink" title="DOM节点操作"></a>DOM节点操作</h3><p>创建节点：var div = document,createElement(“li”);</p>
-<ol>
+<p>孩子节点：childNodes选出全部的孩子<br>childNodes：它是标准属性，它返回指定元素的子元素集合，包括HTML节点，所有属性，文本节点。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">//火狐、谷歌等高本版会把换行和注释也看做是子节点。所以下面的ul中将会有7个节点。</div><div class="line">&lt;ul id=&quot;ul&quot;&gt;</div><div class="line">    &lt;li&gt;A&lt;/li&gt;</div><div class="line">    &lt;li&gt;B&lt;/li&gt;</div><div class="line">    &lt;li&gt;C&lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div><div class="line">//利用nodeType == 1 时候才是元素节点来获取元素节点。nodeType==2属性节点 nodeType == 3文本节点</div><div class="line">-----------------------------------------------------</div><div class="line">//ie 678  包含注释节点，在ie678下，ul将会有4个节点</div><div class="line">&lt;ul id=&quot;ul&quot;&gt;</div><div class="line">    &lt;li&gt;A&lt;/li&gt;</div><div class="line">    &lt;li&gt;B&lt;/li&gt;</div><div class="line">    &lt;li&gt;C&lt;/li&gt;</div><div class="line">    &lt;!-- &lt;li&gt;C&lt;/li&gt; --&gt;</div><div class="line">&lt;/ul&gt;</div></pre></td></tr></table></figure></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"nodes"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span>1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span>2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span>3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!-- &lt;div&gt;4&lt;/div&gt; --&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="javascript"></span></div><div class="line">    <span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> nodes = <span class="built_in">document</span>.getElementsByClassName(<span class="string">'nodes'</span>)[<span class="number">0</span>].childNodes;<span class="comment">//会获得9个node。3个div，5个text，一个注释</span></div><div class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> index <span class="keyword">in</span> nodes) &#123;</div><div class="line">            <span class="keyword">if</span>(nodes[index].nodeType == <span class="number">1</span>) &#123;<span class="comment">//获取标签节点</span></div><div class="line">                <span class="built_in">console</span>.log(nodes[index]);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="DOM节点操作"><a href="#DOM节点操作" class="headerlink" title="DOM节点操作"></a>DOM节点操作</h3><ul>
+<li><p>创建节点：var div = document.createElement(“li”);</p>
+</li>
+<li><p>创建文本节点: var txt = document.createTextNode()</p>
+</li>
 <li><p>插入节点：</p>
 <ul>
-<li>appendChild()  eg: demo.appendChild(newItem);添加节点，添加到demo节点最后面</li>
+<li>appendChild()  eg: demo.appendChild(newItem);添加节点，添加到demo节点所有孩子的最后面</li>
 <li>insertBefore() eg: demo.insertBefore(newItem, existingItem);添加节点，添加到existingItem的前面。如果第二个参数为null则添加到最后。</li>
 </ul>
 </li>
 <li><p>移除节点：removeChild()</p>
-<p> eg: var da = document.getElementById(“test”);</p>
-<pre><code>var demo.removeChild(da);//demo节点中移除id为“test”的节点。
-</code></pre></li>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> da = <span class="built_in">document</span>.getElementById(<span class="string">"test"</span>);</div><div class="line"><span class="keyword">var</span> demo.removeChild(da);<span class="comment">//demo节点中移除id为“test”的节点。</span></div></pre></td></tr></table></figure>
+</li>
 <li><p>克隆节点：cloneNode()</p>
 <ul>
 <li>cloneNode() 方法创建节点的拷贝，并返回该副本。</li>
@@ -289,13 +292,18 @@
 </li>
 </ul>
 </li>
+<li><p>替换节点：</p>
+<ul>
+<li>replaceChild()</li>
+</ul>
+</li>
 <li><p>获取节点属性：</p>
-<p> getAttribute(“属性”); 通过这个方法可以得到某些元素的某些属性。<br> eg: demo = getAttribute(‘title’); //获取属性title的内容。</p>
+<p>  getAttribute(“属性”); 通过这个方法可以得到某些元素的某些属性。<br>  eg: demo = getAttribute(‘title’); //获取属性title的内容。</p>
 </li>
 <li><p>设置节点属性：</p>
-<p> setAttribute(“属性”,”值”); 通过这个方法可以设置指定属性的值<br> eg: demo.setAttribute(“class”,”test” );//给demo节点设置class为test的样式。</p>
+<p>  setAttribute(“属性”,”值”); 通过这个方法可以设置指定属性的值<br>  eg: demo.setAttribute(“class”,”test” );//给demo节点设置class为test的样式。</p>
 </li>
-<li><p>删除节点属性：<br> removeAttribute(“属性”); 删除某个节点的指定属性<br> eg: demo.removeAttribute(“title”); //把demo元素的title属性给删除了。</p>
+<li><p>删除节点属性：<br>  removeAttribute(“属性”); 删除某个节点的指定属性<br>  eg: demo.removeAttribute(“title”); //把demo元素的title属性给删除了。</p>
 </li>
 <li><p>offset获取对象自己的尺寸（这里的父级不仅仅指的是亲爸爸）<br>offsetWidth和offsetHeight获取元素自己的宽度和高度，和其他元素无关。<br>不用Element.style.width的原因是它只能获取行内样式的数值。</p>
 <ul>
@@ -307,13 +315,13 @@
 </li>
 </ul>
 </li>
-</ol>
+</ul>
 <pre><code>+ offsetLeft 和style.left的区别
     * offsetLeft可以返回没有定位的元素距离左侧的距离，而style.left不可以。
     * offsetLeft返回的是数值(如：400)，而style.left返回的是字符串(如：400px)。
     * offsetLeft只读，而style.left可读写。
-    * offset.left只能得到行内样式，而offsetLeft随便。
-</code></pre><ol>
+    * style.left只能得到行内样式，而offsetLeft随便。
+</code></pre><ul>
 <li><p>scroll 家族 </p>
 <ul>
 <li>scrollTop   被卷去的头部，它就是当你滑动滚轮浏览网页的时候网页隐藏在屏幕上方的距离</li>
@@ -337,9 +345,9 @@
 <li>需要根据不同模式做兼容，然后自己封装一个函数。</li>
 </ul>
 </li>
-<li><p>检测屏幕宽度（分辨率）<br>clientWidth返回的是可是区域的大小 浏览器内部的大小<br>window.screen.width返回的是我们的电脑的分辨率，跟浏览器没有关系。</p>
+<li><p>检测屏幕宽度（分辨率）<br>  clientWidth返回的是可是区域的大小 浏览器内部的大小<br>  window.screen.width返回的是我们的电脑的分辨率，跟浏览器没有关系。</p>
 </li>
-</ol>
+</ul>
 <h3 id="DOM事件对象"><a href="#DOM事件对象" class="headerlink" title="DOM事件对象"></a>DOM事件对象</h3><p>event就是事件的对象，这个对象中包含着所有与事件有关的信息。普通浏览器支持event,ie678支持window.event。兼容写法：var event = event || window.event; </p>
 <ul>
 <li><p>event常见属性如下：</p>
@@ -412,7 +420,7 @@
         <p><span>本文标题:</span><a href="/2017/01/08/note_dom/">DOM笔记</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Haven Xie 的个人博客">Haven Xie</a></p>
         <p><span>发布时间:</span>2017年01月08日 - 22时56分</p>
-        <p><span>最后更新:</span>2017年03月03日 - 18时06分</p>
+        <p><span>最后更新:</span>2017年03月07日 - 21时54分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2017/01/08/note_dom/" title="DOM笔记">http://yoursite.com/2017/01/08/note_dom/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2017/01/08/note_dom/　　作者: Haven Xie" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -532,7 +540,7 @@
             </a>
         
     </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/02/05/note_angularjs/">AngularJS笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/31/note_seajs/">模块化开发seajs笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/21/note_other/">常用命令及sublime笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/15/note_$/">jQuery笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/08/note_dom/">DOM笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/02/note_js/">JS笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/25/note_css3/">CSS3笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/11/note_css/">CSS笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/04/note_html/">HTML笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/03/note_git/">GIT基本使用笔记</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/03/09/note_面试题/">note_面试题</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/12/note_seajs/">模块化SeaJS笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/12/note_angularjs/">AngularJS笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/05/note_锋利的jQuery/">锋利的jQuery笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/31/note_module/">模块化开发简介笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/21/note_other/">常用命令及sublime笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/15/note_$/">jQuery笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/08/note_dom/">DOM笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/02/note_js/">JS笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/25/note_css3/">CSS3笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/11/note_css/">CSS笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/04/note_html/">HTML笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/03/note_git/">GIT基本使用笔记</a></li></ul>
     <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
     <script>
         $(".post-list").addClass("toc-article");

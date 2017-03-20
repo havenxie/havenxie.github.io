@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>模块化SeaJS笔记 | Haven</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Seajs
+Sea.js 实现了CMD规范。在Sea.js中，所有的Javascript模块都遵循CMD模块定义规范。该规范明确了模块的基本书写格式和基本交互规则。
+
+在CMD规范中，一个模块就是一个文件，代码的书写格式如下：1define(factory);//factory工厂的意思">
+<meta property="og:type" content="article">
+<meta property="og:title" content="模块化SeaJS笔记">
+<meta property="og:url" content="http://yoursite.com/2017/02/12/note_seajs/index.html">
+<meta property="og:site_name" content="Haven">
+<meta property="og:description" content="Seajs
+Sea.js 实现了CMD规范。在Sea.js中，所有的Javascript模块都遵循CMD模块定义规范。该规范明确了模块的基本书写格式和基本交互规则。
+
+在CMD规范中，一个模块就是一个文件，代码的书写格式如下：1define(factory);//factory工厂的意思">
+<meta property="og:updated_time" content="2017-03-20T10:28:48.798Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="模块化SeaJS笔记">
+<meta name="twitter:description" content="Seajs
+Sea.js 实现了CMD规范。在Sea.js中，所有的Javascript模块都遵循CMD模块定义规范。该规范明确了模块的基本书写格式和基本交互规则。
+
+在CMD规范中，一个模块就是一个文件，代码的书写格式如下：1define(factory);//factory工厂的意思">
+  
+    <link rel="alternative" href="/atom.xml" title="Haven" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+      <link rel="stylesheet" href="/css/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          rootUrl: '/',
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/head.jpg" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/" title="Hi Mate">Haven Xie</a></h1>
+        </hgroup>
+
+        
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">博客首页</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=7dzZ39XV2tvY1dytnJzDjoKA" title="mail">mail</a>
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/havenxie" title="github">github</a>
+                            
+                                <a class="fl zhihu" target="_blank" href="https://www.zhihu.com/people/promi/activities" title="zhihu">zhihu</a>
+                            
+                                <a class="fl weibo" target="_blank" href="http://weibo.com/u/2892421013?refer_flag=1001030201_&is_all=1" title="weibo">weibo</a>
+                            
+                                <a class="fl QQ" target="_blank" href="http://user.qzone.qq.com/1428876581/main" title="QQ">QQ</a>
+                            
+                                <a class="fl wechat" target="_blank" href="javascript:;" title="wechat">wechat</a>
+                            
+                                <a class="fl douban" target="_blank" href="https://www.douban.com/people/156900832/" title="douban">douban</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://havenxie.github.io/">更多</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">纯逗比、真宅男、爱旅行、喜欢接触新鲜事物、迎接新的挑战，更爱游离于错综复杂的编码与逻辑中</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">Haven Xie</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/head.jpg" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Me">Haven Xie</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">博客首页</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=7dzZ39XV2tvY1dytnJzDjoKA" title="mail">mail</a>
+                    
+                        <a class="github" target="_blank" href="https://github.com/havenxie" title="github">github</a>
+                    
+                        <a class="zhihu" target="_blank" href="https://www.zhihu.com/people/promi/activities" title="zhihu">zhihu</a>
+                    
+                        <a class="weibo" target="_blank" href="http://weibo.com/u/2892421013?refer_flag=1001030201_&is_all=1" title="weibo">weibo</a>
+                    
+                        <a class="QQ" target="_blank" href="http://user.qzone.qq.com/1428876581/main" title="QQ">QQ</a>
+                    
+                        <a class="wechat" target="_blank" href="javascript:;" title="wechat">wechat</a>
+                    
+                        <a class="douban" target="_blank" href="https://www.douban.com/people/156900832/" title="douban">douban</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-note_seajs" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/02/12/note_seajs/" class="article-date">
+      <time datetime="2017-02-12T14:09:43.000Z" itemprop="datePublished">2017-02-12</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      模块化SeaJS笔记
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="Seajs"><a href="#Seajs" class="headerlink" title="Seajs"></a>Seajs</h2><blockquote>
+<p>Sea.js 实现了CMD规范。在Sea.js中，所有的Javascript模块都遵循CMD模块定义规范。该规范明确了模块的基本书写格式和基本交互规则。</p>
+</blockquote>
+<p>在CMD规范中，一个模块就是一个文件，代码的书写格式如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">define(factory);<span class="comment">//factory工厂的意思</span></div></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<h3 id="1-使用步骤"><a href="#1-使用步骤" class="headerlink" title="1 使用步骤"></a>1 使用步骤</h3><ol>
+<li>在页面中引入sea.js文件</li>
+<li>定义一个主模块文件，比如：main.js</li>
+<li>在主模块文件中通过define的方式定义一个模块，并导出公共成员</li>
+<li>在页面的行内脚本中通过seajs.use(‘path’,fn)的方式使用模块</li>
+<li>回调函数的参数传过来的就是模块中导出的成员对象</li>
+</ol>
+<hr>
+<h3 id="2-定义一个模块（define）"><a href="#2-定义一个模块（define）" class="headerlink" title="2 定义一个模块（define）"></a>2 定义一个模块（define）</h3><h5 id="2-1-define-factory"><a href="#2-1-define-factory" class="headerlink" title="2.1 define(factory)"></a>2.1 define(factory)</h5><blockquote>
+<p>define是一个全局函数，用来定义模块。</p>
+<p>factory接受factory参数，factory可以是一个函数，也可以是一个对象或字符串。</p>
+</blockquote>
+<p>factory为对象、字符串时，表示模块的借口就是该对象、字符串。比如可以定义如下一个JSON数据模块：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">define(&#123;<span class="string">"foo"</span>: <span class="string">"bar"</span>&#125;);</div></pre></td></tr></table></figure></p>
+<p>也可以通过字符串定义模板模块：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">define(<span class="string">'I am a template. My name is &#123;&#123;name&#125;&#125;'</span>);</div><div class="line"><span class="string">``</span><span class="string">` </span></div><div class="line"></div><div class="line">factory为函数时，表示是模块的构造方法。执行该构造方法，可以得到该模块向外提供的借口。factory方法在执行时，默认会传入三个参数：require、exports、和module：</div><div class="line">`<span class="string">``</span>javascript</div><div class="line">define(<span class="function"><span class="keyword">function</span>(<span class="params">require, exports, module</span>) </span>&#123;</div><div class="line">  exports.add = <span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> a + b;</div><div class="line">  &#125;;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<h5 id="2-2-define-id-deps-factory"><a href="#2-2-define-id-deps-factory" class="headerlink" title="2.2 define(id?, deps?, factory)"></a>2.2 define(id?, deps?, factory)</h5><blockquote>
+<p>define也可以接受两个以上参数，字符串id表示模块标识，数组deps是模块依赖。比如：</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">define(<span class="string">'Hello'</span>, [<span class="string">'jquery'</span>], <span class="function"><span class="keyword">function</span>(<span class="params">require, exports, module</span>) </span>&#123;</div><div class="line">	<span class="comment">//模块代码</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>id和deps参数可以省略。省略时，可以通过构建工具自动生成。</p>
+<p>注意：带id和deps参数的define用法不属于CMD规范，而属于Modules/Transport规范。</p>
+<h5 id="2-3-define-cmd"><a href="#2-3-define-cmd" class="headerlink" title="2.3 define.cmd"></a>2.3 define.cmd</h5><blockquote>
+<p>一个空对象，可以用来判定当前页面是否有CMD模块加载：</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(<span class="keyword">typeof</span> define === <span class="string">'function'</span> &amp;&amp; define.cmd) &#123;</div><div class="line">	<span class="comment">//有Sea.js等CMD模块加载存在</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<hr>
+<h3 id="3-引用一个模块（require）"><a href="#3-引用一个模块（require）" class="headerlink" title="3 引用一个模块（require）"></a>3 引用一个模块（require）</h3><blockquote>
+<p>require是factory函数的第一个参数</p>
+</blockquote>
+<h5 id="3-1-require-id"><a href="#3-1-require-id" class="headerlink" title="3.1 require(id)"></a>3.1 require(id)</h5><blockquote>
+<p>require时一个方法，接受模块标识（id）作为唯一参数，用来获取其他模块提供的接口。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">define(<span class="function"><span class="keyword">function</span>(<span class="params">require, exports</span>) </span>&#123;</div><div class="line">	<span class="comment">//获取模块a的接口</span></div><div class="line">	<span class="keyword">var</span> a = <span class="built_in">require</span>(<span class="string">'./a'</span>);</div><div class="line"></div><div class="line">	<span class="comment">//调用模块a的方法</span></div><div class="line">	a.dosomething();</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>注意：开发时，require的书写需要遵循一些简单约定。</p>
+<h5 id="3-2-require-async-id-callback"><a href="#3-2-require-async-id-callback" class="headerlink" title="3.2 require.async(id, callback?)"></a>3.2 require.async(id, callback?)</h5><blockquote>
+<p>require.async 方法用来在模块内部异步加载模块，并且在加载完成后执行回调函数。callback参数可选。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">define(<span class="function"><span class="keyword">function</span>(<span class="params">require, exports, module</span>) </span>&#123;</div><div class="line">	<span class="comment">//异步加载一个模块，加载完成时，执行回调</span></div><div class="line">	<span class="built_in">require</span>.async(<span class="string">'./b'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">b</span>) </span>&#123;</div><div class="line">		b.dosomething();</div><div class="line">	&#125;);</div><div class="line"></div><div class="line">	<span class="comment">//异步加载多个模块，加载完成时，执行回调函数</span></div><div class="line">	<span class="built_in">require</span>.async([<span class="string">'./c'</span>, <span class="string">'./d'</span>], <span class="function"><span class="keyword">function</span>(<span class="params">c, d</span>) </span>&#123;</div><div class="line">		c.dosomething();</div><div class="line">		d.dosomething();</div><div class="line">	&#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>注意： require是同步往下执行，require.async 则是异步回调执行。require.async 一般用来加载可延迟异步加载的模块。</p>
+<h5 id="3-3-require-resolve-id"><a href="#3-3-require-resolve-id" class="headerlink" title="3.3 require.resolve(id)"></a>3.3 require.resolve(id)</h5><blockquote>
+<p>使用模块系统内部的路径解析机制来解析并返回模块路径。该函数不会加载模块，只返回解析后的绝对路径。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">define(<span class="function"><span class="keyword">function</span>(<span class="params">require, exports</span>) </span>&#123;</div><div class="line">	<span class="built_in">console</span>.log(<span class="built_in">require</span>.resolve(<span class="string">'./b'</span>));</div><div class="line">	<span class="comment">//===&gt; http://example.com/path/to/b.js</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>这可以用来获取模块路径，一般用在插件环境或许动态拼接模块路径的场景下。</p>
+<hr>
+<h3 id="4-向外输出模块接口（exports）"><a href="#4-向外输出模块接口（exports）" class="headerlink" title="4 向外输出模块接口（exports）"></a>4 向外输出模块接口（exports）</h3><h5 id="4-1-exports"><a href="#4-1-exports" class="headerlink" title="4.1 exports"></a>4.1 exports</h5><blockquote>
+<p>exports是一个对象，用来向外提供模块接口</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">define(<span class="function"><span class="keyword">function</span>(<span class="params">require, exports</span>) </span>&#123;</div><div class="line">	<span class="comment">//对外提供foo属性</span></div><div class="line">	exports.foo = <span class="string">'bar'</span>;</div><div class="line"></div><div class="line">	<span class="comment">//对外提供dosomething方法</span></div><div class="line">	exports.dosomething = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>除了给exports对象增加成员，还可以使用return直接向外提供接口</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">define(<span class="function"><span class="keyword">function</span>(<span class="params">require</span>) </span>&#123;</div><div class="line">	<span class="comment">//通过return直接提供接口</span></div><div class="line">	<span class="keyword">return</span> &#123;</div><div class="line">		<span class="attr">foo</span>: <span class="string">'bar'</span>,</div><div class="line">		<span class="attr">dosomething</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;</div><div class="line">	&#125;;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>如果return是function的唯一代码，还可以简化为：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">define(&#123;</div><div class="line">	<span class="attr">foo</span>: <span class="string">'bar'</span>,</div><div class="line">	<span class="attr">dosomething</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>上面这种格式特别适合定义JSONP模块。</p>
+<p>特别注意： 下面这种写法是错误的。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">define(<span class="function"><span class="keyword">function</span>(<span class="params">require, exports</span>) </span>&#123;</div><div class="line">	<span class="comment">//错误写法！</span></div><div class="line">	exports = &#123;</div><div class="line">		<span class="attr">foo</span>: <span class="string">'bar'</span>,</div><div class="line">		<span class="attr">dosomething</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;</div><div class="line">	&#125;;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>正取的写法是用return或者给module.exports赋值：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">define(<span class="function"><span class="keyword">function</span>(<span class="params">require, exports, module</span>) </span>&#123;</div><div class="line">	<span class="comment">//正确写法</span></div><div class="line">	<span class="built_in">module</span>.exports = &#123;</div><div class="line">		<span class="attr">foo</span>: <span class="string">'bar'</span>,</div><div class="line">		<span class="attr">dosomething</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;</div><div class="line">	&#125;;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>提示： exports 仅仅是module.exports的一个引用。在factory内部给exports重新赋值时，并不会改变module.exports的值。因此给exports赋值是无效的，不能用来更改模块接口。</p>
+<h3 id="5-向外输出模块接口（module）"><a href="#5-向外输出模块接口（module）" class="headerlink" title="5 向外输出模块接口（module）"></a>5 向外输出模块接口（module）</h3><blockquote>
+<p>module是一个对象，上面存储了与当前模块相关联的一些属性和方法</p>
+</blockquote>
+<h5 id="5-1-module-id"><a href="#5-1-module-id" class="headerlink" title="5.1 module.id"></a>5.1 module.id</h5><blockquote>
+<p>模块的唯一标识</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">define(<span class="string">'id'</span>, [], <span class="function"><span class="keyword">function</span>(<span class="params">require, exports, module</span>) </span>&#123;</div><div class="line">	<span class="comment">//模块代码</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>上面代码中，define的第一个参数就是模块标识。</p>
+<h5 id="5-2-module-uri"><a href="#5-2-module-uri" class="headerlink" title="5.2 module.uri"></a>5.2 module.uri</h5><blockquote>
+<p>根据模块系统的路径解析规则得到模块的绝对路径</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">define(<span class="function"><span class="keyword">function</span>(<span class="params">require, exports, module</span>) </span>&#123;</div><div class="line">	<span class="built_in">console</span>.log(<span class="built_in">module</span>.uri);</div><div class="line">	<span class="comment">//===&gt; http://example.com/path/to/this/file/js</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>一遍情况下，没有在define中手写id参数时，module.id的值就是module.uri, 两者完全相同。</p>
+<h5 id="5-3-module-dependencies"><a href="#5-3-module-dependencies" class="headerlink" title="5.3 module.dependencies"></a>5.3 module.dependencies</h5><blockquote>
+<p>dependencies 是一个数组，表示当前模块的依赖。</p>
+</blockquote>
+<h5 id="5-4-module-exports"><a href="#5-4-module-exports" class="headerlink" title="5.4 module.exports"></a>5.4 module.exports</h5><blockquote>
+<p>当前模块对外提供的接口</p>
+</blockquote>
+<p>传给factory构造方法的exports参数时module.exports对象的一个引用。只通过exports参数来提供接口，有时无法满足开发者的所有需求。比如模块的接口是某个类型的实例时，需要通过module.exports来实现：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">define(<span class="function"><span class="keyword">function</span>(<span class="params">require, exports, module</span>) </span>&#123;</div><div class="line">	<span class="comment">//exports是module.exports的一个引用</span></div><div class="line">	 <span class="built_in">console</span>.log(<span class="built_in">module</span>.exports === exports);<span class="comment">//true</span></div><div class="line"></div><div class="line">	 <span class="comment">//重新给module.exports赋值</span></div><div class="line">	 <span class="built_in">module</span>.exports = <span class="keyword">new</span> SomeClass();</div><div class="line"></div><div class="line">	 <span class="comment">//exports不再等于module.exports</span></div><div class="line">	 <span class="built_in">console</span>.log(<span class="built_in">module</span>.exports === exports);<span class="comment">//false</span></div><div class="line"></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>注意：对module.exports的赋值需要同步进行，不能放在回调函数里。下面这样是不行的：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//x.js</span></div><div class="line">define(<span class="function"><span class="keyword">function</span>(<span class="params">require, exports, module</span>) </span>&#123;</div><div class="line">	<span class="comment">//错误用法</span></div><div class="line">	setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">		<span class="built_in">module</span>.exports = &#123;<span class="attr">a</span>: <span class="string">'Hello'</span>&#125;;</div><div class="line">	&#125;, <span class="number">0</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>在y.js里调用到上面的x.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">y.js</div><div class="line">define(<span class="function"><span class="keyword">function</span>(<span class="params">require, exports, module</span>) </span>&#123;</div><div class="line">	<span class="keyword">var</span> x = <span class="built_in">require</span>(<span class="string">'./x'</span>);</div><div class="line"></div><div class="line">	<span class="comment">//无法立即得到模块x的属性a</span></div><div class="line">	<span class="built_in">console</span>.log(x.a);<span class="comment">// undefined</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<hr>
+<h3 id="6-主入口seajs-use"><a href="#6-主入口seajs-use" class="headerlink" title="6 主入口seajs.use"></a>6 主入口seajs.use</h3><ul>
+<li>一般用于入口模块</li>
+<li>一般只会使用一次</li>
+<li>require和module.require用于模块与模块之间</li>
+</ul>
+<h3 id="7-使用第三方依赖（jQuery）"><a href="#7-使用第三方依赖（jQuery）" class="headerlink" title="7 使用第三方依赖（jQuery）"></a>7 使用第三方依赖（jQuery）</h3><ul>
+<li>由于CMD是国产货，jquery默认不支持</li>
+<li>改造</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 适配CMD</span></div><div class="line"><span class="keyword">if</span> (<span class="keyword">typeof</span> define === <span class="string">"function"</span> &amp;&amp; !define.amd) &#123;</div><div class="line">  <span class="comment">// 当前有define函数，并且不是AMD的情况</span></div><div class="line">  <span class="comment">// jquery在新版本中如果使用AMD或CMD方式，不会去往全局挂载jquery对象</span></div><div class="line">  define(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> jQuery.noConflict(<span class="literal">true</span>);</div><div class="line">  &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="8-Seajs配置"><a href="#8-Seajs配置" class="headerlink" title="8 Seajs配置"></a>8 Seajs配置</h3><ul>
+<li><a href="https://github.com/seajs/seajs/issues/262" target="_blank" rel="external">配置</a></li>
+<li>seajs.config<ul>
+<li>base</li>
+<li>alias</li>
+</ul>
+</li>
+</ul>
+<h3 id="9-使用案例"><a href="#9-使用案例" class="headerlink" title="9 使用案例"></a>9 使用案例</h3><ul>
+<li>未完待续</li>
+</ul>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2017/02/12/note_seajs/">模块化SeaJS笔记</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 Haven Xie 的个人博客">Haven Xie</a></p>
+        <p><span>发布时间:</span>2017年02月12日 - 22时09分</p>
+        <p><span>最后更新:</span>2017年03月20日 - 18时28分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2017/02/12/note_seajs/" title="模块化SeaJS笔记">http://yoursite.com/2017/02/12/note_seajs/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2017/02/12/note_seajs/　　作者: Haven Xie" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a href="/2017/03/09/note_面试题/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/02/12/note_angularjs/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">AngularJS笔记</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Seajs"><span class="toc-number">1.</span> <span class="toc-text">Seajs</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-使用步骤"><span class="toc-number">1.1.</span> <span class="toc-text">1 使用步骤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-定义一个模块（define）"><span class="toc-number">1.2.</span> <span class="toc-text">2 定义一个模块（define）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#2-1-define-factory"><span class="toc-number">1.2.0.1.</span> <span class="toc-text">2.1 define(factory)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-2-define-id-deps-factory"><span class="toc-number">1.2.0.2.</span> <span class="toc-text">2.2 define(id?, deps?, factory)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-3-define-cmd"><span class="toc-number">1.2.0.3.</span> <span class="toc-text">2.3 define.cmd</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-引用一个模块（require）"><span class="toc-number">1.3.</span> <span class="toc-text">3 引用一个模块（require）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#3-1-require-id"><span class="toc-number">1.3.0.1.</span> <span class="toc-text">3.1 require(id)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-2-require-async-id-callback"><span class="toc-number">1.3.0.2.</span> <span class="toc-text">3.2 require.async(id, callback?)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-3-require-resolve-id"><span class="toc-number">1.3.0.3.</span> <span class="toc-text">3.3 require.resolve(id)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-向外输出模块接口（exports）"><span class="toc-number">1.4.</span> <span class="toc-text">4 向外输出模块接口（exports）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#4-1-exports"><span class="toc-number">1.4.0.1.</span> <span class="toc-text">4.1 exports</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-向外输出模块接口（module）"><span class="toc-number">1.5.</span> <span class="toc-text">5 向外输出模块接口（module）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#5-1-module-id"><span class="toc-number">1.5.0.1.</span> <span class="toc-text">5.1 module.id</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-2-module-uri"><span class="toc-number">1.5.0.2.</span> <span class="toc-text">5.2 module.uri</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-3-module-dependencies"><span class="toc-number">1.5.0.3.</span> <span class="toc-text">5.3 module.dependencies</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-4-module-exports"><span class="toc-number">1.5.0.4.</span> <span class="toc-text">5.4 module.exports</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-主入口seajs-use"><span class="toc-number">1.6.</span> <span class="toc-text">6 主入口seajs.use</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-使用第三方依赖（jQuery）"><span class="toc-number">1.7.</span> <span class="toc-text">7 使用第三方依赖（jQuery）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-Seajs配置"><span class="toc-number">1.8.</span> <span class="toc-text">8 Seajs配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-使用案例"><span class="toc-number">1.9.</span> <span class="toc-text">9 使用案例</span></a></li></ol></li></ol>
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
+    
+      <div class="duoshuo" id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="2017/02/12/note_seajs/" data-title="模块化SeaJS笔记" data-url="http://yoursite.com/2017/02/12/note_seajs/"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:"null"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = '/js/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+    <!-- 多说公共JS代码 end -->
+</div>
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2017/03/09/note_面试题/" title="上一篇: ">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2017/02/12/note_angularjs/" title="下一篇: AngularJS笔记">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/03/09/note_面试题/">note_面试题</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/12/note_seajs/">模块化SeaJS笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/12/note_angularjs/">AngularJS笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/05/note_锋利的jQuery/">锋利的jQuery笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/31/note_module/">模块化开发简介笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/21/note_other/">常用命令及sublime笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/15/note_$/">jQuery笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/08/note_dom/">DOM笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/02/note_js/">JS笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/25/note_css3/">CSS3笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/11/note_css/">CSS笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/04/note_html/">HTML笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/03/note_git/">GIT基本使用笔记</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2017-03 Haven Xie
+            </div>
+            <div class="footer-right">
+                <a href="https://github.com/havenxie/" target="_blank">Demo</a>  Theme <a href="https://github.com/havenxie/" target="_blank">black</a> by Haven
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >访问用户数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 24;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>
