@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>DOM笔记 | Haven</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="DOM和BOM每个载入浏览器的HTML都会成为Document对象。Document对象使我们可以从脚本中对HTML页面中的所有元素进行访问。Document对象是Window对象的一部分。可通过Window.document对其进行访问。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DOM笔记">
+<meta property="og:url" content="http://yoursite.com/2017/01/08/note_dom/index.html">
+<meta property="og:site_name" content="Haven">
+<meta property="og:description" content="DOM和BOM每个载入浏览器的HTML都会成为Document对象。Document对象使我们可以从脚本中对HTML页面中的所有元素进行访问。Document对象是Window对象的一部分。可通过Window.document对其进行访问。">
+<meta property="og:updated_time" content="2017-03-07T13:54:00.521Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="DOM笔记">
+<meta name="twitter:description" content="DOM和BOM每个载入浏览器的HTML都会成为Document对象。Document对象使我们可以从脚本中对HTML页面中的所有元素进行访问。Document对象是Window对象的一部分。可通过Window.document对其进行访问。">
+  
+    <link rel="alternative" href="/atom.xml" title="Haven" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+      <link rel="stylesheet" href="/css/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          rootUrl: '/',
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/head.jpg" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/" title="Hi Mate">Haven Xie</a></h1>
+        </hgroup>
+
+        
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">博客首页</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=7YWMm4iDw5WEiK2cnMOOgoA" title="mail">mail</a>
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/havenxie" title="github">github</a>
+                            
+                                <a class="fl zhihu" target="_blank" href="https://www.zhihu.com/people/promi/activities" title="zhihu">zhihu</a>
+                            
+                                <a class="fl weibo" target="_blank" href="http://weibo.com/u/2892421013?refer_flag=1001030201_&is_all=1" title="weibo">weibo</a>
+                            
+                                <a class="fl QQ" target="_blank" href="http://user.qzone.qq.com/haven.xie/main" title="QQ">QQ</a>
+                            
+                                <a class="fl wechat" target="_blank" href="javascript:;" title="wechat">wechat</a>
+                            
+                                <a class="fl douban" target="_blank" href="https://www.douban.com/people/156900832/" title="douban">douban</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://havenxie.github.io/">更多</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">纯逗比、真宅男、爱旅行、喜欢接触新鲜事物、迎接新的挑战，更爱游离于错综复杂的编码与逻辑中</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">Haven Xie</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/head.jpg" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Me">Haven Xie</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">博客首页</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=7YWMm4iDw5WEiK2cnMOOgoA" title="mail">mail</a>
+                    
+                        <a class="github" target="_blank" href="https://github.com/havenxie" title="github">github</a>
+                    
+                        <a class="zhihu" target="_blank" href="https://www.zhihu.com/people/promi/activities" title="zhihu">zhihu</a>
+                    
+                        <a class="weibo" target="_blank" href="http://weibo.com/u/2892421013?refer_flag=1001030201_&is_all=1" title="weibo">weibo</a>
+                    
+                        <a class="QQ" target="_blank" href="http://user.qzone.qq.com/haven.xie/main" title="QQ">QQ</a>
+                    
+                        <a class="wechat" target="_blank" href="javascript:;" title="wechat">wechat</a>
+                    
+                        <a class="douban" target="_blank" href="https://www.douban.com/people/156900832/" title="douban">douban</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-note_dom" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/01/08/note_dom/" class="article-date">
+      <time datetime="2017-01-08T14:56:31.000Z" itemprop="datePublished">2017-01-08</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      DOM笔记
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="DOM和BOM"><a href="#DOM和BOM" class="headerlink" title="DOM和BOM"></a>DOM和BOM</h2><p>每个载入浏览器的HTML都会成为Document对象。<br>Document对象使我们可以从脚本中对HTML页面中的所有元素进行访问。<br>Document对象是Window对象的一部分。可通过Window.document对其进行访问。</p>
+<a id="more"></a>
+<h3 id="DOM节点关系"><a href="#DOM节点关系" class="headerlink" title="DOM节点关系"></a>DOM节点关系</h3><p>父节点：parentNode</p>
+<p>兄弟节点：(兼容写法var nextE = E.nextElementSibling || E.nextSibling;)</p>
+<ul>
+<li>nextSibling           下一个兄弟节点 IE678认识</li>
+<li>nextElementSibling    下一个兄弟节点 其他浏览器认识</li>
+<li>previousSibling       上一个兄弟节点 IE678认识</li>
+<li>previousElementSibling上一个兄弟节点 其他浏览器认识</li>
+</ul>
+<p>子节点：(兼容写法var lastE = E.lastElementChild || E.lastChild;)</p>
+<ul>
+<li>firstChild            第一个孩子 IE678认识</li>
+<li>firstElementChild     第一个孩子 其他浏览器认识</li>
+<li>lastChild             最后一个孩子 IE678认识</li>
+<li>lastElementChild      最后一个孩子 其他浏览器认识</li>
+</ul>
+<p>孩子节点：childNodes选出全部的孩子<br>childNodes：它是标准属性，它返回指定元素的子元素集合，包括HTML节点，所有属性，文本节点。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">//火狐、谷歌等高本版会把换行和注释也看做是子节点。所以下面的ul中将会有7个节点。</div><div class="line">&lt;ul id=&quot;ul&quot;&gt;</div><div class="line">    &lt;li&gt;A&lt;/li&gt;</div><div class="line">    &lt;li&gt;B&lt;/li&gt;</div><div class="line">    &lt;li&gt;C&lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div><div class="line">//利用nodeType == 1 时候才是元素节点来获取元素节点。nodeType==2属性节点 nodeType == 3文本节点</div><div class="line">-----------------------------------------------------</div><div class="line">//ie 678  包含注释节点，在ie678下，ul将会有4个节点</div><div class="line">&lt;ul id=&quot;ul&quot;&gt;</div><div class="line">    &lt;li&gt;A&lt;/li&gt;</div><div class="line">    &lt;li&gt;B&lt;/li&gt;</div><div class="line">    &lt;li&gt;C&lt;/li&gt;</div><div class="line">    &lt;!-- &lt;li&gt;C&lt;/li&gt; --&gt;</div><div class="line">&lt;/ul&gt;</div></pre></td></tr></table></figure></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"nodes"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span>1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span>2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span>3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!-- &lt;div&gt;4&lt;/div&gt; --&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="javascript"></span></div><div class="line">    <span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> nodes = <span class="built_in">document</span>.getElementsByClassName(<span class="string">'nodes'</span>)[<span class="number">0</span>].childNodes;<span class="comment">//会获得9个node。3个div，5个text，一个注释</span></div><div class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> index <span class="keyword">in</span> nodes) &#123;</div><div class="line">            <span class="keyword">if</span>(nodes[index].nodeType == <span class="number">1</span>) &#123;<span class="comment">//获取标签节点</span></div><div class="line">                <span class="built_in">console</span>.log(nodes[index]);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="DOM节点操作"><a href="#DOM节点操作" class="headerlink" title="DOM节点操作"></a>DOM节点操作</h3><ul>
+<li><p>创建节点：var div = document.createElement(“li”);</p>
+</li>
+<li><p>创建文本节点: var txt = document.createTextNode()</p>
+</li>
+<li><p>插入节点：</p>
+<ul>
+<li>appendChild()  eg: demo.appendChild(newItem);添加节点，添加到demo节点所有孩子的最后面</li>
+<li>insertBefore() eg: demo.insertBefore(newItem, existingItem);添加节点，添加到existingItem的前面。如果第二个参数为null则添加到最后。</li>
+</ul>
+</li>
+<li><p>移除节点：removeChild()</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> da = <span class="built_in">document</span>.getElementById(<span class="string">"test"</span>);</div><div class="line"><span class="keyword">var</span> demo.removeChild(da);<span class="comment">//demo节点中移除id为“test”的节点。</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>克隆节点：cloneNode()</p>
+<ul>
+<li>cloneNode() 方法创建节点的拷贝，并返回该副本。</li>
+<li>cloneNode() 方法克隆所有属性以及它们的值。</li>
+<li><p>如果您需要克隆所有后代，请把 deep 参数设置 true，否则设置为 false。</p>
+<p>eg: var node = document.getElementById(‘test’).lastChild.cloneNode(true);<br>  document.getElementById(‘demo’).appendChild(node);</p>
+</li>
+</ul>
+</li>
+<li><p>替换节点：</p>
+<ul>
+<li>replaceChild()</li>
+</ul>
+</li>
+<li><p>获取节点属性：</p>
+<p>  getAttribute(“属性”); 通过这个方法可以得到某些元素的某些属性。<br>  eg: demo = getAttribute(‘title’); //获取属性title的内容。</p>
+</li>
+<li><p>设置节点属性：</p>
+<p>  setAttribute(“属性”,”值”); 通过这个方法可以设置指定属性的值<br>  eg: demo.setAttribute(“class”,”test” );//给demo节点设置class为test的样式。</p>
+</li>
+<li><p>删除节点属性：<br>  removeAttribute(“属性”); 删除某个节点的指定属性<br>  eg: demo.removeAttribute(“title”); //把demo元素的title属性给删除了。</p>
+</li>
+<li><p>offset获取对象自己的尺寸（这里的父级不仅仅指的是亲爸爸）<br>offsetWidth和offsetHeight获取元素自己的宽度和高度，和其他元素无关。<br>不用Element.style.width的原因是它只能获取行内样式的数值。</p>
+<ul>
+<li>offsetWidth = width + border + padding</li>
+<li>offsetHeight = height + border + padding</li>
+<li>offsetLeft和offsetTop:返回距离上级盒子(最近的带有定位的)左边(顶部)的位置，如果上级盒子都没有定位就以body为准。</li>
+<li>从父级盒子边框的内侧开始算，就是子盒子外边框到父级盒子内边框的距离。</li>
+<li>offsetParent返回该对象的父级(带有定位position为absolute、relative、fixed)的那个盒子，如果没有定位的父级就返回body。  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">#fa &#123;</div><div class="line">    position: absolute;</div><div class="line">&#125;</div><div class="line">----------------------------------</div><div class="line">&lt;div id=&quot;fa&quot;&gt;</div><div class="line">    &lt;div id=&quot;son&quot;&gt;&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">----------------------------------</div><div class="line">var son = document.getElementById(&quot;son&quot;);</div><div class="line">alert(son.offsetParent.tagName);  //弹出div。 tagName:标签的名字</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>+ offsetLeft 和style.left的区别
+    * offsetLeft可以返回没有定位的元素距离左侧的距离，而style.left不可以。
+    * offsetLeft返回的是数值(如：400)，而style.left返回的是字符串(如：400px)。
+    * offsetLeft只读，而style.left可读写。
+    * style.left只能得到行内样式，而offsetLeft随便。
+</code></pre><ul>
+<li><p>scroll 家族 </p>
+<ul>
+<li>scrollTop   被卷去的头部，它就是当你滑动滚轮浏览网页的时候网页隐藏在屏幕上方的距离</li>
+<li>window.onscroll = function() { 页面滚动语句  }</li>
+<li>兼容写法：var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;</li>
+<li>scrollWidth: 大小是内容的大小width+padding</li>
+<li>scrollTo(x,y)  window.scrollTo(15,15); 法可把内容滚动到指定的坐标。</li>
+</ul>
+</li>
+<li><p>client 家族 client可视区域</p>
+<ul>
+<li>clientWidth: width + padding (不包含border)</li>
+<li>clientX: 可视区域坐标。</li>
+</ul>
+</li>
+<li><p>检测屏幕宽度（可视区域，浏览器内部的大小）</p>
+<ul>
+<li>ie9及其以上的版本 window.innerWidth</li>
+<li>标准模式 document.documentElement.clientWidth</li>
+<li>怪异模式 document.body.clientWidth</li>
+<li>需要根据不同模式做兼容，然后自己封装一个函数。</li>
+</ul>
+</li>
+<li><p>检测屏幕宽度（分辨率）<br>  clientWidth返回的是可是区域的大小 浏览器内部的大小<br>  window.screen.width返回的是我们的电脑的分辨率，跟浏览器没有关系。</p>
+</li>
+</ul>
+<h3 id="DOM事件对象"><a href="#DOM事件对象" class="headerlink" title="DOM事件对象"></a>DOM事件对象</h3><p>event就是事件的对象，这个对象中包含着所有与事件有关的信息。普通浏览器支持event,ie678支持window.event。兼容写法：var event = event || window.event; </p>
+<ul>
+<li><p>event常见属性如下：</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">data:       返回拖拽对象的url字符串 （dragDrop）</div><div class="line">width:      该窗口的宽度</div><div class="line">height:     该窗口的高度</div><div class="line">pageX:      鼠标相对该网页的水平距离（ie无）</div><div class="line">pageY:      鼠标相对该网页的垂直距离（ie无）</div><div class="line">screenX:    光标相对于该屏幕的水平距离</div><div class="line">screenY:    光标相对于该屏幕的垂直距离</div><div class="line">target:     该事件被传送到的对象</div><div class="line">type:       事件类型</div><div class="line">clientX:    鼠标相对于该网页的水平距离（当前可见区域）</div><div class="line">clientY:    鼠标相对于该网页的垂直距离</div></pre></td></tr></table></figure>
+</li>
+<li><p>pageX  clientX  screenX 区别</p>
+<ul>
+<li>screen X   screenY   是以我们的电脑屏幕为基准点测量 </li>
+<li>pageX  pageY   以我们的文档（绝对定位）的基准点对齐 ie678 不认识  </li>
+<li>clientX   clientY 以可视区域为基准点类似于    固定定位  </li>
+</ul>
+</li>
+<li><p>指向常用事件的具体事件如下： </p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">onclick                 //鼠标单击</div><div class="line">ondblclick              //鼠标双击</div><div class="line">onkeyup                 //按下并释放键盘上的一个键时触发 </div><div class="line">onchange                //文本内容或下拉菜单中的选项发生改变</div><div class="line">onfocus                 //获得焦点，表示文本框等获得鼠标光标。</div><div class="line">onblur                  //失去焦点，表示文本框等失去鼠标光标。</div><div class="line">onmouseover             //鼠标悬停，即鼠标停留在图片等的上方只会出发一次</div><div class="line">onmousemove             //鼠标移动，没移动一个像素都会触发</div><div class="line">onmouseout              //鼠标移出，即离开图片等所在的区域</div><div class="line">onmouseup               //当鼠标弹起  </div><div class="line">onmousedown             //当鼠标按下的时候 </div><div class="line">onload                  //网页文档加载事件</div><div class="line">onunload                //关闭网页时</div><div class="line">onsubmit                //表单提交事件</div><div class="line">onreset                 //重置表单时</div></pre></td></tr></table></figure>
+</li>
+<li><p>onmouseover和onmousemove的区别</p>
+<ul>
+<li>相同点：都是经过目标元素才会触发 </li>
+<li>onmouseover只触发一次 </li>
+<li>onmousemove每移动一像素，就会触发一次 </li>
+</ul>
+</li>
+</ul>
+<p>这里有个经典的滚动条拖拽的代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div></pre></td><td class="code"><pre><div class="line">&lt;style&gt;</div><div class="line">    * &#123;margin:0;padding:0;&#125;</div><div class="line">    .scroll &#123;</div><div class="line">        width: 400px;</div><div class="line">        height: 8px;</div><div class="line">        background-color: #ccc;</div><div class="line">        margin: 100px;</div><div class="line">        position: relative;</div><div class="line">    &#125;</div><div class="line">    .bar &#123;</div><div class="line">        width: 10px;</div><div class="line">        height: 22px;</div><div class="line">        background-color: #369;</div><div class="line">        position: absolute;</div><div class="line">        top: -7px;</div><div class="line">        left: 0;</div><div class="line">        cursor: pointer;</div><div class="line">    &#125;</div><div class="line">    .mask &#123;</div><div class="line">        width: 0;</div><div class="line">        height: 100%;</div><div class="line">        background-color: #369;</div><div class="line">        position: absolute;</div><div class="line">        top: 0;</div><div class="line">        left: 0;</div><div class="line">    &#125;</div><div class="line">&lt;/style&gt;</div><div class="line">-------------------------------------------------------------------------------</div><div class="line">&lt;div class=&quot;scroll&quot; id=&quot;scrollBar&quot;&gt;</div><div class="line">    &lt;div class=&quot;bar&quot;&gt;&lt;/div&gt; &lt;!--拖动条--&gt;</div><div class="line">    &lt;div class=&quot;mask&quot;&gt;&lt;/div&gt;&lt;!--遮罩层--&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;div id=&quot;demo&quot;&gt;&lt;/div&gt;</div><div class="line">-------------------------------------------------------------------------------</div><div class="line">&lt;script&gt;</div><div class="line">    var scrollBar = document.getElementById(&quot;scrollBar&quot;);</div><div class="line">    var bar  = scrollBar.children[0];</div><div class="line">    var mask = scrollBar.children[1];</div><div class="line">    var demo = document.getElementById(&quot;demo&quot;);</div><div class="line">    bar.onmousedown = function(event) &#123;</div><div class="line">        var event = event || window.event;</div><div class="line">        var leftVal = event.clientX - this.offsetLeft;</div><div class="line">        var that = this;</div><div class="line">        document.onmousemove = function(event) &#123;</div><div class="line">            console.log(that.offsetLeft);</div><div class="line">            var event = event || window.event;</div><div class="line">            that.style.left = event.clientX - leftVal  + &apos;px&apos;;</div><div class="line">            var val = parseInt(that.style.left);</div><div class="line">            if(val &lt; 0) &#123;</div><div class="line">                that.style.left = 0;</div><div class="line">            &#125; else if(val &gt; 390) &#123;</div><div class="line">                that.style.left = &quot;390px&quot;;</div><div class="line">            &#125;</div><div class="line">            mask.style.width = that.style.left;  // 遮罩盒子的宽度</div><div class="line">            demo.innerHTML = &quot;已经走了:&quot;+ parseInt(parseInt(that.style.left) / 390 * 100) + &quot;%&quot;;</div><div class="line">            window.getSelection ? window.getSelection().removeAllRanges() : document.selection.empty();</div><div class="line">        &#125;</div><div class="line">        document.onmouseup = function() &#123;</div><div class="line">            document.onmousemove = null;   // 弹起鼠标不做任何操作</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="冒泡"><a href="#冒泡" class="headerlink" title="冒泡"></a>冒泡</h3><h4 id="事件冒泡"><a href="#事件冒泡" class="headerlink" title="事件冒泡"></a>事件冒泡</h4><p>事件冒泡: 当一个元素上的事件被触发的时候，比如说鼠标点击了一个按钮，同样的事件将会在那个元素的所有祖先元素中被触发。这一过程被称为事件冒泡；这个事件从原始元素开始一直冒泡到DOM树的最上层。</p>
+<ul>
+<li>ie6.0 冒泡顺序：    div -&gt; body -&gt; html -&gt; document</li>
+<li>其他浏览器冒泡顺序：div -&gt; body -&gt; html -&gt; document -&gt; window</li>
+<li>不是所有的事件都能冒泡。以下事件不冒泡：blur、focus、load、unload</li>
+</ul>
+<h4 id="阻止事件冒泡"><a href="#阻止事件冒泡" class="headerlink" title="阻止事件冒泡"></a>阻止事件冒泡</h4><ul>
+<li>标准浏览器：event.stopPropagation()</li>
+<li>IE浏览器：  event.cancelBubble = true;</li>
+<li>兼容写法：    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">if(event &amp;&amp; event.stopPropagation) &#123;</div><div class="line">    event.stopPropagation();    //标准浏览器</div><div class="line">&#125; else &#123;</div><div class="line">    event.cancelBubble = true;//ie浏览器、</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="判断当前对象"><a href="#判断当前对象" class="headerlink" title="判断当前对象"></a>判断当前对象</h3><ul>
+<li>标准浏览器event.target.id</li>
+<li>ie678 event.srcElement.id</li>
+<li>兼容写法：var target = event.target ? event.target.id : event.srcElement.id;</li>
+</ul>
+<h3 id="获得用户选择的内容"><a href="#获得用户选择的内容" class="headerlink" title="获得用户选择的内容"></a>获得用户选择的内容</h3><ul>
+<li>标准浏览器window.getSelection()</li>
+<li>ie678 document.selection.createRange().text;</li>
+<li>兼容写法：  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var txt = &apos;&apos;;</div><div class="line">if(window.getSelection) &#123;</div><div class="line">    txt = window.getSelection();</div><div class="line">&#125; else &#123;</div><div class="line">    txt = document.selection.createRange().text;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="得到-获取-css的样式"><a href="#得到-获取-css的样式" class="headerlink" title="得到(获取)css的样式"></a>得到(获取)css的样式</h3><p>通过box.style.left、box.style.backgroundColor这样的style方式只能得到css的行内样式，但是我们使用最多的就是内联式和外链式，ie和opera常用obj.currentStyle 其他浏览器常用window.getComputedStyle(“元素”,”伪类”);这两个参数是必须的没有伪类就用null代替。</p>
+<p>兼容写法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">//这种方法只能获取不能设置</div><div class="line">var demo = document.getElementById(&apos;demo&apos;);</div><div class="line">function getStyle(obj, attr) &#123;</div><div class="line">    if(obj.currentStyle) &#123;</div><div class="line">        return obj.currentStyle[attr];</div><div class="line">    &#125; else &#123;</div><div class="line">        return window.getComputedStyle(obj, null)[attr];</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">console.log(getStyle(demo, &quot;width&quot;));</div></pre></td></tr></table></figure></p>
+<h3 id="设置css样式"><a href="#设置css样式" class="headerlink" title="设置css样式"></a>设置css样式</h3><ul>
+<li>利用点语法： box.style.width = “100px”;</li>
+<li>利用 [] :box.style[‘width’] = ‘100px’; / box.style[‘backgroundColor’] = ‘red’;</li>
+</ul>
+<h3 id="BOM操作"><a href="#BOM操作" class="headerlink" title="BOM操作"></a>BOM操作</h3><ol>
+<li>location</li>
+</ol>
+<p>window.location.href = ”<a href="https://havenxie.github.io”" target="_blank" rel="external">https://havenxie.github.io”</a> ; </p>
+<ol>
+<li>window.onresize 改变窗口事件</li>
+<li>window.onscroll 屏幕滚动事件</li>
+</ol>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2017/01/08/note_dom/">DOM笔记</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 Haven Xie 的个人博客">Haven Xie</a></p>
+        <p><span>发布时间:</span>2017年01月08日 - 22时56分</p>
+        <p><span>最后更新:</span>2017年03月07日 - 21时54分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2017/01/08/note_dom/" title="DOM笔记">http://yoursite.com/2017/01/08/note_dom/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2017/01/08/note_dom/　　作者: Haven Xie" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a href="/2017/01/15/note_$/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          jQuery笔记
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/01/02/note_js/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JS笔记</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#DOM和BOM"><span class="toc-number">1.</span> <span class="toc-text">DOM和BOM</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#DOM节点关系"><span class="toc-number">1.1.</span> <span class="toc-text">DOM节点关系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DOM节点操作"><span class="toc-number">1.2.</span> <span class="toc-text">DOM节点操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DOM事件对象"><span class="toc-number">1.3.</span> <span class="toc-text">DOM事件对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#冒泡"><span class="toc-number">1.4.</span> <span class="toc-text">冒泡</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#事件冒泡"><span class="toc-number">1.4.1.</span> <span class="toc-text">事件冒泡</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#阻止事件冒泡"><span class="toc-number">1.4.2.</span> <span class="toc-text">阻止事件冒泡</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#判断当前对象"><span class="toc-number">1.5.</span> <span class="toc-text">判断当前对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#获得用户选择的内容"><span class="toc-number">1.6.</span> <span class="toc-text">获得用户选择的内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#得到-获取-css的样式"><span class="toc-number">1.7.</span> <span class="toc-text">得到(获取)css的样式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置css样式"><span class="toc-number">1.8.</span> <span class="toc-text">设置css样式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BOM操作"><span class="toc-number">1.9.</span> <span class="toc-text">BOM操作</span></a></li></ol></li></ol>
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
+    
+      <div class="duoshuo" id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="2017/01/08/note_dom/" data-title="DOM笔记" data-url="http://yoursite.com/2017/01/08/note_dom/"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:"null"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = '/js/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+    <!-- 多说公共JS代码 end -->
+</div>
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2017/01/15/note_$/" title="上一篇: jQuery笔记">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2017/01/02/note_js/" title="下一篇: JS笔记">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/02/19/note_seajs/">模块化SeaJS笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/12/note_angularjs/">AngularJS笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/05/note_锋利的jQuery/">锋利的jQuery笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/31/note_module/">模块化开发简介笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/21/note_other/">常用命令及sublime笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/15/note_$/">jQuery笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/08/note_dom/">DOM笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/02/note_js/">JS笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/25/note_css3/">CSS3笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/11/note_css/">CSS笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/04/note_html/">HTML笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/03/note_git/">GIT基本使用笔记</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2017-03 Haven Xie
+            </div>
+            <div class="footer-right">
+                <a href="https://github.com/havenxie/" target="_blank">Demo</a>  Theme <a href="https://github.com/havenxie/" target="_blank">black</a> by Haven
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >访问用户数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 24;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>
