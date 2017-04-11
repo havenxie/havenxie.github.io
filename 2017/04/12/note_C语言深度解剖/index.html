@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>C语言深度解剖，第一部 ---- 关键字 | Haven</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="注：这是第三遍读《C语言深度解剖》，想想好像自从大学开始就没读完过几本书，其中谭浩强的那本《C语言程序设计(第四版)》倒是读过有五遍吧，其次就是这本书了。以前读书从来不做笔记，最多的就是用笔在书上随性标记几下，但是觉得那样记忆不深刻，于是这次就做了笔记。本想记下一些要点，但是这本书确实太出色了，记着记着就变成了抄书了，不过去掉了书里的一些索然无味的东西并且加了自己亲手写的代码在里面。整个笔记共分为">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C语言深度解剖，第一部 ---- 关键字">
+<meta property="og:url" content="http://yoursite.com/2017/04/12/note_C语言深度解剖/index.html">
+<meta property="og:site_name" content="Haven">
+<meta property="og:description" content="注：这是第三遍读《C语言深度解剖》，想想好像自从大学开始就没读完过几本书，其中谭浩强的那本《C语言程序设计(第四版)》倒是读过有五遍吧，其次就是这本书了。以前读书从来不做笔记，最多的就是用笔在书上随性标记几下，但是觉得那样记忆不深刻，于是这次就做了笔记。本想记下一些要点，但是这本书确实太出色了，记着记着就变成了抄书了，不过去掉了书里的一些索然无味的东西并且加了自己亲手写的代码在里面。整个笔记共分为">
+<meta property="og:updated_time" content="2017-04-11T18:19:01.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C语言深度解剖，第一部 ---- 关键字">
+<meta name="twitter:description" content="注：这是第三遍读《C语言深度解剖》，想想好像自从大学开始就没读完过几本书，其中谭浩强的那本《C语言程序设计(第四版)》倒是读过有五遍吧，其次就是这本书了。以前读书从来不做笔记，最多的就是用笔在书上随性标记几下，但是觉得那样记忆不深刻，于是这次就做了笔记。本想记下一些要点，但是这本书确实太出色了，记着记着就变成了抄书了，不过去掉了书里的一些索然无味的东西并且加了自己亲手写的代码在里面。整个笔记共分为">
+  
+    <link rel="alternative" href="/atom.xml" title="Haven" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+      <link rel="stylesheet" href="/css/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          rootUrl: '/',
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/head.jpg" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/" title="Hi Mate">Haven Xie</a></h1>
+        </hgroup>
+
+        
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">博客首页</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=7YWMm4iDw5WEiK2cnMOOgoA" title="mail">mail</a>
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/havenxie" title="github">github</a>
+                            
+                                <a class="fl zhihu" target="_blank" href="https://www.zhihu.com/people/promi/activities" title="zhihu">zhihu</a>
+                            
+                                <a class="fl weibo" target="_blank" href="http://weibo.com/u/2892421013?refer_flag=1001030201_&is_all=1" title="weibo">weibo</a>
+                            
+                                <a class="fl QQ" target="_blank" href="http://user.qzone.qq.com/haven.xie/main" title="QQ">QQ</a>
+                            
+                                <a class="fl wechat" target="_blank" href="javascript:;" title="wechat">wechat</a>
+                            
+                                <a class="fl douban" target="_blank" href="https://www.douban.com/people/156900832/" title="douban">douban</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://havenxie.github.io/">更多</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">纯逗比、真宅男、爱旅行、喜欢接触新鲜事物、迎接新的挑战，更爱游离于错综复杂的编码与逻辑中</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">Haven Xie</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/head.jpg" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Me">Haven Xie</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">博客首页</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=7YWMm4iDw5WEiK2cnMOOgoA" title="mail">mail</a>
+                    
+                        <a class="github" target="_blank" href="https://github.com/havenxie" title="github">github</a>
+                    
+                        <a class="zhihu" target="_blank" href="https://www.zhihu.com/people/promi/activities" title="zhihu">zhihu</a>
+                    
+                        <a class="weibo" target="_blank" href="http://weibo.com/u/2892421013?refer_flag=1001030201_&is_all=1" title="weibo">weibo</a>
+                    
+                        <a class="QQ" target="_blank" href="http://user.qzone.qq.com/haven.xie/main" title="QQ">QQ</a>
+                    
+                        <a class="wechat" target="_blank" href="javascript:;" title="wechat">wechat</a>
+                    
+                        <a class="douban" target="_blank" href="https://www.douban.com/people/156900832/" title="douban">douban</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-note_C语言深度解剖" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/04/12/note_C语言深度解剖/" class="article-date">
+      <time datetime="2017-04-11T16:12:53.000Z" itemprop="datePublished">2017-04-12</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      C语言深度解剖，第一部 ---- 关键字
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>注：这是第三遍读《C语言深度解剖》，想想好像自从大学开始就没读完过几本书，其中谭浩强的那本《C语言程序设计(第四版)》倒是读过有五遍吧，其次就是这本书了。以前读书从来不做笔记，最多的就是用笔在书上随性标记几下，但是觉得那样记忆不深刻，于是这次就做了笔记。本想记下一些要点，但是这本书确实太出色了，记着记着就变成了抄书了，不过去掉了书里的一些索然无味的东西并且加了自己亲手写的代码在里面。整个笔记共分为7个部分，这是第一部分也是最多的一部分。目前就记到这里，以后有时间再慢慢更新。本笔记同步在简书上，有兴趣的可以去看一下。</p>
+<a id="more"></a>
+<blockquote>
+<p>C语言里有32个关键字</p>
+</blockquote>
+<ol>
+<li><p>auto         生声明自动变量，缺省时编译器一般默认为auto</p>
+</li>
+<li><p>int          声明整型变量    </p>
+</li>
+<li><p>double       声明双精度变量</p>
+</li>
+<li><p>long         声明长整型变量</p>
+</li>
+<li><p>char         声明字符型变量</p>
+</li>
+<li><p>float        声明浮点型变量</p>
+</li>
+<li><p>short        声明短整型变量</p>
+</li>
+<li><p>signed       声明有符号类型变量</p>
+</li>
+<li><p>unsigned     声明无符号类型变量</p>
+</li>
+<li><p>struct      声明结构体变量</p>
+</li>
+<li><p>union       声明联合数据类型</p>
+</li>
+<li><p>enum        声明枚举类型</p>
+</li>
+<li><p>static      声明静态变量</p>
+</li>
+<li><p>switch      用于开关语句</p>
+</li>
+<li><p>case        开关语句分支</p>
+</li>
+<li><p>default     开关语句中的“其他”分支</p>
+</li>
+<li><p>break       跳出当前循环</p>
+</li>
+<li><p>register    声明寄存器变量</p>
+</li>
+<li><p>const       声明只读变量</p>
+</li>
+<li><p>volatile    说明变量在程序执行中可被隐含的改变</p>
+</li>
+<li><p>typedef     用以给数据类型取别名</p>
+</li>
+<li><p>extern      声明变量是在其他文件中声明（也可以看做是引用变量）</p>
+</li>
+<li><p>return      子程序返回语句（可以带参数，也可以不带参数）</p>
+</li>
+<li><p>void        声明函数无返回值或无参数，声明空类型指针</p>
+</li>
+<li><p>continue    结束当前循环，开始下一轮循环</p>
+</li>
+<li><p>do          循环语句的循环体</p>
+</li>
+<li><p>while       循环语句的循环条件</p>
+</li>
+<li><p>if          条件语句</p>
+</li>
+<li><p>else        条件语句否定分支（与if连用）</p>
+</li>
+<li><p>for         一种循环语句</p>
+</li>
+<li><p>goto        无条件跳转语句</p>
+</li>
+<li><p>sizeof      计算对象所占内存空间大小</p>
+</li>
+</ol>
+<blockquote>
+<p>什么是定义，什么是声明?</p>
+</blockquote>
+<p>什么是定义：所谓的定义就是(编译器)创建一个对象，为这个对象分配一块内存并给它取上一个名字，这个名字就是我们经常所说的变量名或对象名。但注意，这个名字一旦和这块内存匹配起来，它们就同生共死，终生不离不弃。并且这块内存的位置也不能被改变。一个变量或对象在一定的区域内（比如函数内，全局等）只能被定义一次，如果定义多次，编译器会提示你重复定义同一个变量或对象。</p>
+<p>什么是声明：第一重含义：告诉编译器，这个名字已经匹配到一块内存上了(伊人已嫁，吾将何去何从？何以解忧，唯有稀粥)，下面的代码用到变量或对象是在别的地方定义的。声明可以出现多次。第二重含义：告诉编译器，我这个名字我先预定了，别的地方再也不能用它来作为变量名或对象名。</p>
+<p>记住：定义创建了对象并为这个对象分配了内存，声明没有分配内存。</p>
+<h3 id="1-1-最宽恒大量的关键字—-auto"><a href="#1-1-最宽恒大量的关键字—-auto" class="headerlink" title="1.1 最宽恒大量的关键字—-auto"></a>1.1 最宽恒大量的关键字—-auto</h3><blockquote>
+<p>auto: 它很宽恒大量的，你就当他不存在吧。编译器在默认的缺省情况下，所有变量都是auto的。</p>
+</blockquote>
+<h3 id="1-2-最快乐的关键字—-register"><a href="#1-2-最快乐的关键字—-register" class="headerlink" title="1.2 最快乐的关键字—-register"></a>1.2 最快乐的关键字—-register</h3><blockquote>
+<p>register：这个关键字请求编译器尽可能的将变量存在 CPU 内部寄存器中而不是通过内存寻址访问以提高效率。注意是尽可能，不是绝对。你想想，一个 CPU 的寄存器也就那么几个或几十个，你要是定义了很多很多 register 变量，它累死也可能不能全部把这些变量放入寄存器吧。</p>
+</blockquote>
+<h4 id="1-2-1-皇帝身边的小太监—-寄存器"><a href="#1-2-1-皇帝身边的小太监—-寄存器" class="headerlink" title="1.2.1 皇帝身边的小太监—-寄存器"></a>1.2.1 皇帝身边的小太监—-寄存器</h4><blockquote>
+<p> CPU就是我们的皇帝同志.大臣就相当于我们的内存，数据从他这拿出来。那小太监就是我们的寄存器了（这里先不考虑 CPU 的高速缓存区）。数据从内存里拿出来先放到寄存器，然后 CPU 再从寄存器里读取数据来处理，处理完后同样把数据通过寄存器存放到内存里， CPU 不直接和内存打交道。注意:小太监是主动的从大臣手里接过奏章，然后主动的交给皇帝同志，但寄存器没这么自觉，它从不主动干什么事。一个皇帝可能有好些小太监，那么一个 CPU 也可以有很多寄存器，不同型号的 CPU 拥有寄存器的数量不一样。</p>
+<p>寄存器其实就是一块一块小的存储空间，只不过其存取速度要比内存快得多。</p>
+</blockquote>
+<h4 id="1-2-2-使用-register-修饰符的注意点"><a href="#1-2-2-使用-register-修饰符的注意点" class="headerlink" title="1.2.2 使用 register 修饰符的注意点"></a>1.2.2 使用 register 修饰符的注意点</h4><blockquote>
+<p>虽然register寄存器速度非常快，但是使用register修饰符是有限制的：register变量必须是能被CPU寄存器所接受的类型，意味着register变量必须是一个单个的值，并且长度应该小于或等于整形的长度。由于register可能不放在内存中，所以不能用取地址符”&amp;”来获取register变量的地址。</p>
+</blockquote>
+<h3 id="1-3-最名不符实的关键字—-static"><a href="#1-3-最名不符实的关键字—-static" class="headerlink" title="1.3 最名不符实的关键字—-static"></a>1.3 最名不符实的关键字—-static</h3><blockquote>
+<p>不要误以为关键字 static 很安静，其实它一点也不安静。这个关键字在 C 语言里主要有两个作用， C++对它进行了扩展。</p>
+</blockquote>
+<h4 id="1-3-1-作用一：修饰变量"><a href="#1-3-1-作用一：修饰变量" class="headerlink" title="1.3.1 作用一：修饰变量"></a>1.3.1 作用一：修饰变量</h4><blockquote>
+<p>变量又分为局部变量和全局变量，被修饰后他们都存在内存的静态区域。</p>
+</blockquote>
+<p>静态全局变量：</p>
+<pre><code>作用域仅限于变量被定义的文件中，其他文件及时使用extern声明也没有办法使用它。准确的说作用域从定义之处开始，到文件结尾处结束，在定义之处前面的代码行也不能使用它。想要使用就得在前面加extern *** 。要想不这样，直接把它放在文件开头出就好了。
+</code></pre><p>静态局部变量：</p>
+<pre><code>在函数体内定义的，就只能在这个函数里用了，同一个文档里的其他函数也用不了（等会给你打脸）。由于被static修饰的变量总是存在内存的静态区，所以即使这个函数运行结束，这个静态变量的值还是不会被销毁，函数下次使用时仍然能用到这个值。注意：局部静态变量只会被初始化一次。
+</code></pre><p>看完了上面，我们来看下面这段代码:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="keyword">static</span> <span class="keyword">int</span> i = <span class="number">0</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">fun1</span><span class="params">(<span class="keyword">int</span> times)</span> </span>&#123;</div><div class="line">    i = <span class="number">0</span>;</div><div class="line">    i ++;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"k = %d, i = %d\r\n"</span>, times, i);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">fun2</span><span class="params">(<span class="keyword">int</span> times)</span> </span>&#123;</div><div class="line">    <span class="keyword">static</span> <span class="keyword">int</span> j = <span class="number">0</span>;</div><div class="line">    j ++;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"k = %d, j = %d\r\n"</span>, times, j);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>* argv[])</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> k = <span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span>(k = <span class="number">0</span>; k &lt; <span class="number">10</span>; k++) &#123;</div><div class="line">        fun1(k);</div><div class="line">        fun2(k);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这段代码会输出什么？好了，我们来分析：<br>i是全局静态变量，j是局部静态变量。每次循环调用fun1会把i置为0。然后对i++,这样每次i输出的都是1。当第一次循环调用fun2的时候会创建一个局部静态变量j，并存储在内存静态区函数执行完不会被销毁。这样之后再次循环的时候就不会在static int j了，因为内存已经有了。所以每次就执行了j++的操作。输出1、2、3…</p>
+<p>那么我在函数内部再定义一个和全局静态变量名称相同的局部静态变量会怎样？会不会覆盖掉全局的或者报错？答案是否定的，大家都相自安好。</p>
+<blockquote>
+<p>开始打脸：如果你认真读的话，会看到我上面留了一个打脸的标记。开始打脸。</p>
+</blockquote>
+<pre><code>上面我们说了全局静态变量的作用域只是在定义它的那个文件中，别的文件就无法访问。也说了局部静态变量的作用域是在函数的内部，外部无法访问。但是我们就想用外部文件的全局静态变量，我们就想获取到局部静态变量的值怎么办？很简单，带你干。。。
+</code></pre><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//外部文件test.h</span></div><div class="line"><span class="keyword">static</span> <span class="keyword">int</span> j = <span class="number">0</span>;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">getValue</span><span class="params">(<span class="keyword">void</span>)</span> </span>&#123;</div><div class="line">	<span class="keyword">return</span> j;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">setValue</span><span class="params">(<span class="keyword">int</span> value)</span> </span>&#123;</div><div class="line">	j = value;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//主文件main.c</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"test.h"</span></span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">configNum</span><span class="params">(<span class="keyword">int</span> value)</span> </span>&#123;</div><div class="line">	<span class="keyword">static</span> <span class="keyword">int</span> i = <span class="number">0</span>;</div><div class="line">	i = value;</div><div class="line">	<span class="keyword">return</span> i;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>* argv[])</span> </span>&#123;</div><div class="line">	<span class="keyword">int</span> res1 = <span class="number">0</span>, res2 = <span class="number">0</span>;</div><div class="line">	res1 = configNum(<span class="number">9</span>);</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"%d\r\n"</span>, res1);</div><div class="line">	</div><div class="line">	res2 = getValue();</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"%d\r\n"</span>, res2);</div><div class="line">	</div><div class="line">	setValue(<span class="number">521</span>);</div><div class="line">	res2 = getValue();</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"%d\r\n"</span>, res2);</div><div class="line">	</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"Hello,World!"</span>);</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>我们在外部文件test.h中定义了这个文件的全局变量j。按照道理j只能在该文件中被访问得到。但是我们通过两个方法getValue和setValue就可以在外部main.c中使用这个全局静态变量j了。我们在main.c文件中有一个configNum函数，这里定义了一个局部静态变量，我们可以通过return将这个局部静态变量返回出去，外部函数就可以拿到他了。</p>
+<h4 id="1-3-2-作用二：修饰函数"><a href="#1-3-2-作用二：修饰函数" class="headerlink" title="1.3.2 作用二：修饰函数"></a>1.3.2 作用二：修饰函数</h4><blockquote>
+<p>函数前加static使得函数成为静态函数。但此处“static”不是指存储方式，而是指对函数的作用域仅局限于本文件（所以又称内部函数）。使用内部函数的好处是：不同的人编写不同的函数时，不用担心自己定义的函数是否会与其他文件中的函数同名。</p>
+<p>起处，在C中引入关键字static是为了表示退出一个块后仍然存在局部变量。随后，static在C中有了第二种含义：用来表示不能被其他文件访问的全局变量和函数。</p>
+</blockquote>
+<h3 id="1-4-基本数据类型—-short、int、long、char、float、double"><a href="#1-4-基本数据类型—-short、int、long、char、float、double" class="headerlink" title="1.4 基本数据类型—-short、int、long、char、float、double"></a>1.4 基本数据类型—-short、int、long、char、float、double</h3><blockquote>
+<p>C语言包含的数据类型如下：</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>数据类型</th>
+<th>———— </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>基本类型</td>
+<td>数值类型、字符类型char </td>
+</tr>
+<tr>
+<td>构造类型</td>
+<td>数组、结构体struct、  共用体union、  枚举类型enum</td>
+</tr>
+<tr>
+<td>指针类型</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>空类型void</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>其中数值类型又分为整型和浮点型</p>
+<table>
+<thead>
+<tr>
+<th>数值类型</th>
+<th>————</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>整型</td>
+<td>短整型short、整型int、长整型long、</td>
+</tr>
+<tr>
+<td>浮点型</td>
+<td>单精度float、双精度double</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="1-4-1-数据类型与模子"><a href="#1-4-1-数据类型与模子" class="headerlink" title="1.4.1 数据类型与模子"></a>1.4.1 数据类型与模子</h4><blockquote>
+<p>short、int、char、float、double这六个关键字代表C语言里的6种基本的数据类型。 这6种基本数据类型就是6个模子，你想要什么样的数据就找那个样的模子去刻出来，比如在32位机上，short就是2个字节，int就是4个字节，char就是一个字节，float就是4个字节，doublue就是8个字节。但也不知绝对的，不同的系统或编译环境可能是不一样的，最好用sizeof测量一下。</p>
+<p>你想要一个4字节的整型数据那你就用int去刻一个，但是你刻出来这么多怎么分得清？我们这时可以给他起个名字，叫大毛、二毛都行。</p>
+</blockquote>
+<h4 id="1-4-2-变量的命名规则"><a href="#1-4-2-变量的命名规则" class="headerlink" title="1.4.2 变量的命名规则"></a>1.4.2 变量的命名规则</h4><blockquote>
+<p>叫大毛、二毛也太俗了，人家都叫andy、coco多洋气。具体起什么名看下面：</p>
+</blockquote>
+<ul>
+<li><p>命名应当直观且可以拼读，可望文知意，便于记忆和阅读。</p>
+<p>  标识符最好采用英文单词或其组合，不允许使用拼音。程序中的英文单词一般不要太复杂，用词应当准确。</p>
+</li>
+<li><p>命名的长度应当符合“min-length &amp;&amp; max-information”原则。</p>
+<p>  C 是一种简洁的语言, 命名也应该是简洁的。例如变量名 MaxVal 就比<br>MaxValueUntilOverflow 好用。标识符的长度一般不要过长，较长的单词可通过去掉“元音”形成缩写。</p>
+</li>
+<li><p>当标识符由多个词组成时，每个词的第一个字母大写，其余全部小写。</p>
+</li>
+<li><p>尽量避免名字中出现数字编号，如 Value1,Value2 等，除非逻辑上的确需要编号。比如驱动开发时为管脚命名，非编号名字反而不好。</p>
+</li>
+<li><p>对在多个文件之间共同使用的全局变量或函数要加范围限定符(建议使用模块名<br>(缩写)作为范围限定符)。</p>
+</li>
+<li><p>标识符的命名规则：太多了不想写</p>
+</li>
+<li><p>程序中不得出现仅靠大小写区分的相似的标识符。</p>
+</li>
+<li><p>一个函数名禁止被用于其它之处。</p>
+</li>
+<li><p>所有宏定义、枚举常数、只读变量全用大写字母命名，用下划线分割单词。</p>
+</li>
+<li><p>考虑到习惯性问题，局部变量中可采用通用的命名方式，仅限于 n、 i、 j 等作为循环变量使用。</p>
+<p>  一般来说习惯上用 n,m,i,j,k 等表示 int 类型的变量； c， ch 等表示字符类型变量； a 等表示数组； p 等表示指针。当然这仅仅是一般习惯，除了 i,j,k 等可以用来表示循环变量外，别的字符变量名尽量不要使用。</p>
+</li>
+<li><p>定义变量的同时千万千万别忘了初始化。定义变量时编译器并不一定清空了这块内存，它的值可能是无效的数据。</p>
+</li>
+<li><p>不同类型数据之间的运算要注意精度扩展问题，一般低精度数据将向高精度数据扩展。</p>
+</li>
+</ul>
+<h3 id="1-5-最冤枉的关键字—-sizeof"><a href="#1-5-最冤枉的关键字—-sizeof" class="headerlink" title="1.5 最冤枉的关键字—-sizeof"></a>1.5 最冤枉的关键字—-sizeof</h3><h4 id="1-5-1-常年被人误认为函数"><a href="#1-5-1-常年被人误认为函数" class="headerlink" title="1.5.1 常年被人误认为函数"></a>1.5.1 常年被人误认为函数</h4><blockquote>
+<p>sizeof 是关键字不是函数，看下面的例子：</p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> i=<span class="number">0</span>；</div><div class="line">A)，<span class="keyword">sizeof</span>(<span class="keyword">int</span>)； B)，<span class="keyword">sizeof</span>(i)； C)，<span class="keyword">sizeof</span> <span class="keyword">int</span>； D)，<span class="keyword">sizeof</span> i；</div></pre></td></tr></table></figure>
+<p>毫无疑问， 32 位系统下 A)， B)的值为 4。那 C)的呢？ D)的呢？<br>在 32 位系统下，通过 Visual C++6.0 或任意一编译器调试，我们发现 D)的结果也为 4。没有括号居然也行，那想想，函数名后面没有括号行吗？由此轻易的出 sizeof 绝非函数。但是 C)出错了，因为sizeof是关键字，int也是关键字，两个关键字在一起是啥？编译器尝试去结合关键字（像const int这样）但是失败。</p>
+<p>总结：sizeof 在计算变量所占空间大小时，括号可以省略，而计算类型(模子)大小时不能省略。</p>
+<h4 id="1-5-2-sizeof（int）-p-表示什么意思？"><a href="#1-5-2-sizeof（int）-p-表示什么意思？" class="headerlink" title="1.5.2 sizeof（int）*p 表示什么意思？"></a>1.5.2 sizeof（int）*p 表示什么意思？</h4><h3 id="1-6-if、else组合"><a href="#1-6-if、else组合" class="headerlink" title="1.6 if、else组合"></a>1.6 if、else组合</h3><h4 id="1-6-1-bool-变量与“零值”进行比较"><a href="#1-6-1-bool-变量与“零值”进行比较" class="headerlink" title="1.6.1 bool 变量与“零值”进行比较"></a>1.6.1 bool 变量与“零值”进行比较</h4><blockquote>
+<p>bool变量与“零值”进行比较的if语句怎么写？</p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">bool</span> bTestFlag = FALSE;<span class="comment">//想想为什么一般初始化为 FALSE 比较好？</span></div><div class="line">A), <span class="keyword">if</span>(bTestFlag == <span class="number">0</span>); <span class="keyword">if</span>(bTestFlag == <span class="number">1</span>);</div><div class="line">B), <span class="keyword">if</span>(bTestFlag == TRUE); <span class="keyword">if</span>(bTestFlag == FLASE);</div><div class="line">C), <span class="keyword">if</span>(bTestFlag); <span class="keyword">if</span>(!bTestFlag);</div></pre></td></tr></table></figure>
+<p>哪种方法比较好？我们来分析：</p>
+<p>A)写法： bTestFlag 是什么？整型变量？如果要不是这个名字遵照了前面的命名规范，肯怕很容易让人误会成整型变量。所以这种写法不好。</p>
+<p>B)写法： FLASE 的值大家都知道，在编译器里被定义为 0；但 TRUE 的值呢？都是 1吗？很不幸，不都是 1。 Visual C++定义为 1，而它的同胞兄弟Visual Basic 就把 TRUE 定义为-1.那很显然，这种写法也不好。</p>
+<p>大家都知道 if 语句是靠其后面的括号里的表达式的值来进行分支跳转的。表达式如果为真，则执行 if 语句后面紧跟的代码；否则不执行。那显然，本组的写法很好，既不会引起误会，也不会由于 TRUE 或 FLASE 的不同定义值而出错。记住：以后写代码就得这样写。</p>
+<h4 id="1-6-2-float-变量与“零值”进行比较"><a href="#1-6-2-float-变量与“零值”进行比较" class="headerlink" title="1.6.2 float 变量与“零值”进行比较"></a>1.6.2 float 变量与“零值”进行比较</h4><blockquote>
+<p>float变量与“零值”进行比较的if语句怎么写？</p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">float</span> fTestVal = <span class="number">0.0</span>;</div><div class="line">A), <span class="keyword">if</span>(fTestVal == <span class="number">0.0</span>); <span class="keyword">if</span>(fTestVal != <span class="number">0.0</span>);</div><div class="line">B), <span class="keyword">if</span>((fTestVal &gt;= -EPSINON) &amp;&amp; (fTestVal &lt;= EPSINON));<span class="comment">//EPSINON 为定义好的精度。</span></div></pre></td></tr></table></figure>
+<p>哪一组或是那些组正确呢？我们来分析分析：</p>
+<p>float 和 double 类型的数据都是有精度限制的，这样直接拿来与 0.0 比，能正确吗？明显不能，看例子： 的值四舍五入精确到小数点后  10 位为： 3.1415926536，你拿它减去0.00000000001 然后再四舍五入得到的结果是多少?你能说前后两个值一样吗?EPSINON 为定义好的精度，如果一个数落在[0.0-EPSINON,0.0+EPSINON] 这个闭区间内，我们认为在某个精度内它的值与零值相等；否则不相等。扩展一下，把 0.0 替换为你想比较的任何一个浮点数，那我们就可以比较任意两个浮点数的大小了，当然是在某个精度内.同样的也不要在很大的浮点数和很小的浮点数之间进行运算，如下代码：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span> </span>&#123;</div><div class="line">	<span class="keyword">float</span> a = <span class="number">10000000000.00</span>;</div><div class="line">	<span class="keyword">float</span> b = <span class="number">0.000001</span>;</div><div class="line">	<span class="keyword">float</span> c = <span class="number">0.0000001</span>;</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"a + b = %f\r\n"</span>, a + b);</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"a + c = %f\r\n"</span>, a + c);</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"><span class="comment">//结果：</span></div><div class="line"><span class="comment">//a + b = 10000000000.000002</span></div><div class="line"><span class="comment">//a + c = 10000000000.000000</span></div></pre></td></tr></table></figure>
+<h4 id="1-6-3-指针变量与“零值”进行比较"><a href="#1-6-3-指针变量与“零值”进行比较" class="headerlink" title="1.6.3 指针变量与“零值”进行比较"></a>1.6.3 指针变量与“零值”进行比较</h4><blockquote>
+<p>指针变量与“零值”进行比较的if语句怎么写？</p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> *p = <span class="literal">NULL</span>;<span class="comment">//定义指针一定要同时初始化</span></div><div class="line">A), <span class="keyword">if</span>(p == <span class="number">0</span>); <span class="keyword">if</span>(p != <span class="number">0</span>);</div><div class="line">B), <span class="keyword">if</span>(p); <span class="keyword">if</span>(!p);</div><div class="line">C) , <span class="keyword">if</span>(<span class="literal">NULL</span> == p); <span class="keyword">if</span>(<span class="literal">NULL</span> != p);</div></pre></td></tr></table></figure>
+<p>哪一组或是那些组正确呢？我们来分析分析：</p>
+<p>A)写法： p 是整型变量？容易引起误会，不好。尽管 NULL 的值和 0 一样，但意义不同。</p>
+<p>B)写法： p 是 bool 型变量？容易引起误会，不好。</p>
+<p>C)写法：这个写法才是正确的，但样子比较古怪。为什么要这么写呢？是怕漏写一个“=”号:if(p = NULL)，这个表达式编译器当然会认为是正确的，但却不是你要表达的意思。所以，非常推荐这种写法。</p>
+<h4 id="1-6-4-else到底与哪个if配对呢？"><a href="#1-6-4-else到底与哪个if配对呢？" class="headerlink" title="1.6.4 else到底与哪个if配对呢？"></a>1.6.4 else到底与哪个if配对呢？</h4><p>else常常与if语句配对，但要注意书写规范。看代码:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(<span class="number">0</span> == x) </div><div class="line"><span class="keyword">if</span>(<span class="number">0</span> == y) error();</div><div class="line"><span class="keyword">else</span> &#123;</div><div class="line">    <span class="comment">//program code</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>C 语言有这样的规定： else始终与同一括号内最近的未匹配的 if 语句结合。</p>
+<h4 id="1-6-5-if-语句后面的分号"><a href="#1-6-5-if-语句后面的分号" class="headerlink" title="1.6.5 if 语句后面的分号"></a>1.6.5 if 语句后面的分号</h4><blockquote>
+<p>关于 if-else 语句还有一个容易出错的地方就是与空语句的连用。</p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(<span class="literal">NULL</span> != p);</div><div class="line">fun();</div></pre></td></tr></table></figure>
+<p>这里的 fun()函数并不是在 NULL != p 的时候被调用，而是任何时候都会被调用。问题就出在 if 语句后面的分号上。在 C 语言中，分号预示着一条语句的结尾，但是并不是每条 C 语言语句都需要分号作为结束标志。if 语句的后面并不需要分号， 但如果你不小心写了个分号，编译器并不会提示出错。因为编译器会把这个分号解析成一条空语句。上面的代码实际等效于：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(<span class="literal">NULL</span> != p) &#123;</div><div class="line">    ;</div><div class="line">&#125;</div><div class="line">fun();</div></pre></td></tr></table></figure>
+<p>建议在真正需要用空语句时写成这样：<code>NULL;</code>而不是单用一个分号。这就好比汇编语言里面的空指令，比如 ARM 指令中的 NOP </p>
+<h4 id="1-6-6-使用if语句的其他注意事项"><a href="#1-6-6-使用if语句的其他注意事项" class="headerlink" title="1.6.6 使用if语句的其他注意事项"></a>1.6.6 使用if语句的其他注意事项</h4><ul>
+<li><p>先处理正常情况，再处理异常情况。</p>
+<p>  在编写代码是，要使得正常情况的执行代码清晰，确认那些不常发生的异常情况处理代码不会遮掩正常的执行路径。这样对于代码的可读性和性能都很重要。因为， if 语句总是需要做判断，而正常情况一般比异常情况发生的概率更大（否则就应该把异常正常调过来了），如果把执行概率更大的代码放到后面，也就意味着 if 语句将进行多次无谓的比较。另外，非常重要的一点是，把正常情况的处理放在 if 后面，而不要放在 else 后面。当然这也符合把正常情况的处理放在前面的要求。</p>
+</li>
+</ul>
+<h3 id="1-7-switch、case组合"><a href="#1-7-switch、case组合" class="headerlink" title="1.7 switch、case组合"></a>1.7 switch、case组合</h3><blockquote>
+<p>既然有了 if、 else 组合为什么还需要 switch、 case 组合呢？</p>
+</blockquote>
+<h4 id="1-7-1-不要拿青龙偃月刀去削苹果"><a href="#1-7-1-不要拿青龙偃月刀去削苹果" class="headerlink" title="1.7.1 不要拿青龙偃月刀去削苹果"></a>1.7.1 不要拿青龙偃月刀去削苹果</h4><blockquote>
+<p>if、 else 一般表示两个分支或是嵌套表示少量的分支，但如果分支很多的话……还是用switch、 case 组合吧。格式吧，你们都会。</p>
+</blockquote>
+<ul>
+<li><p>每个 case 语句的结尾绝对不要忘了加 break，否则将导致多个分支重叠（除非有意使多个分支重叠）。</p>
+</li>
+<li><p>最后必须使用 default 分支。即使程序真的不需要 default 处理，也应该保留语句：这样做并非画蛇添足，可以避免让人误以为你忘了 default 处理。（有的公司代码review的时候会有人挑你的这个刺）</p>
+</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">default</span>:</div><div class="line">    <span class="keyword">break</span>;</div></pre></td></tr></table></figure>
+<h4 id="1-7-2-case-关键字后面的值有什么要求吗？"><a href="#1-7-2-case-关键字后面的值有什么要求吗？" class="headerlink" title="1.7.2 case 关键字后面的值有什么要求吗？"></a>1.7.2 case 关键字后面的值有什么要求吗？</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span> </span>&#123;</div><div class="line">	<span class="keyword">int</span> a = <span class="number">4</span>, b = <span class="number">0</span>;</div><div class="line">	<span class="keyword">switch</span>(a) &#123;</div><div class="line">	<span class="keyword">case</span> <span class="string">'a'</span>:</div><div class="line">		<span class="keyword">break</span>;</div><div class="line">	<span class="keyword">case</span> <span class="string">"abc"</span>:</div><div class="line">		<span class="keyword">break</span>;</div><div class="line">	<span class="keyword">case</span> <span class="number">1</span> + <span class="number">1</span>:</div><div class="line">		<span class="keyword">break</span>;	</div><div class="line">	<span class="keyword">case</span> <span class="number">3</span>/<span class="number">2</span>:</div><div class="line">		<span class="keyword">break</span>;</div><div class="line">	<span class="keyword">case</span> <span class="number">-1</span>:</div><div class="line">		<span class="keyword">break</span>;	</div><div class="line">	<span class="keyword">case</span> <span class="number">1.0</span> + <span class="number">2</span>:</div><div class="line">		<span class="keyword">break</span>;	</div><div class="line">	<span class="keyword">case</span> b:</div><div class="line">		<span class="keyword">break</span>;</div><div class="line">	<span class="keyword">case</span> <span class="literal">NULL</span>:</div><div class="line">		<span class="keyword">break</span>;</div><div class="line">	<span class="keyword">case</span> <span class="number">4</span>:</div><div class="line">		<span class="keyword">break</span>;			</div><div class="line">	<span class="keyword">default</span>:</div><div class="line">		<span class="keyword">break</span>;	</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>上面的代码哪几个case是对的哪几个是错的。</p>
+<blockquote>
+<p>记住： case 后面只能是整型或字符型的常量或常量表达式（想想字符型数据在内存里是怎么存的）。（js里case后面想放啥放啥）</p>
+</blockquote>
+<p>上面的case中，<code>case &quot;abc&quot;:</code>是错的，不能是字符串，可以是字符；<code>case 1.0 + 2:</code>是错的，不能是浮点数，可以是整数；<code>case: b:</code>是错的，不能是变量；<code>case NULL:</code>是错的，不能是空； 有的人会问<code>case 3/2:</code>不也是浮点数吗？不是啦，3/2得出来的是1不是1.5。</p>
+<h4 id="1-7-3-case语句的排列顺序"><a href="#1-7-3-case语句的排列顺序" class="headerlink" title="1.7.3 case语句的排列顺序"></a>1.7.3 case语句的排列顺序</h4><ul>
+<li><p>按字母或数字顺序排列各条 case 语句。</p>
+<p>  如果所有的 case 语句没有明显的重要性差别，那就按 A-B-C 或 1-2-3 等顺序排列 case语句。这样做的话，你可以很容易的找到某条 case 语句。</p>
+</li>
+<li><p>把正常情况放在前面，而把异常情况放在后面。</p>
+<p>  如果有多个正常情况和异常情况，把正常情况放在前面，并做好注释；把异常情况放在后面，同样要做注释。</p>
+</li>
+<li><p>按执行频率排列 case 语句</p>
+<p>  把最常执行的情况放在前面，而把最不常执行的情况放在后面。最常执行的代码可能也是调试的时候要单步执行的最多的代码。如果放在后面的话，找起来可能会比较困难，而放在前面的话，可以很快的找到</p>
+</li>
+</ul>
+<h4 id="1-7-4-使用case语句的其他注意事项"><a href="#1-7-4-使用case语句的其他注意事项" class="headerlink" title="1.7.4 使用case语句的其他注意事项"></a>1.7.4 使用case语句的其他注意事项</h4><ul>
+<li><p>简化每种情况对应的操作。</p>
+<p>  使得与每种情况相关的代码尽可能的精炼。case 语句后面的代码越精炼， case 语句的结果就会越清晰。如果某个 case 语句确实需要这么多的代码来执行某个操作，那可以把这些操作写成一个或几个子程序，然后在 case 语句后面调用这些子程序就 ok 了。一般来说 case语句后面的代码尽量不要超过 20 行。</p>
+</li>
+<li><p>不要为了使用 case 语句而刻意制造一个变量。</p>
+<p>  case 语句应该用于处理简单的，容易分类的数据。如果你的数据并不简单，那可能使用ifelse if 的组合更好一些。为了使用 case 而刻意构造出来的变量很容易把人搞糊涂，应该避免这种变量。</p>
+</li>
+<li><p>把 default 子句只用于检查真正的默认情况。</p>
+<p>  有时候，你只剩下了最后一种情况需要处理，于是就决定把这种情况用 default 子句来处理。这样也许会让你偷懒少敲几个字符，但是这却很不明智。这样将失去 case 语句的标号所提供的自说明功能，而且也丧失了使用 default 子句处理错误情况的能力。所以，奉劝你不要偷懒，老老实实的把每一种情况都用 case 语句来完成，而把真正的默认情况的处理交给 default 子句。</p>
+</li>
+</ul>
+<h3 id="1-8-do、while、for关键字"><a href="#1-8-do、while、for关键字" class="headerlink" title="1.8 do、while、for关键字"></a>1.8 do、while、for关键字</h3><blockquote>
+<p>C 语言中循环语句有三种： while 循环、 do-while 循环、 for 循环。</p>
+</blockquote>
+<p>while 循环：先判断 while 后面括号里的值，如果为真则执行其后面的代码；否则不执行。 while（ 1）表示死循环。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span> </span>&#123;</div><div class="line">	<span class="keyword">while</span>(<span class="number">1</span>) &#123;</div><div class="line">		<span class="keyword">if</span>(<span class="string">'#'</span> == getchar()) &#123;</div><div class="line">			<span class="keyword">break</span>;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"Hello,World!"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>执行一个死循环，等待用户输入’#’后退出死循环执行输出”Hello,World!”</p>
+<h4 id="1-8-1-break-与-continue-的区别"><a href="#1-8-1-break-与-continue-的区别" class="headerlink" title="1.8.1 break 与 continue 的区别"></a>1.8.1 break 与 continue 的区别</h4><ul>
+<li><p>break关键字很重要，表示终止本层循环。上面这个例子只有一个循环，当代码执行到break时候就会停止。</p>
+</li>
+<li><p>continue表示终止本次循环，当代码执行到continue时，本次循环终止，进入下一次循环。</p>
+</li>
+<li><p>while(1)也可以写成while(true)或者while(1 == 1)或者while((bool) 1)等形式的，效果一样的。</p>
+</li>
+<li><p>do-while循环：先执行do后面的代码，然后再判断while后面括号里的值，如果为真，循环开始；否则，循环不开始。也就是说无论如何都会执行一次，用法与while差不多，但是相对少用。</p>
+</li>
+<li><p>for循环： for的好处是很容易控制循环的次数，多用于事先知道循环次数的情况下。</p>
+</li>
+<li><p>在switch case语句中能否能使用continue关键字？为什么？<br>  不说废话，写份代码不就知道了吗？</p>
+  <figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span> </span>&#123;</div><div class="line">	<span class="keyword">int</span> a = <span class="number">3</span>;</div><div class="line">	<span class="keyword">switch</span>(a) &#123;</div><div class="line">		<span class="keyword">case</span> <span class="number">1</span>:</div><div class="line">		<span class="keyword">case</span> <span class="number">2</span>:</div><div class="line">		<span class="keyword">case</span> <span class="number">3</span>:</div><div class="line">			<span class="built_in">printf</span>(<span class="string">"%d\r\n"</span>, a);</div><div class="line">			<span class="keyword">continue</span>;</div><div class="line">		<span class="keyword">default</span>: </div><div class="line">			<span class="keyword">break</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"结束了\r\n"</span>);</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>  上面的代码编译之后出现了错误，提示是：error: continue statement not within a loop也就是说continue需要在一个循环里面，不然就会报错。</p>
+</li>
+</ul>
+<h4 id="1-8-2循环语句注意点"><a href="#1-8-2循环语句注意点" class="headerlink" title="1.8.2循环语句注意点"></a>1.8.2循环语句注意点</h4><ul>
+<li><p>在多重循环中，尽量将最长的循环放在最内层，最短的循环放在最外层，以减少CPU跨切循环层的次数。</p>
+</li>
+<li><p>建议 for 语句的循环控制变量的取值采用“半开半闭区间”写法。半开半闭区间写法和闭区间写法虽然功能是相同，但相比之下，半开半闭区间写法写法更加直观。如：半开半闭区间写法:<code>for (n = 0; n &lt; 10; n++)</code> 闭区间写法:<code>for (n = 0; n &lt;= 9; n++)</code></p>
+</li>
+<li><p>不要在for循环体内修改循环变量，防止循环失控。</p>
+  <figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span>(n = <span class="number">0</span>; n &lt; <span class="number">10</span>; n++) &#123;</div><div class="line">	...</div><div class="line">	n = <span class="number">8</span>;<span class="comment">//不建议，</span></div><div class="line">	...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>循环要尽可能的短，使代码清晰，一目了然。不要超过一屏。</p>
+<ul>
+<li>从新设计循环</li>
+<li>将循环封装到函数内</li>
+<li>一般来说循环内代码不要超过20行</li>
+</ul>
+</li>
+<li><p>循环控制在3层内</p>
+</li>
+</ul>
+<h3 id="1-9-goto关键字"><a href="#1-9-goto关键字" class="headerlink" title="1.9 goto关键字"></a>1.9 goto关键字</h3><blockquote>
+<p>建议少用或禁用关键字，不过看过一些系统级的代码里面就有好多goto，但是他们使用goto并不会使代码混乱，反而使得更容易理解阅读。作为小白，还是不要用了。</p>
+<p>自从提倡结构化设计以来， goto 就成了有争议的语句。首先，由于 goto 语句可以灵活跳转，如果不加限制，它的确会破坏结构化设计风格；其次， goto 语句经常带来错误或隐患。它可能跳过了变量的初始化、重要的计算等语句。</p>
+</blockquote>
+<h3 id="1-10-void关键字"><a href="#1-10-void关键字" class="headerlink" title="1.10 void关键字"></a>1.10 void关键字</h3><h4 id="1-10-1-void-a"><a href="#1-10-1-void-a" class="headerlink" title="1.10.1 void a"></a>1.10.1 void a</h4><p>void的字面意思是“空类型”，void <em> 则为“空类型指针”，void </em> 可以指向任何类型的数据。</p>
+<p><code>void a;</code>会是什么？ 这样语句在编译时候会出错，即使不出错也没有意义。</p>
+<p>void真正发挥的作用在于：</p>
+<ol>
+<li>对函数返回的限定；</li>
+<li>对函数参数的限定；</li>
+</ol>
+<p>众所周知， 如果指针 p1 和 p2 的类型相同， 那么我们可以直接在 p1 和 p2 间互相赋值；如果 p1 和 p2 指向不同的数据类型，则必须使用强制类型转换运算符把赋值运算符右边的指针类型转换为左边指针的类型。<br>例如：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">float</span> *p1;</div><div class="line"><span class="keyword">int</span> *p2;</div><div class="line">p1 = p2;</div></pre></td></tr></table></figure>
+<p>其中p1 = p2;语句会编译出错，提示“’=’ : cannot convertfrom ‘int <em>‘ to ‘float </em>‘”，必须改为：p1 = (float *)p2;</p>
+<p>而void *则不同，任何类型的指针都可以直接给他赋值，无需进行强制类型转换：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">void</span> *p1;</div><div class="line"><span class="keyword">int</span> *p2;</div><div class="line">p1 = p2;</div></pre></td></tr></table></figure>
+<p>但这并不意味着， void *也可以无需强制类型转换地赋给其它类型的指针。因为“空类型”可以包容“有类型”，而“有类型”则不能包容“空类型”。下面代码就会出错。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">void</span> *p1;</div><div class="line"><span class="keyword">int</span> *p2;</div><div class="line">p2 = p1;</div></pre></td></tr></table></figure>
+<p>提示“’=’ : cannot convert from ‘void <em>‘ to ‘int </em>‘”。</p>
+<h4 id="1-10-2-void修饰函数返回值和参数"><a href="#1-10-2-void修饰函数返回值和参数" class="headerlink" title="1.10.2 void修饰函数返回值和参数"></a>1.10.2 void修饰函数返回值和参数</h4><ul>
+<li>如果函数没有返回值，那么应声明为 void 类型。在C语言中，凡不加返回值类型限定的函数，就会被编译器作为返回整型值处理。但是许多程序员却误以为其为void类型。如下：<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">add(<span class="keyword">int</span> a, <span class="keyword">int</span> b) &#123;</div><div class="line">	<span class="keyword">return</span> a + b;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">mian</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span> </span>&#123;<span class="comment">//甚至很多人认为main函数无返回值或认为返回值为void型，其实人家是int型的</span></div><div class="line">	<span class="built_in">printf</span>(<span class="string">"2 + 3 = %d"</span>, add(<span class="number">2</span>, <span class="number">3</span>));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>程序运行的输出结果为输出： 2 + 3 = 5<br>这说明不加返回值声明的函数的确为int函数。</p>
+<p>因此，为了避免混乱，我们在编写 C 程序时，对于任何函数都必须一个不漏地指定其类型。如果函数没有返回值，一定要声明为 void 类型。这既是程序良好可读性的需要，也是编程规范性的要求。另外，加上 void 类型声明后，也可以发挥代码的“自注释”作用。所谓的代码的“自注释”即代码能自己注释自己。</p>
+<blockquote>
+<p>如果函数无参数，那么应声明其参数为void</p>
+</blockquote>
+<p>在C++中语言中声明一个这样的函数：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">function</span><span class="params">(<span class="keyword">void</span>)</span> </span>&#123;</div><div class="line">	<span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>则进行下面的调用时不合法的： function(2);</p>
+<p>因为在C++中，函数参数是void的意思表示这个函数不接受任何参数。但是在Turbo C2.0中编译：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line">fun() &#123;</div><div class="line">	<span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">&#125;</div><div class="line">main() &#123;</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"%d"</span>, fun(<span class="number">2</span>));</div><div class="line">	getchar();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>编译正确输出1，这说明，在C语言中，可以给无参数的函数传送任意类型的参数，但是在C++编译器中编译同样的代码则会出错。在C++中，不能像无参数的函数传送任何线参数，出错提示“’fun’ : function does not take 1 parameters”。所以，无论在 C 还是 C++中，若函数不接受任何参数，一定要指明参数为 void</p>
+<h4 id="1-10-3-void指针"><a href="#1-10-3-void指针" class="headerlink" title="1.10.3 void指针"></a>1.10.3 void指针</h4><ul>
+<li>千万小心使用void指针</li>
+</ul>
+<p>按照 ANSI(American National Standards Institute)标准，不能对 void 指针进行算法操作，即下列操作都是不合法的：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">void</span> *pvoid;</div><div class="line">pvoid++;<span class="comment">//ANSI：错误</span></div><div class="line">pvoid+=<span class="number">1</span>;<span class="comment">//ANSI:错误</span></div></pre></td></tr></table></figure></p>
+<p>ANSI标准之所以这样认定，是因为它坚持：进行算法操作的指针必须是知道器指向数据类型大小的。也就是说必须知道内存目的地址的确切值。<br>例如：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> *pint;</div><div class="line">pint++;<span class="comment">//ANSI:正确</span></div></pre></td></tr></table></figure></p>
+<p>但是大名鼎鼎的 GNU(GNU’s Not Unix 的递归缩写)则不这么认定，它指定 void <em>的算法操作与 char </em>一致。因此下列语句在 GNU 编译器中皆正确：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">pvoid++;<span class="comment">//GNU:正确</span></div><div class="line">pvoid+=<span class="number">1</span>;<span class="comment">//GNU:正确</span></div></pre></td></tr></table></figure></p>
+<p>在实际的程序设计中，为符合 ANSI 标准，并提高程序的可移植性，我们可以这样编写实现同样功能的代码：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">void</span> *pvoid;</div><div class="line">(<span class="keyword">char</span> *)pvoid ++;<span class="comment">//ANSI:正确；GNU：正确</span></div><div class="line">(<span class="keyword">char</span> *)pvoid +=<span class="number">1</span>;<span class="comment">//ANSI:错误；GNU：正确</span></div></pre></td></tr></table></figure></p>
+<p>GNU 和 ANSI 还有一些区别，总体而言， GNU 较 ANSI 更“开放”，提供了对更多语法的支持。但是我们在真实设计时，还是应该尽可能地符合 ANSI 标准。</p>
+<ul>
+<li>如果函数的参数可以是任意类型指针，那么应声明其参数为void *</li>
+</ul>
+<p>典型的如内存操作函数memcpy和memset的函数原型分别为：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> *<span class="title">memcpy</span><span class="params">(<span class="keyword">void</span> *dest, <span class="keyword">const</span> <span class="keyword">void</span> *src, <span class="keyword">size_t</span> len)</span></span>;</div><div class="line"><span class="function"><span class="keyword">void</span> *<span class="title">memset</span><span class="params">(<span class="keyword">void</span> *buffer, <span class="keyword">int</span> c, <span class="keyword">size_t</span> num)</span></span>;</div></pre></td></tr></table></figure></p>
+<p>这样，任何类型的指针都可以传入 memcpy 和 memset 中，这也真实地体现了内存操作函数的意义， 因为它操作的对象仅仅是一片内存， 而不论这片内存是什么类型。</p>
+<h4 id="1-10-4-void不能代表一个真实的变量"><a href="#1-10-4-void不能代表一个真实的变量" class="headerlink" title="1.10.4 void不能代表一个真实的变量"></a>1.10.4 void不能代表一个真实的变量</h4><p>因为定义变量时必须分配内存空间，定义void类型变量，编译器到底分配多大内存呢？下面试图让void代表一个真实的变量，因此都是错误代码：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">void</span> a;<span class="comment">//错误</span></div><div class="line">function(<span class="keyword">void</span> a);<span class="comment">//错误</span></div></pre></td></tr></table></figure></p>
+<p>void 体现了一种抽象，这个世界上的变量都是“有类型”的，譬如一个人不是男人就是女人（人妖不算）。void 的出现只是为了一种抽象的需要，如果你正确地理解了面向对象中“抽象基类”的概念，也很容易理解 void 数据类型。正如不能给抽象基类定义一个实例，我们也不能定义一个 void（让我们类比的称 void 为“抽象数据类型”）变量。</p>
+<h3 id="1-11-return关键字"><a href="#1-11-return关键字" class="headerlink" title="1.11 return关键字"></a>1.11 return关键字</h3><blockquote>
+<p>return 用来终止一个函数并返回其后面跟着的值。</p>
+</blockquote>
+<ul>
+<li><p>return (val);//此括号可以省略。但一般不省略，尤其在返回一个表达式的值的时候。</p>
+  <figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">char</span> *<span class="title">Func</span><span class="params">(<span class="keyword">void</span>)</span> </span>&#123;</div><div class="line">	<span class="keyword">char</span> str[<span class="number">30</span>];</div><div class="line">	...</div><div class="line">	<span class="keyword">return</span> str;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>str属于局部变量，位于栈内存中，在Func结束的时候被释放，所以返回str将导致错误。</p>
+</li>
+<li><p>return语句不可返回指向“栈内存”的“指针”，因为该内存在函数体结束时被自动销毁。</p>
+</li>
+</ul>
+<h3 id="1-12-const关键字也许该被替换为readonly"><a href="#1-12-const关键字也许该被替换为readonly" class="headerlink" title="1.12 const关键字也许该被替换为readonly"></a>1.12 const关键字也许该被替换为readonly</h3><blockquote>
+<p>很多人认为const修饰的值为常量，这是不准确的，准确的说应该是只读的变量，其值在编译时不能被使用，因为编译器在编译的时候不知道其存储的内容。或许当初这个关键字应该被定义为readonly。</p>
+<p>const推出的初始目的，正是为了取代预编译指令，消除他的缺点，同时继承他的优点。我们看看他与define宏的区别。（很多人误认为define是关键字，在这里我提醒你再回到本章前面看看32个关键字里是否有define）</p>
+</blockquote>
+<h4 id="1-12-1-const修饰的只读变量"><a href="#1-12-1-const修饰的只读变量" class="headerlink" title="1.12.1 const修饰的只读变量"></a>1.12.1 const修饰的只读变量</h4><p>定义const只读变量，具有不可变性。例如：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> Max = <span class="number">100</span>;</div><div class="line"><span class="keyword">int</span> Array[Max];</div></pre></td></tr></table></figure></p>
+<p>这里请在VC++6.0里分别创建.c和.cpp文件测试一下。你会发现在.c文件中，编译器会提示出错，而在.cpp文件中则顺利运行。为什么呢？我们知道定义一个数组必须制定其元素个数。这也侧面证明在C语言中，const修饰的Max仍然是变量，之不过是只读罢了；而在C++里，扩展了const的含义。</p>
+<blockquote>
+<p>注意：const修饰的只读变量必须在定义的同时初始化，因为在运行的过程中还能被赋值的话那说明就不是只读的了。</p>
+</blockquote>
+<p>想一想case后面是否可以是const修饰的只读变量呢？</p>
+<p>分析：我们知道case后面需要的是整型、字符型的常量或常量表达式，上面我们又知道了case在C语言里其实是只读的变量，所以它不能放在case后面。</p>
+<h4 id="1-12-2-节省空间，避免不必要的内存分配，同时提高效率"><a href="#1-12-2-节省空间，避免不必要的内存分配，同时提高效率" class="headerlink" title="1.12.2 节省空间，避免不必要的内存分配，同时提高效率"></a>1.12.2 节省空间，避免不必要的内存分配，同时提高效率</h4><blockquote>
+<p>编译器通常不为普通的const只读变量分配存储空间，而是将他们保存在符号表中，这使得它成为一个编译期间的值，没有了存储与读内存的操作，使得他的效率也很高。看下面代码：</p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">define</span> M 3<span class="comment">//宏常量</span></span></div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">5</span>; <span class="comment">// 此时并未将N放入内存中</span></div><div class="line">...</div><div class="line"><span class="keyword">int</span> i = N; <span class="comment">//此时为N分配内存，以后不再分配！</span></div><div class="line"><span class="keyword">int</span> I = M; <span class="comment">//预编译期间进行宏替换，分配内存</span></div><div class="line"><span class="keyword">int</span> j = N; <span class="comment">//没有分配内存</span></div><div class="line"><span class="keyword">int</span> J = M; <span class="comment">//再进行宏替换，又分配一次内存！</span></div></pre></td></tr></table></figure>
+<p>const和#define的对比:</p>
+<blockquote>
+<p>const定义的只读变量从汇编的角度来看，只是给出了内存的地址，而不是像#define一样给出的是立即数，所以const定义的只读变量在程序运行过程中只有一份拷贝（因为他是全局的只读变量，放在静态区域），而#define定义的宏常量在内存中有若干个拷贝。#define宏是在预编译阶段进行宏替换，而const修饰的只读变量是在编译的时候确定其值。#define宏没有类型，而const修饰的只读变量有特定的类型。</p>
+</blockquote>
+<h4 id="1-12-3-修饰一般变量"><a href="#1-12-3-修饰一般变量" class="headerlink" title="1.12.3 修饰一般变量"></a>1.12.3 修饰一般变量</h4><p>一般的常量是指简单类型的只读变量。这种只读变量在定义时，这种只读变量在定义时，修饰符const可以放在类型说明符之前，也可用在类型说明符之后。例如：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> <span class="keyword">const</span> i = <span class="number">2</span>; 或</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> i = <span class="number">2</span>;</div></pre></td></tr></table></figure></p>
+<h4 id="i-12-4-修饰数组"><a href="#i-12-4-修饰数组" class="headerlink" title="i.12.4 修饰数组"></a>i.12.4 修饰数组</h4><p>定义说说明一个只读数组可采用如下格式：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> <span class="keyword">const</span> a[<span class="number">5</span>] = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125;;或</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> a[<span class="number">5</span>] = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125;;</div></pre></td></tr></table></figure></p>
+<h4 id="1-12-5-修饰指针"><a href="#1-12-5-修饰指针" class="headerlink" title="1.12.5 修饰指针"></a>1.12.5 修饰指针</h4><ul>
+<li><p>const int *p; //p可变，p指向的对象不可变</p>
+</li>
+<li><p>int const *p; //p可变，p指向的对象不可变</p>
+</li>
+<li><p>int *const p; //p不可变，p指向的对象可变</p>
+</li>
+<li><p>const int *const p; //指针p和p指向的值都不可变</p>
+</li>
+</ul>
+<blockquote>
+<p>记忆：<code>“左值右指” const在*的左边表示值不变，const在*的右边表示指针不变，const即在*左边又在*的右边表示值和指针都不可变。</code></p>
+</blockquote>
+<h4 id="1-12-6修饰函数的参数"><a href="#1-12-6修饰函数的参数" class="headerlink" title="1.12.6修饰函数的参数"></a>1.12.6修饰函数的参数</h4><p>const修饰符也可以修饰函数的参数，当不希望这个参数值被函数体内意外改变时使用。例如：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">fun</span><span class="params">(<span class="keyword">const</span> <span class="keyword">int</span> i)</span></span>;</div></pre></td></tr></table></figure></p>
+<p>告诉编译器i在函数体中不可改变，从而防止了使用者的一些无意的或错误的修改。</p>
+<h4 id="1-12-7-修饰函数的返回值"><a href="#1-12-7-修饰函数的返回值" class="headerlink" title="1.12.7 修饰函数的返回值"></a>1.12.7 修饰函数的返回值</h4><p>const修饰符也可以修饰函数的返回值，返回值不可被改变。例如：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">const</span> <span class="keyword">int</span> <span class="title">fun</span><span class="params">(<span class="keyword">void</span>)</span></span>;</div></pre></td></tr></table></figure></p>
+<p>在另一个链接文件中引用const只读变量：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">extern</span> <span class="keyword">const</span> <span class="keyword">int</span> i;<span class="comment">//正确的声明</span></div><div class="line"><span class="keyword">extern</span> <span class="keyword">const</span> <span class="keyword">int</span> j = <span class="number">10</span>; <span class="comment">//错误，只读变量的值不能改变</span></div></pre></td></tr></table></figure></p>
+<p>在C++里还有很多其他的特性。。。</p>
+<h3 id="1-13-最易变得关键字-—-volatile"><a href="#1-13-最易变得关键字-—-volatile" class="headerlink" title="1.13 最易变得关键字 —- volatile"></a>1.13 最易变得关键字 —- volatile</h3><blockquote>
+<p>volatile是易变的、不稳定的意思。很多人根本就没见过这个关键字，不知道他的存在。也有很多程序员知道它的存在，但从来没用过它。</p>
+</blockquote>
+<p>volatile关键字和const一样是一种类型修饰符，简单的说就是告诉编译器volatile 关键字修饰的变量是随时可能发生变化的，每次使用它的时候必须从内存中取出变量的值。从而避免一些奇怪的问题出现，比如在操作系统中有两个线程都来读取这个变量，一个已经改变了它的值，另一个又来读，但编译器却把没修改之前的值给了第二个线程。看代码：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> i = <span class="number">10</span>;</div><div class="line"><span class="keyword">int</span> j = i; <span class="comment">//语句一</span></div><div class="line"><span class="keyword">int</span> k = i; <span class="comment">//语句二</span></div></pre></td></tr></table></figure>
+<p>这时候编译器对代码进行优化，因为在（1）、（2）两条语句中，i没有被作用左值。这时候编译器认为i的值没有发生改变，所以在（1）语句时从内存中去除i的值赋给j之后，这个值并没有被丢掉，而是在（2）语句时继续用这个值给k赋值。编译器不会生成出汇编代码重新从内存里取i的值，这样提高了效率。但要注意：（1）、（2）语句之间i没有被作用左值才行。</p>
+<p>再看另外一个例子：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">volatile</span> <span class="keyword">int</span> i = <span class="number">10</span>;</div><div class="line"><span class="keyword">int</span> j = i; <span class="comment">//(3)语句</span></div><div class="line"><span class="keyword">int</span> k - i; <span class="comment">//(4)语句</span></div></pre></td></tr></table></figure>
+<p>volatile 关键字告诉编译器 i 是随时可能发生变化的，每次使用它的时候必须从内存中取出 i的值，因而编译器生成的汇编代码会重新从 i 的地址处读取数据放在 k 中。</p>
+<h3 id="1-14-最会带帽子的关键字—-extern"><a href="#1-14-最会带帽子的关键字—-extern" class="headerlink" title="1.14 最会带帽子的关键字—-extern"></a>1.14 最会带帽子的关键字—-extern</h3><blockquote>
+<p>extern，外面的、外来的意思。</p>
+</blockquote>
+<p>extern 可以置于变量或者函数前，以标示变量或者函数的定义在别的文件中，下面的代码用到的这些变量或函数是外来的，不是本文件定义的，提示编译器遇到此变量和函数时在其他模块中寻找其定义。就好比在本文件中给这些外来的变量或函数带了顶帽子，告诉本文件中所有代码，这些家伙不是土著。</p>
+<p>看代码：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//A.c</span></div><div class="line"><span class="keyword">int</span> i = <span class="number">0</span>;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">fun</span><span class="params">(<span class="keyword">void</span>)</span> </span>&#123;</div><div class="line">	<span class="comment">//code</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//B.c文件中用external修饰：</span></div><div class="line"><span class="keyword">extern</span> <span class="keyword">int</span> i; <span class="comment">//写成i = 10;行吗？</span></div><div class="line"><span class="function"><span class="keyword">extern</span> <span class="keyword">void</span> <span class="title">fun</span><span class="params">(<span class="keyword">void</span>)</span></span>;<span class="comment">//两个void是否可以省略</span></div><div class="line"></div><div class="line"><span class="comment">//C.h文件中定义：</span></div><div class="line"><span class="keyword">int</span> j = <span class="number">1</span>;</div><div class="line"><span class="keyword">int</span> k = <span class="number">2</span>;</div><div class="line"></div><div class="line"><span class="comment">//D.c文件中用external修饰：</span></div><div class="line"><span class="keyword">extern</span> <span class="keyword">double</span> j; <span class="comment">// 这样行吗？为什么</span></div><div class="line">j = <span class="number">3.0</span>;<span class="comment">//这样行吗？为什么</span></div></pre></td></tr></table></figure></p>
+<p>我们来分析：</p>
+<p>A.c文件中定义了变量i和函数fun,在B.c中如果想使用就需要先声明再使用。声明不仅要声明变量或函数本身还要声明他们的类型。因此<code>extern int i;</code>是正确的。能不能写成<code>extern int i = 10;</code>？我们暂不看这里的extern，后面的<code>int i = 10;</code>这是表示定义一个变量啊，这个变量我们在A.c中已经定义了，这时候不报错才怪。所以说声明的时候是不能有赋值操作的。D.c文件中的很简答都错了。</p>
+<h3 id="1-15-struct关键字"><a href="#1-15-struct关键字" class="headerlink" title="1.15 struct关键字"></a>1.15 struct关键字</h3><blockquote>
+<p>struct是个神奇的关键字，它将一些相关联的数据打包成一个整体，方便使用。</p>
+</blockquote>
+<p>在网络协议、通信控制、嵌入式系统、驱动开发等地方，我们经常要传送的不是简单的字节流（ char 型数组），而是多种数据组合起来的一个整体，其表现形式是一个结构体。经验不足的开发人员往往将所有需要传送的内容依顺序保存在 char 型数组中，通过指针偏移的方法传送网络报文等信息。这样做编程复杂，易出错，而且一旦控制方式及通信协议有所变化，程序就要进行非常细致的修改，非常容易出错。这个时候只需要一个结构体就能搞定。平时我们要求函数的参数尽量不多于 4 个，如果函数的参数多于 4 个使用起来非常容易出错 （包括每个参数的意义和顺序都容易弄错）， 效率也会降低（与具体 CPU 有关，ARM芯片对于超过 4 个参数的处理就有讲究，具体请参考相关资料）。这个时候，可以用结构体压缩参数个数。</p>
+<h4 id="1-15-1-空结构体多大？"><a href="#1-15-1-空结构体多大？" class="headerlink" title="1.15.1 空结构体多大？"></a>1.15.1 空结构体多大？</h4><p>结构体所占的内存大小是其成员所占内存之和（关于结构体的内存对齐，请参考预处理那章）。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">struct</span> student &#123;</div><div class="line">&#125;stu;</div></pre></td></tr></table></figure>
+<p>sizeof(stu)的值室友多少呢？是1而不是0。如果我们把 structstudent 看成一个模子的话，你能造出一个没有任何容积的模子吗？显然不行。编译器也是如此认为。编译器认为任何一种数据类型都有其大小，用它来定义一个变量能够分配确定大小的空间。既然如此，编译器就理所当然的认为任何一个结构体都是有大小的，哪怕这个结构体为空。那万一结构体真的为空，它的大小为什么值比较合适呢？假设结构体内只有一个 char 型的数据成员，那其大小为 1byte（这里先不考虑内存对齐的情况） .也就是说非空结构体类型数据最少需要占一个字节的空间，而空结构体类型数据总不能比最小的非空结构体类型数据所占的空间大吧。这就麻烦了，空结构体的大小既不能为 0，也不能大于 1，怎么办？定义为 0.5个 byte？但是内存地址的最小单位是 1 个 byte， 0.5 个 byte 怎么处理？解决这个问题的最好办法就是折中，编译器理所当然的认为你构造一个结构体数据类型是用来打包一些数据成员的，而最小的数据成员需要 1 个 byte，编译器为每个结构体类型数据至少预留 1 个 byte的空间。所以，空结构体的大小就定位 1 个 byte。还有就是你sizeof一个函数的大小永远是1.</p>
+<h4 id="1-15-2-柔性数组"><a href="#1-15-2-柔性数组" class="headerlink" title="1.15.2 柔性数组"></a>1.15.2 柔性数组</h4><p>C99中，结构中的最后一个元素允许是未知大小的数组，这就叫柔性数组成员，但结构中的柔性数组成员前面必须至少一个其他成员。柔性数组成员允许节后中包含一个大小可变的数组。sizeof返回的这种结构大小不包括柔性数组的内存。包含柔性数组成员的结构用malloc()函数进行内存在动态分配，并且分配的内存应该大于结构的大小，以适用柔性数组的预期大小。<br>柔性数组到底如何适用？看下面代码：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">typedef</span>  <span class="keyword">struct</span> st_type &#123;</div><div class="line">	<span class="keyword">int</span> i;</div><div class="line">	<span class="keyword">int</span> a[<span class="number">0</span>];</div><div class="line">&#125;type_a;</div></pre></td></tr></table></figure></p>
+<p>有些编译器无法编译会报错，可以改成下面：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">typeof <span class="keyword">struct</span> st_type &#123;</div><div class="line">	<span class="keyword">int</span> i;</div><div class="line">	<span class="keyword">int</span> a[];</div><div class="line">&#125;type_a;</div></pre></td></tr></table></figure></p>
+<p>这样我们就可以定义一个可变长的结构体，用sizeof(type_a)得到的只有4，就是sizeof(i) = sizeof(int)。那个0个元素的数组没有占用空间，而后我们可以进行变长的操作了。通过如下操作给结构体分配内存：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">type_a *p = (type_a *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(type_a) +  <span class="number">100</span> * <span class="keyword">sizeof</span>(<span class="keyword">int</span>) );</div></pre></td></tr></table></figure></p>
+<p>这样我们为结构体指针p分配了一块内存。用p-&gt;item[n]就能简单的访问可变长元素。但是这时候我们在用sizeof(*p)测试结构体的大小，发现仍然是4。在定义这个结构体的时候，模子的大小就已经确定不包含柔性数组的内存大小。柔性数组只是编外人员，不占结构体的编制。只是说在使用柔性数组时需要把它当作结构体的一个成员，仅此而已。再说白点，柔性数组其实与结构体没什么关系，只是“挂羊头卖狗肉”而已，算不得结构体的正式成员。</p>
+<h3 id="1-16-union关键字"><a href="#1-16-union关键字" class="headerlink" title="1.16 union关键字"></a>1.16 union关键字</h3><blockquote>
+<p>union关键字的用法与struct的用法非常相似。</p>
+</blockquote>
+<p>union 维护足够的空间来置放多个数据成员中的“一种”，而不是为每一个数据成员配置空间，在 union 中所有的数据成员共用一个空间，同一时间只能储存其中一个数据成员，所有的数据成员具有相同的起始地址。例子如下：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">union</span> StateMachine &#123;</div><div class="line">	<span class="keyword">char</span> character;</div><div class="line">	<span class="keyword">int</span> number;</div><div class="line">	<span class="keyword">char</span> *str;</div><div class="line">	<span class="keyword">double</span> <span class="built_in">exp</span>;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>一个union值配置一个足够大的空间用来容纳最大长度的数据成员，上例中，最大的长度是double型，所以StateMachine的空间大小就是double数据类型的大小。如果一些数据不可能在同一时间同时被用到，则可以使用 union。</p>
+<h4 id="1-16-1-大小端模式对union类型数据的影响"><a href="#1-16-1-大小端模式对union类型数据的影响" class="headerlink" title="1.16.1 大小端模式对union类型数据的影响"></a>1.16.1 大小端模式对union类型数据的影响</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">union</span> &#123;</div><div class="line">	<span class="keyword">int</span> m;</div><div class="line">	<span class="keyword">char</span> a[<span class="number">2</span>];</div><div class="line">&#125;*p, u;</div><div class="line">p = &amp;u;</div><div class="line">p-&gt;a[<span class="number">0</span>] = <span class="number">1</span>;</div><div class="line">p-&gt;a[<span class="number">1</span>] = <span class="number">2</span>;</div><div class="line"><span class="built_in">printf</span>(<span class="string">"%d\r\n"</span>, (p-&gt;a[<span class="number">0</span>]));<span class="comment">//1</span></div><div class="line"><span class="built_in">printf</span>(<span class="string">"%d\r\n"</span>, (p-&gt;a[<span class="number">1</span>]));<span class="comment">//2</span></div><div class="line"><span class="built_in">printf</span>(<span class="string">"%d\r\n"</span>, (p-&gt;m));<span class="comment">//513</span></div></pre></td></tr></table></figure>
+<p>那么p.i的值应该是多少？这里需要考虑是大端存储模式还是小端存储模式。</p>
+<ul>
+<li><p>大端模式：数据的高字节在低地址处，数据的低字节在高地址处。</p>
+</li>
+<li><p>小端模式：数据的高字节在高地址处，数据ed低字节在低地址处。</p>
+</li>
+</ul>
+<p>为什么上面的值是513呢？因为p-&gt;a[0]的值是1（00000001），p-&gt;a[1]的值是2(00000010)。而513是（00000010 00000001）。这样就看出了a[1]在高位，a[0]在低位。可以看出平台是小端模式。</p>
+<h4 id="1-16-2-如何用程序来确认当前系统的存储默认？"><a href="#1-16-2-如何用程序来确认当前系统的存储默认？" class="headerlink" title="1.16.2 如何用程序来确认当前系统的存储默认？"></a>1.16.2 如何用程序来确认当前系统的存储默认？</h4><blockquote>
+<p>大端模式返回1 小端模式返回0</p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">check</span><span class="params">(<span class="keyword">void</span>)</span> </span>&#123;</div><div class="line">	<span class="keyword">union</span> &#123;</div><div class="line">		<span class="keyword">int</span> i;</div><div class="line">		<span class="keyword">char</span> ch;</div><div class="line">	&#125;u;</div><div class="line">	u.i = <span class="number">1</span>;</div><div class="line">	<span class="keyword">return</span> (u.ch != <span class="number">1</span>);</div><div class="line">&#125;</div><div class="line"><span class="built_in">printf</span>(<span class="string">"您当前存储模式为：%d\r\n"</span>, check());</div></pre></td></tr></table></figure>
+<h3 id="1-17-enum关键字"><a href="#1-17-enum关键字" class="headerlink" title="1.17 enum关键字"></a>1.17 enum关键字</h3><h4 id="1-17-1-枚举类型的使用方法"><a href="#1-17-1-枚举类型的使用方法" class="headerlink" title="1.17.1 枚举类型的使用方法"></a>1.17.1 枚举类型的使用方法</h4><p>一般定义如下：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">enum</span> enum_type_name &#123;</div><div class="line">	ENUM_CONST_1,</div><div class="line">	ENUM_CONST_2,</div><div class="line">	...</div><div class="line">	ENUM_CONST_n</div><div class="line">&#125;enum_variable_name;</div></pre></td></tr></table></figure></p>
+<p>注意：enum_type_name是自定义的一种数据类型名，而enum_variable_name为enum_type_name类型的一个变量，也就是我们平时常说的枚举变量。实际上enum_type_name类型是对一个变量取值范围的限定，而花括号是对它取值范围，即enum_type_name类型的变量enum_variable_name只能取值为花括号内的任何一值，如果赋给该类型变量的值不在列表中，则会报错或警告。ENUM_CONST_1、ENUM_CONST_2、……、ENUM_CONST_n，这些成员都是整型常量，也就是我们平时所说的枚举常量（常量一般用大写）。enum变量类型还可以给其中的常量符号赋值，如果不赋值则会从被赋值的那个常量开始一次加1，如果都没有赋值，它们的值从0开始一次递增1.如分别用一个常数表示不同的颜色：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">enum</span> Color &#123;</div><div class="line">	GREEN = <span class="number">1</span>,</div><div class="line">	RED,</div><div class="line">	BLUE,</div><div class="line">	GREEN_RED = <span class="number">10</span>,</div><div class="line">	GREEN_BLUE</div><div class="line">&#125;ColorVal;</div><div class="line">其中各常量名代表的数值分别为：</div><div class="line">GREEN = <span class="number">1</span></div><div class="line">RED = <span class="number">2</span></div><div class="line">BLUE = <span class="number">3</span></div><div class="line">GREEN_RED = <span class="number">10</span></div><div class="line">GREEN_BLUE = <span class="number">11</span></div></pre></td></tr></table></figure></p>
+<h4 id="1-17-2-枚举与-define宏的区别"><a href="#1-17-2-枚举与-define宏的区别" class="headerlink" title="1.17.2 枚举与#define宏的区别"></a>1.17.2 枚举与#define宏的区别</h4><ul>
+<li><p><code>#</code>define宏常量是在预编译阶段进行简单替换。枚举常量则是在编译的时候确定其值。</p>
+</li>
+<li><p>一般在编译器里，可以调试枚举常量，但是不能调试宏常量。</p>
+</li>
+<li><p>枚举可以一次定义大量相关的常量，而#define宏一次只能定义一个。</p>
+</li>
+</ul>
+<p>问题：sizeof(ColorVal) 的大小是多少？为什么？因为枚举变量只能取其中一个元素的值，而这个元素是整型常量，整型在x86下是4个字节。</p>
+<h3 id="1-18-伟大的缝纫机—-typeof关键字"><a href="#1-18-伟大的缝纫机—-typeof关键字" class="headerlink" title="1.18 伟大的缝纫机—-typeof关键字"></a>1.18 伟大的缝纫机—-typeof关键字</h3><h4 id="1-18-1-历史的误会—-也许应该是typerename"><a href="#1-18-1-历史的误会—-也许应该是typerename" class="headerlink" title="1.18.1 历史的误会—-也许应该是typerename"></a>1.18.1 历史的误会—-也许应该是typerename</h4><p>很多人认为 typedef 是定义新的数据类型，这可能与这个关键字有关。是因为， type 是数据类型的意思； def(ine)是定义的意思，合起来就是定义数据类型啦。typedef 的真正意思是给一个已经存在的数据类型（注意：是类型不是变量）取一个别名，而非定义一个新的数据类型。</p>
+<p>在实际项目中，为了方便，可能很多数据类型（尤其是结构体之类的自定义数据类型）需要我们重新取一个适用实际情况的别名。这时候 typedef 就可以帮助我们。例如：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> student &#123;</div><div class="line">	<span class="comment">//code</span></div><div class="line">&#125;Stu_st, *Stu_pst;<span class="comment">//</span></div></pre></td></tr></table></figure>
+<ul>
+<li><p>struct student stu1; 和 Stu_st stu1;没有区别</p>
+</li>
+<li><p>struct student <em>stu2; 和Stu_st </em>stu2; 和Stu_pst stu2;没有区别。 </p>
+<p>  <code>其实很好理解。我们把“ struct student { /*code*/}”看成一个整体， typedef 就是给“ struct student {/*code*/}”取了个别名叫“ Stu_st”；同时给“ struct student { /*code*/} *”取了个别名叫“ Stu_pst”。</code></p>
+</li>
+</ul>
+<p>下面把typeof与const放在一起看看：</p>
+<ul>
+<li>(1) const Stu_pst stu3; (2) Stu_pst const stu4;</li>
+</ul>
+<p>大多数人认为(1)里const修饰的是stu3指向的对象，(2)里const修饰的值stu4这个指针。很遗憾，(1)里const修饰的并不是stu3指向的对象。那const到底修饰的是什么呢？我们在讲解 const int i 的时候说过 const 放在类型名 “ int”前后都行； 而 const int <em>p 与 int </em> const p 则完全不一样。也就是说，我们看 const 修饰谁都时候完全可以将数据类<br>型名视而不见，当它不存在。反过来再看“ const Stu_pst stu3”， Stu_pst 是“ struct student{ /<em>code</em>/} <em>”的别名, “ struct student{/</em>code<em>/} </em>”是一个整体。对于编译器来说，只认为Stu_pst 是一个类型名，所以在解析的时候很自然的把“ Stu_pst”这个数据类型名忽略掉。就变成了const stu3/4;而stu3/4是个指针，所以修饰的就是stu3/4这个指针，而不是stu3/4指向的对象。</p>
+<h4 id="1-18-2-typeof-与-define的区别"><a href="#1-18-2-typeof-与-define的区别" class="headerlink" title="1.18.2 typeof 与 #define的区别"></a>1.18.2 typeof 与 #define的区别</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//(1)</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> INT32 int</span></div><div class="line"><span class="keyword">unsigned</span> INT32 i = <span class="number">10</span>;</div><div class="line"><span class="comment">//(2)</span></div><div class="line"><span class="keyword">typedef</span> <span class="keyword">int</span> int32;</div><div class="line"><span class="keyword">unsigned</span> int32 i = <span class="number">10</span>;</div></pre></td></tr></table></figure>
+<p>其中(2)编译出错，(1)不会出错，这很好理解。因为在预编译的时候 INT32<br>被替换为 int，而 unsigned int i = 10；语句是正确的。但是，很可惜，用 typedef 取的别名不支持这种类型扩展。</p>
+<p>另外，想想 typedef static int int32 行不行？为什么？</p>
+<p>因为typedef是定义一个数据类型的别名，或者说是为一个数据类型取别名。而static不是数据类型，他是一个修饰符，用来修饰变量存储的位置。所以会报错。</p>
+<p>再看下一个例子：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//(3)</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> PCHAR char*</span></div><div class="line">PCHAR p3, p4;</div><div class="line"><span class="comment">//(4)</span></div><div class="line">typeof <span class="keyword">char</span>* pchar;</div><div class="line">pchar p1, p2;</div></pre></td></tr></table></figure></p>
+<p>两组代码编译都没有问题，但是，这里的 p4 却不是指针，仅仅是一个 char 类型的字符。这种错误很容易被忽略，所以用#define 的时候要慎之又慎。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2017/04/12/note_C语言深度解剖/">C语言深度解剖，第一部 ---- 关键字</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 Haven Xie 的个人博客">Haven Xie</a></p>
+        <p><span>发布时间:</span>2017年04月12日 - 00时12分</p>
+        <p><span>最后更新:</span>2017年04月12日 - 02时19分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2017/04/12/note_C语言深度解剖/" title="C语言深度解剖，第一部 ---- 关键字">http://yoursite.com/2017/04/12/note_C语言深度解剖/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2017/04/12/note_C语言深度解剖/　　作者: Haven Xie" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+  
+    <a href="/2017/02/19/note_seajs/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">模块化SeaJS笔记</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-最宽恒大量的关键字—-auto"><span class="toc-number">1.</span> <span class="toc-text">1.1 最宽恒大量的关键字—-auto</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-最快乐的关键字—-register"><span class="toc-number">2.</span> <span class="toc-text">1.2 最快乐的关键字—-register</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-1-皇帝身边的小太监—-寄存器"><span class="toc-number">2.1.</span> <span class="toc-text">1.2.1 皇帝身边的小太监—-寄存器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-2-使用-register-修饰符的注意点"><span class="toc-number">2.2.</span> <span class="toc-text">1.2.2 使用 register 修饰符的注意点</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-最名不符实的关键字—-static"><span class="toc-number">3.</span> <span class="toc-text">1.3 最名不符实的关键字—-static</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-1-作用一：修饰变量"><span class="toc-number">3.1.</span> <span class="toc-text">1.3.1 作用一：修饰变量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-2-作用二：修饰函数"><span class="toc-number">3.2.</span> <span class="toc-text">1.3.2 作用二：修饰函数</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-基本数据类型—-short、int、long、char、float、double"><span class="toc-number">4.</span> <span class="toc-text">1.4 基本数据类型—-short、int、long、char、float、double</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4-1-数据类型与模子"><span class="toc-number">4.1.</span> <span class="toc-text">1.4.1 数据类型与模子</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4-2-变量的命名规则"><span class="toc-number">4.2.</span> <span class="toc-text">1.4.2 变量的命名规则</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-5-最冤枉的关键字—-sizeof"><span class="toc-number">5.</span> <span class="toc-text">1.5 最冤枉的关键字—-sizeof</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-5-1-常年被人误认为函数"><span class="toc-number">5.1.</span> <span class="toc-text">1.5.1 常年被人误认为函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-5-2-sizeof（int）-p-表示什么意思？"><span class="toc-number">5.2.</span> <span class="toc-text">1.5.2 sizeof（int）*p 表示什么意思？</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-if、else组合"><span class="toc-number">6.</span> <span class="toc-text">1.6 if、else组合</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-6-1-bool-变量与“零值”进行比较"><span class="toc-number">6.1.</span> <span class="toc-text">1.6.1 bool 变量与“零值”进行比较</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-6-2-float-变量与“零值”进行比较"><span class="toc-number">6.2.</span> <span class="toc-text">1.6.2 float 变量与“零值”进行比较</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-6-3-指针变量与“零值”进行比较"><span class="toc-number">6.3.</span> <span class="toc-text">1.6.3 指针变量与“零值”进行比较</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-6-4-else到底与哪个if配对呢？"><span class="toc-number">6.4.</span> <span class="toc-text">1.6.4 else到底与哪个if配对呢？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-6-5-if-语句后面的分号"><span class="toc-number">6.5.</span> <span class="toc-text">1.6.5 if 语句后面的分号</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-6-6-使用if语句的其他注意事项"><span class="toc-number">6.6.</span> <span class="toc-text">1.6.6 使用if语句的其他注意事项</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-7-switch、case组合"><span class="toc-number">7.</span> <span class="toc-text">1.7 switch、case组合</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-7-1-不要拿青龙偃月刀去削苹果"><span class="toc-number">7.1.</span> <span class="toc-text">1.7.1 不要拿青龙偃月刀去削苹果</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-7-2-case-关键字后面的值有什么要求吗？"><span class="toc-number">7.2.</span> <span class="toc-text">1.7.2 case 关键字后面的值有什么要求吗？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-7-3-case语句的排列顺序"><span class="toc-number">7.3.</span> <span class="toc-text">1.7.3 case语句的排列顺序</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-7-4-使用case语句的其他注意事项"><span class="toc-number">7.4.</span> <span class="toc-text">1.7.4 使用case语句的其他注意事项</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-8-do、while、for关键字"><span class="toc-number">8.</span> <span class="toc-text">1.8 do、while、for关键字</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-8-1-break-与-continue-的区别"><span class="toc-number">8.1.</span> <span class="toc-text">1.8.1 break 与 continue 的区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-8-2循环语句注意点"><span class="toc-number">8.2.</span> <span class="toc-text">1.8.2循环语句注意点</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-9-goto关键字"><span class="toc-number">9.</span> <span class="toc-text">1.9 goto关键字</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-10-void关键字"><span class="toc-number">10.</span> <span class="toc-text">1.10 void关键字</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-10-1-void-a"><span class="toc-number">10.1.</span> <span class="toc-text">1.10.1 void a</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-10-2-void修饰函数返回值和参数"><span class="toc-number">10.2.</span> <span class="toc-text">1.10.2 void修饰函数返回值和参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-10-3-void指针"><span class="toc-number">10.3.</span> <span class="toc-text">1.10.3 void指针</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-10-4-void不能代表一个真实的变量"><span class="toc-number">10.4.</span> <span class="toc-text">1.10.4 void不能代表一个真实的变量</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-11-return关键字"><span class="toc-number">11.</span> <span class="toc-text">1.11 return关键字</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-12-const关键字也许该被替换为readonly"><span class="toc-number">12.</span> <span class="toc-text">1.12 const关键字也许该被替换为readonly</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-12-1-const修饰的只读变量"><span class="toc-number">12.1.</span> <span class="toc-text">1.12.1 const修饰的只读变量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-12-2-节省空间，避免不必要的内存分配，同时提高效率"><span class="toc-number">12.2.</span> <span class="toc-text">1.12.2 节省空间，避免不必要的内存分配，同时提高效率</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-12-3-修饰一般变量"><span class="toc-number">12.3.</span> <span class="toc-text">1.12.3 修饰一般变量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#i-12-4-修饰数组"><span class="toc-number">12.4.</span> <span class="toc-text">i.12.4 修饰数组</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-12-5-修饰指针"><span class="toc-number">12.5.</span> <span class="toc-text">1.12.5 修饰指针</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-12-6修饰函数的参数"><span class="toc-number">12.6.</span> <span class="toc-text">1.12.6修饰函数的参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-12-7-修饰函数的返回值"><span class="toc-number">12.7.</span> <span class="toc-text">1.12.7 修饰函数的返回值</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-13-最易变得关键字-—-volatile"><span class="toc-number">13.</span> <span class="toc-text">1.13 最易变得关键字 —- volatile</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-14-最会带帽子的关键字—-extern"><span class="toc-number">14.</span> <span class="toc-text">1.14 最会带帽子的关键字—-extern</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-15-struct关键字"><span class="toc-number">15.</span> <span class="toc-text">1.15 struct关键字</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-15-1-空结构体多大？"><span class="toc-number">15.1.</span> <span class="toc-text">1.15.1 空结构体多大？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-15-2-柔性数组"><span class="toc-number">15.2.</span> <span class="toc-text">1.15.2 柔性数组</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-16-union关键字"><span class="toc-number">16.</span> <span class="toc-text">1.16 union关键字</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-16-1-大小端模式对union类型数据的影响"><span class="toc-number">16.1.</span> <span class="toc-text">1.16.1 大小端模式对union类型数据的影响</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-16-2-如何用程序来确认当前系统的存储默认？"><span class="toc-number">16.2.</span> <span class="toc-text">1.16.2 如何用程序来确认当前系统的存储默认？</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-17-enum关键字"><span class="toc-number">17.</span> <span class="toc-text">1.17 enum关键字</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-17-1-枚举类型的使用方法"><span class="toc-number">17.1.</span> <span class="toc-text">1.17.1 枚举类型的使用方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-17-2-枚举与-define宏的区别"><span class="toc-number">17.2.</span> <span class="toc-text">1.17.2 枚举与#define宏的区别</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-18-伟大的缝纫机—-typeof关键字"><span class="toc-number">18.</span> <span class="toc-text">1.18 伟大的缝纫机—-typeof关键字</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-18-1-历史的误会—-也许应该是typerename"><span class="toc-number">18.1.</span> <span class="toc-text">1.18.1 历史的误会—-也许应该是typerename</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-18-2-typeof-与-define的区别"><span class="toc-number">18.2.</span> <span class="toc-text">1.18.2 typeof 与 #define的区别</span></a></li></ol></li></ol>
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
+    
+      <div class="duoshuo" id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="2017/04/12/note_C语言深度解剖/" data-title="C语言深度解剖，第一部 ---- 关键字" data-url="http://yoursite.com/2017/04/12/note_C语言深度解剖/"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:"null"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = '/js/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+    <!-- 多说公共JS代码 end -->
+</div>
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2017/02/19/note_seajs/" title="下一篇: 模块化SeaJS笔记">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/04/12/note_C语言深度解剖/">C语言深度解剖，第一部 ---- 关键字</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/19/note_seajs/">模块化SeaJS笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/12/note_angularjs/">AngularJS笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/05/note_锋利的jQuery/">锋利的jQuery笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/31/note_module/">模块化开发简介笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/21/note_other/">常用命令及sublime笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/15/note_$/">jQuery笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/08/note_dom/">DOM笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/02/note_js/">JS笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/25/note_css3/">CSS3笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/11/note_css/">CSS笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/04/note_html/">HTML笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/03/note_git/">GIT基本使用笔记</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2017-04 Haven Xie
+            </div>
+            <div class="footer-right">
+                <a href="https://github.com/havenxie/" target="_blank">Demo</a>  Theme <a href="https://github.com/havenxie/" target="_blank">black</a> by Haven
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >访问用户数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 24;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>
