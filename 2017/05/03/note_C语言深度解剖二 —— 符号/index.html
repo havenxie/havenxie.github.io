@@ -1,0 +1,1137 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>C语言深度解剖二 —— 符号 | Haven</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="本节主要来讲讲C语言中的符号">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C语言深度解剖二 —— 符号">
+<meta property="og:url" content="http://yoursite.com/2017/05/03/note_C语言深度解剖二 —— 符号/index.html">
+<meta property="og:site_name" content="Haven">
+<meta property="og:description" content="本节主要来讲讲C语言中的符号">
+<meta property="og:updated_time" content="2017-05-03T09:09:32.663Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C语言深度解剖二 —— 符号">
+<meta name="twitter:description" content="本节主要来讲讲C语言中的符号">
+  
+    <link rel="alternative" href="/atom.xml" title="Haven" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+      <link rel="stylesheet" href="/css/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          rootUrl: '/',
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/head.jpg" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/" title="Hi Mate">Haven Xie</a></h1>
+        </hgroup>
+
+        
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">博客首页</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=7YWMm4iDw5WEiK2cnMOOgoA" title="mail">mail</a>
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/havenxie" title="github">github</a>
+                            
+                                <a class="fl zhihu" target="_blank" href="https://www.zhihu.com/people/promi/activities" title="zhihu">zhihu</a>
+                            
+                                <a class="fl weibo" target="_blank" href="http://weibo.com/u/2892421013?refer_flag=1001030201_&is_all=1" title="weibo">weibo</a>
+                            
+                                <a class="fl QQ" target="_blank" href="http://user.qzone.qq.com/haven.xie/main" title="QQ">QQ</a>
+                            
+                                <a class="fl wechat" target="_blank" href="javascript:;" title="wechat">wechat</a>
+                            
+                                <a class="fl douban" target="_blank" href="https://www.douban.com/people/156900832/" title="douban">douban</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://havenxie.github.io/">更多</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">纯逗比、真宅男、爱旅行、喜欢接触新鲜事物、迎接新的挑战，更爱游离于错综复杂的编码与逻辑中</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">Haven Xie</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/head.jpg" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Me">Haven Xie</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">博客首页</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=7YWMm4iDw5WEiK2cnMOOgoA" title="mail">mail</a>
+                    
+                        <a class="github" target="_blank" href="https://github.com/havenxie" title="github">github</a>
+                    
+                        <a class="zhihu" target="_blank" href="https://www.zhihu.com/people/promi/activities" title="zhihu">zhihu</a>
+                    
+                        <a class="weibo" target="_blank" href="http://weibo.com/u/2892421013?refer_flag=1001030201_&is_all=1" title="weibo">weibo</a>
+                    
+                        <a class="QQ" target="_blank" href="http://user.qzone.qq.com/haven.xie/main" title="QQ">QQ</a>
+                    
+                        <a class="wechat" target="_blank" href="javascript:;" title="wechat">wechat</a>
+                    
+                        <a class="douban" target="_blank" href="https://www.douban.com/people/156900832/" title="douban">douban</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-note_C语言深度解剖二 —— 符号" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/05/03/note_C语言深度解剖二 —— 符号/" class="article-date">
+      <time datetime="2017-05-03T08:50:53.000Z" itemprop="datePublished">2017-05-03</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      C语言深度解剖二 —— 符号
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <blockquote>
+<p>本节主要来讲讲C语言中的符号</p>
+</blockquote>
+<a id="more"></a>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">符号</th>
+<th style="text-align:left">名称</th>
+<th style="text-align:left">符号</th>
+<th style="text-align:left">名称</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">,</td>
+<td style="text-align:left">逗号</td>
+<td style="text-align:left">&gt;</td>
+<td style="text-align:left">右尖括号</td>
+</tr>
+<tr>
+<td style="text-align:left">.</td>
+<td style="text-align:left">圆点</td>
+<td style="text-align:left">!</td>
+<td style="text-align:left">感叹号</td>
+</tr>
+<tr>
+<td style="text-align:left">;</td>
+<td style="text-align:left">分好</td>
+<td style="text-align:left">l</td>
+<td style="text-align:left">竖线</td>
+</tr>
+<tr>
+<td style="text-align:left">:</td>
+<td style="text-align:left">冒号</td>
+<td style="text-align:left">/</td>
+<td style="text-align:left">斜杠</td>
+</tr>
+<tr>
+<td style="text-align:left">?</td>
+<td style="text-align:left">问号</td>
+<td style="text-align:left">\</td>
+<td style="text-align:left">反斜杠</td>
+</tr>
+<tr>
+<td style="text-align:left">‘</td>
+<td style="text-align:left">单引号</td>
+<td style="text-align:left">~</td>
+<td style="text-align:left">波折号</td>
+</tr>
+<tr>
+<td style="text-align:left">“</td>
+<td style="text-align:left">双引号</td>
+<td style="text-align:left">#</td>
+<td style="text-align:left">井号</td>
+</tr>
+<tr>
+<td style="text-align:left">(</td>
+<td style="text-align:left">左圆括号</td>
+<td style="text-align:left">)</td>
+<td style="text-align:left">右圆括号</td>
+</tr>
+<tr>
+<td style="text-align:left">[</td>
+<td style="text-align:left">左方括号</td>
+<td style="text-align:left">]</td>
+<td style="text-align:left">右方括号</td>
+</tr>
+<tr>
+<td style="text-align:left">{</td>
+<td style="text-align:left">左大括号</td>
+<td style="text-align:left">}</td>
+<td style="text-align:left">又大括号</td>
+</tr>
+<tr>
+<td style="text-align:left">%</td>
+<td style="text-align:left">百分号</td>
+<td style="text-align:left">&amp;</td>
+<td style="text-align:left">and(与)</td>
+</tr>
+<tr>
+<td style="text-align:left">^</td>
+<td style="text-align:left">xor(异或)</td>
+<td style="text-align:left">*</td>
+<td style="text-align:left">乘号</td>
+</tr>
+<tr>
+<td style="text-align:left">-</td>
+<td style="text-align:left">减号</td>
+<td style="text-align:left">=</td>
+<td style="text-align:left">等于号</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt;</td>
+<td style="text-align:left">左尖括号</td>
+<td style="text-align:left">+</td>
+<td style="text-align:left">加号</td>
+</tr>
+</tbody>
+</table>
+<p>“国际 C 语言乱码大赛（ IOCCC）”，下面这个例子就是网上广为流传的一个经典作品：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#i nclude <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line">main(t,_,a)<span class="keyword">char</span> *a;&#123;<span class="keyword">return</span>!<span class="number">0</span>&lt;t?t&lt;<span class="number">3</span>?main(<span class="number">-79</span>,<span class="number">-13</span>,a+main(<span class="number">-87</span>,<span class="number">1</span>-_,</div><div class="line">main(<span class="number">-86</span>,<span class="number">0</span>,a+<span class="number">1</span>)+a)):<span class="number">1</span>,t&lt;_?main(t+<span class="number">1</span>,_,a):<span class="number">3</span>,main(<span class="number">-94</span>,<span class="number">-27</span>+t,a)&amp;&amp;t==<span class="number">2</span>?_&lt;<span class="number">13</span>?</div><div class="line">main(<span class="number">2</span>,_+<span class="number">1</span>,<span class="string">"%s %d %d\n"</span>):<span class="number">9</span>:<span class="number">16</span>:t&lt;<span class="number">0</span>?t&lt;<span class="number">-72</span>?main(_,t,</div><div class="line"><span class="string">"@n'+,#'/*&#123;&#125;w+/w#cdnr/+,&#123;&#125;r/*de&#125;+,/*&#123;*+,/w&#123;%+,/w#q#n+,/#&#123;l+,/n&#123;n+,/+#n+,/#\</span></div><div class="line">;#q#n+,/+k#;*+,/'r :'d*'3,&#125;&#123;w+K w'K:'+&#125;e#';dq#'l \</div><div class="line">q#'+d'K#!/+k#;q#'r&#125;eKK#&#125;w'r&#125;eKK&#123;nl]'/#;#q#n')&#123;)#&#125;w')&#123;)&#123;nl]'/+#n';d&#125;rw' i;# \</div><div class="line">)&#123;nl]!/n&#123;n#'; r&#123;#w'r nc&#123;nl]'/#&#123;l,+'K &#123;rw' iK&#123;;[&#123;nl]'/w#q#n'wk nw' \</div><div class="line">iwk&#123;KK&#123;nl]!/w&#123;%'l##w#' i; :&#123;nl]'/*&#123;q#'ld;r'&#125;&#123;nlwb!/*de&#125;'c \</div><div class="line">;;&#123;nl'-&#123;&#125;rw]'/+,&#125;##'*&#125;#nc,',#nw]'/+kd'+e&#125;+;#'rdq#w! nr'/ ') &#125;+&#125;&#123;rl#'&#123;n' ')# \</div><div class="line">&#125;'+&#125;##(!!/")</div><div class="line">:t&lt;<span class="number">-50</span>?_==*a?<span class="built_in">putchar</span>(<span class="number">31</span>[a]):main(<span class="number">-65</span>,_,a+<span class="number">1</span>):main((*a==<span class="string">'/'</span>)+t,_,a+<span class="number">1</span>)</div><div class="line">:<span class="number">0</span>&lt;t?main(<span class="number">2</span>,<span class="number">2</span>,<span class="string">"%s"</span>):*a==<span class="string">'/'</span>||main(<span class="number">0</span>,main(<span class="number">-61</span>,*a,</div><div class="line"><span class="string">"!ek;dc i@bK'(q)-[w]*%n+r3#l,&#123;&#125;:\nuwloca-O;m.vpbks,fxntdCeghiry"</span>),a+<span class="number">1</span>);&#125;</div></pre></td></tr></table></figure>
+<h3 id="2-1-注释符号"><a href="#2-1-注释符号" class="headerlink" title="2.1 注释符号"></a>2.1 注释符号</h3><h4 id="2-1-1-几个似是而非的注释问题"><a href="#2-1-1-几个似是而非的注释问题" class="headerlink" title="2.1.1 几个似是而非的注释问题"></a>2.1.1 几个似是而非的注释问题</h4><p>C 语言的注释可以出现在 C 语言代码的任何地方。这句话对不对？</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">A) <span class="keyword">int</span><span class="comment">/*...*/</span>i;</div><div class="line">B) <span class="keyword">char</span>* s = <span class="string">"abcdefg    //hijklmn"</span>;</div><div class="line">C) <span class="comment">//Is it a \</span></div><div class="line">valid comment?</div><div class="line">D) in<span class="comment">/*...*/</span>t i;</div></pre></td></tr></table></figure>
+<p>我们知道 C 语言里可以有两种注释方式： /<em> </em>/ 和//。上述前３条注释都是正确的，最后一条不正确。</p>
+<p>A),有人认为编译器剔除掉注释后代码会被解析成 inti，所以不正确。编译器的确会将注释剔除，但不是简单的剔除，而是用空格代替原来的注释。</p>
+<p>B),我们知道双引号引起来的都是字符串常量，那双斜杠也不例外。</p>
+<p>C),这是一条合法的注释，因为\是一个接续符。</p>
+<p>D), 前面说过注释会被空格替换，那这条注释不正确就很好理解了。</p>
+<p><code>但注意： /*…*/这种形式的注释不能嵌套，如：/*这是/*非法的*/*/因为/*总是与离它最近的*/匹配</code>。</p>
+<h4 id="2-1-2-y-x-p"><a href="#2-1-2-y-x-p" class="headerlink" title="2.1.2 y = x/*p"></a>2.1.2 y = x/*p</h4><p><code>y = x/*p，这是表示 x 除以 p 指向的内存里的值，把结果赋值为 y？我们可以在编译器上测试一下，编译器提示出错。</code><br><code>实际上，编译器把/*当作是一段注释的开始，把/*后面的内容都当作注释内容，直到出现*/为止。这个表达式其实只是表示把 x 的值赋给 y， /*后面的内容都当作注释。但是，由于没有找到*/，所以提示出错。</code></p>
+<p>我们可以把上面的表达式修改一下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">y = x/ *p</div><div class="line">或者</div><div class="line">y = x/(*p)</div></pre></td></tr></table></figure></p>
+<p>这样的话，表达式的意思就是 x 除以 p 指向的内存里的值，把结果赋值为 y 了.也就是说只要斜杠（ /）和星号（ *）之间没有空格，都会被当作注释的开始。这一点一定要注意。</p>
+<h4 id="2-1-3-怎样才能写出出色的注释"><a href="#2-1-3-怎样才能写出出色的注释" class="headerlink" title="2.1.3 怎样才能写出出色的注释"></a>2.1.3 怎样才能写出出色的注释</h4><blockquote>
+<p>注释写的出色非常不易，但是写的糟糕却是人人可为之。糟糕的注释只会帮倒忙。</p>
+</blockquote>
+<ul>
+<li>注释应当准确、易懂，防止有二义性。错误的注释不但无益反而有害。</li>
+<li>边写代码边注释，修改代码同时修改相应的注释，以保证注释与代码的一致性。不再有用的注释要及时删除。</li>
+<li>注释是对代码的“提示”，而不是文档。程序中的注释应当简单明了，注释太多了会让人眼花缭乱</li>
+<li>一目了然的语句不加注释</li>
+<li>对于全局数据（全局变量、常量定义等）必须要加注释。</li>
+<li>注释采用英文，尽量避免在注释中使用缩写，特别是不常用缩写。</li>
+<li>注释的位置应与被描述的代码相邻，可以与语句在同一行，也可以在上行，但不可放在下方。同一结构中不同域的注释要对齐。</li>
+<li>当代码比较长，特别是有多重嵌套时，应当在一些段落的结束处加注释，便于阅读。</li>
+<li>注释的缩进要与代码的缩进一致。</li>
+<li>注释代码段时应注重“为何做（ why）”，而不是“怎么做（ how）”。</li>
+<li>数值的单位一定要注释。</li>
+<li>对变量的范围给出注释。</li>
+<li>对一系列的数字编号给出注释，尤其在编写底层驱动程序的时候（比如管脚编号）。</li>
+<li>对于函数的入口出口数据给出注释。</li>
+</ul>
+<h3 id="2-2接续符和转移符"><a href="#2-2接续符和转移符" class="headerlink" title="2.2接续符和转移符"></a>2.2接续符和转移符</h3><p>C 语言里以反斜杠（ \）表示断行。编译器会将反斜杠剔除掉，跟在反斜杠后面的字符自动接续到前一行。但是注意：反斜杠之后不能有空格，反斜杠的下一行之前也不能有空格。</p>
+<p>反斜杠除了可以被用作接续符，还能被用作转义字符的开始标识。</p>
+<p>常用的转义字符及其含义：</p>
+<table>
+<thead>
+<tr>
+<th>转义字符</th>
+<th>转义字符的意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\n</td>
+<td>回车换行</td>
+</tr>
+<tr>
+<td>\t</td>
+<td>横向跳到下一制表位置</td>
+</tr>
+<tr>
+<td>\v</td>
+<td>竖向跳格</td>
+</tr>
+<tr>
+<td>\b</td>
+<td>退格</td>
+</tr>
+<tr>
+<td>\r</td>
+<td>回车</td>
+</tr>
+<tr>
+<td>\f</td>
+<td>走纸换页</td>
+</tr>
+<tr>
+<td>\</td>
+<td>反斜扛符”\”</td>
+</tr>
+<tr>
+<td>\’</td>
+<td>单引号符</td>
+</tr>
+<tr>
+<td>\a</td>
+<td>鸣铃</td>
+</tr>
+<tr>
+<td>\ddd</td>
+<td>1～3 位八进制数所代表的字符</td>
+</tr>
+<tr>
+<td>\xhh</td>
+<td>1～2 位十六进制数所代表的字符</td>
+</tr>
+</tbody>
+</table>
+<p>广义地讲， C 语言字符集中的任何一个字符均可用转义字符来表示。表中的<code>\ddd</code> 和<code>\xhh</code>正是为此而提出的。 ddd 和 hh 分别为八进制和十六进制的 ASCII 代码。如<code>\102</code> 表示字母”B”，<code>\134</code> 表示反斜线， <code>\X0A</code> 表示换行等。</p>
+<h3 id="2-3-单引号、双引号"><a href="#2-3-单引号、双引号" class="headerlink" title="2.3 单引号、双引号"></a>2.3 单引号、双引号</h3><p>我们知道双引号引起来的都是字符串常量，单引号引起来的都是字符常量。但初学者还是容易弄错这两点。比如：‘ a’和“ a”完全不一样，在内存里前者占 1 个 byte，后者占2个 byte。</p>
+<p>字符在内存里是以 ASCAII 码存储的，所以字符常量可以与整形常量或变量进行运算。如：‘ A‘+ 1。</p>
+<h3 id="2-4-逻辑运算符"><a href="#2-4-逻辑运算符" class="headerlink" title="2.4 逻辑运算符"></a>2.4 逻辑运算符</h3><p>||和&amp;&amp;是我们经常用到的逻辑运算符，与按位运算符|和&amp;是两码事。虽然简单，但毕竟容易犯错。看例子：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> i = <span class="number">0</span>;</div><div class="line"><span class="keyword">int</span> j = <span class="number">0</span>;</div><div class="line"><span class="keyword">if</span>((++i &gt; <span class="number">0</span>) || (++j) &gt; <span class="number">0</span>) &#123;</div><div class="line">    <span class="comment">//打印出i和j的值</span></div><div class="line">&#125;</div><div class="line">结果：i = <span class="number">1</span>,j = <span class="number">0</span>;</div></pre></td></tr></table></figure></p>
+<p>if((++i&gt;0)||(++j&gt;0))语句中，先计算(++i&gt;0)，发现其结果为真，后面<br>的(++j&gt;0)便不再计算。同样&amp;&amp;运算符也要注意这种情况。这是很容易出错的地方。</p>
+<h3 id="2-5-位运算符"><a href="#2-5-位运算符" class="headerlink" title="2.5 位运算符"></a>2.5 位运算符</h3><p>C语言中位运算包括下面几种：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&amp; 按位与</div><div class="line">| 按位或</div><div class="line">^ 按位异或</div><div class="line">~ 取反</div><div class="line">&lt;&lt; 左移</div><div class="line">&gt;&gt; 右移</div></pre></td></tr></table></figure>
+<p>前 4 种操作很简单，一般不会出错。但要注意按位运算符|和&amp;与逻辑运算符||和&amp;&amp;完全是两码事，别混淆了。其中按位异或操作可以实现不用第三个临时变量交换两个变量的值：a ^= b; b ^= a;a ^= b;但并不推荐这么做，因为这样的代码读起来很费劲。</p>
+<h4 id="2-5-1-左移和右移"><a href="#2-5-1-左移和右移" class="headerlink" title="2.5.1 左移和右移"></a>2.5.1 左移和右移</h4><p>左移运算符“&lt;&lt;”是双目运算符。其功能把“&lt;&lt; ”左边的运算数的各二进位全部左移若干位，由“&lt;&lt;”右边的数指定移动的位数，高位丢弃，低位补 0。</p>
+<p>右移运算符“&gt;&gt;”是双目运算符。其功能是把“&gt;&gt; ”左边的运算数的各二进位全部右移若干位， “&gt;&gt;”右边的数指定移动的位数。</p>
+<p>但注意：对于有符号数，在右移时，符号位将随同移动。当为正数时， 最高位补 0；而为负数时，符号位为 1，最高位是补 0 或是补 1 取决于编译系统的规定。 Turbo C 和很多系统规定为补 1。</p>
+<h4 id="2-5-2-0x01-lt-lt-2-3"><a href="#2-5-2-0x01-lt-lt-2-3" class="headerlink" title="2.5.2 0x01 &lt;&lt; 2 + 3"></a>2.5.2 0x01 &lt;&lt; 2 + 3</h4><p>再看看下面的例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">0x01 &lt;&lt; 2 + 3</div></pre></td></tr></table></figure></p>
+<p>结果为7吗？测试一下。结果为32？别惊讶，32才是正确答案。因为“+”号的优先级比移位运算符的优先级高。在32位系统下，改写这个例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">0x01 &lt;&lt; 2 + 30; </div><div class="line">或</div><div class="line">0x01 &lt; 2 - 3;</div></pre></td></tr></table></figure></p>
+<p>这样行吗？不行，一个整型数长度为32位，左移32位发生什么事情？溢出！左移-1位呢？反过来移位？所以，移位还是有讲究的。左移和右移的位数不能大于数据的长度，不能小于0。</p>
+<h3 id="2-6-花括号"><a href="#2-6-花括号" class="headerlink" title="2.6 花括号"></a>2.6 花括号</h3><h3 id="2-7-、–操作符"><a href="#2-7-、–操作符" class="headerlink" title="2.7 ++、–操作符"></a>2.7 ++、–操作符</h3><p>先看代码：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> i = <span class="number">3</span>;</div><div class="line">(++i) + (++i) + (++i);</div></pre></td></tr></table></figure></p>
+<p>表达式的值为多少？ 15 吗？ 16 吗？ 18 吗？其实对于这种情况， Ｃ语言标准并没有作出规定。有点编译器计算出来为 18，因为 i 经过 3 次自加后变为 6，然后 3 个 6 相加得 18；而有的编译器计算出来为 16（比如 Visual C++6.0），先计算前两个 i 的和，这时候 i 自加两次， 2 个 i 的和为 10，然后再加上第三次自加的 i 得 16。但不会计算出 15 的结果来的。</p>
+<p>++、 –作为前缀，我们知道是先自加或自减，然后再做别的运算；但是作为后缀时，到底什么时候自加、自减？假设 i=0，看例子：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">A) j = (i++, i++, i++);</div><div class="line">B) <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</div><div class="line">    <span class="comment">//code</span></div><div class="line">&#125;</div><div class="line">C) k = (i++) + (i++) + (i++);</div></pre></td></tr></table></figure></p>
+<p>A)例子为逗号表达式，i在遇到每个逗号后，认为本计算单位已经结束，i这时候自加。关于逗号表达式与“++”或“–”的连用，还有一个比较好的例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">int x;</div><div class="line">int i = 3;</div><div class="line">x = (++i, i++, i + 10);</div></pre></td></tr></table></figure></p>
+<p>问x的值是多少？i的值为多少？<br>按照上面的讲解，可以很清楚的知道，逗号表达式中，i在遇到每个逗号后，认为本计算单位已经结束，i这时候自加。所以，本例子计算完后，i的值为5，x的值为15。</p>
+<p>B) 例子 i 与 10 进行比较之后，认为本计算单位已经结束， i 这时候自加。</p>
+<p>C) 例子 i 遇到分号才认为本计算单位已经结束， i 这时候才自加（k结果是0）。也就是说后缀运算是在本计算单位计算结束之后再自加或自减。 C 语言里的计算单位大体分为以上 3 类。</p>
+<h4 id="2-7-1-i-i-i"><a href="#2-7-1-i-i-i" class="headerlink" title="2.7.1 ++i+++i+++i"></a>2.7.1 ++i+++i+++i</h4><p>上面的例子很简单，那我们把括号去掉看看：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> i = <span class="number">3</span>;</div><div class="line">++i+++i+++i;</div></pre></td></tr></table></figure></p>
+<p>好，我们先看看这个<code>a+++b</code>和下面哪个表达式相当：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">A) a++ +b;</div><div class="line">B) a+ ++b;</div></pre></td></tr></table></figure></p>
+<h4 id="2-7-2-贪心法"><a href="#2-7-2-贪心法" class="headerlink" title="2.7.2 贪心法"></a>2.7.2 贪心法</h4><blockquote>
+<p>C语言有这样一个规则:每一个符号应该包含尽可能多的字符。也就是说，编译器将程序分解成符号的方法是，从左到右一个一个字符地读入，如果该字符可能组成一个符号，那么再读入下一个字符，判断已经读入的两个字符组成的字符串是否可能是一个符号的组成部分；如果可能，继续读入下一个字符，重复上述判断，直到读入的字符组成的字符串已不再可能组成一个有意义的符号。这个处理的策略被称为“贪心法”。需要注意的是，除了字符串与字符常量，符号的中间不能嵌有空白（空格、制表符、换行等）。比如：==是单个符号，而= =是两个等号。</p>
+</blockquote>
+<p>根据上面的规则可以很轻松的判断<code>a+++b</code>表达式与<code>a++ +b</code>一致。那么<code>++i+++i+++i;</code>则会被分解成<code>++i + ++i + ++i;</code>。<code>a+++++b</code>将会被分解成<code>a++ + ++b</code>。</p>
+<h3 id="2-8-（-3）-2的值是多少？"><a href="#2-8-（-3）-2的值是多少？" class="headerlink" title="2.8 （-3）/2的值是多少？"></a>2.8 （-3）/2的值是多少？</h3><p>3/2的值是多少？(-3)%2呢？</p>
+<p>C语言中的取整法则很简单，当商大于0时向下取整，当商小于0时向上取整，就是近0法则。C语言中的取余数法则也很简单，余数的符号总是与被除数的符号相同。记住这两条规则就够了。</p>
+<p>通过上面的规则我们就知道了，3/2的结果是1，(-3)/2的结果是-1，3%2的结果是1，(-3)%2的结果是-1。3/(-2)的结果是-1,3%(-2)的结果是1。</p>
+<h3 id="2-9-运算符的优先级"><a href="#2-9-运算符的优先级" class="headerlink" title="2.9 运算符的优先级"></a>2.9 运算符的优先级</h3><h4 id="2-9-1-运算符的优先级表"><a href="#2-9-1-运算符的优先级表" class="headerlink" title="2.9.1 运算符的优先级表"></a>2.9.1 运算符的优先级表</h4><blockquote>
+<p>下表示C语言运算符的优先级表：</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>优先级</th>
+<th>运算符</th>
+<th>名称或含义</th>
+<th>使用形式</th>
+<th>结合方向</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>[]</td>
+<td>数组下表</td>
+<td>数组名[常量表达式]</td>
+<td>左到右</td>
+<td></td>
+</tr>
+<tr>
+<td>1</td>
+<td>()</td>
+<td>圆括号</td>
+<td>(表达式)/函数名(形参表)</td>
+<td>左到右</td>
+<td></td>
+</tr>
+<tr>
+<td>1</td>
+<td>.</td>
+<td>成员选择（对象）</td>
+<td>对象.成员</td>
+<td>左到右</td>
+<td></td>
+</tr>
+<tr>
+<td>1</td>
+<td>-&gt;</td>
+<td>成员选择（指针）</td>
+<td>对象指针-&gt; 成员名</td>
+<td>左到右</td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>-</td>
+<td>负号运算符</td>
+<td>-表达式</td>
+<td>右到左</td>
+<td>单目运算符</td>
+</tr>
+<tr>
+<td>2</td>
+<td>(类型)</td>
+<td>强制类型转换</td>
+<td>(数据类型)表达式</td>
+<td>右到左</td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>++</td>
+<td>自增运算符</td>
+<td>++变量名/变量名++</td>
+<td>右到左</td>
+<td>单目运算符</td>
+</tr>
+<tr>
+<td>2</td>
+<td>–</td>
+<td>自减员算符</td>
+<td>–变量名/变量名–</td>
+<td>右到左</td>
+<td>单目运算符</td>
+</tr>
+<tr>
+<td>2</td>
+<td>*</td>
+<td>取值运算符</td>
+<td>*指针变量</td>
+<td>右到左</td>
+<td>单目运算符</td>
+</tr>
+<tr>
+<td>2</td>
+<td>&amp;</td>
+<td>取地址运算符</td>
+<td>&amp;变量名</td>
+<td>右到左</td>
+<td>单目运算符</td>
+</tr>
+<tr>
+<td>2</td>
+<td>！</td>
+<td>逻辑非运算符</td>
+<td>!表达式</td>
+<td>右到左</td>
+<td>单目运算符</td>
+</tr>
+<tr>
+<td>2</td>
+<td>~</td>
+<td>按位取反运算符</td>
+<td>~表达式</td>
+<td>右到左</td>
+<td>单目运算符</td>
+</tr>
+<tr>
+<td>2</td>
+<td>sizeof</td>
+<td>长度运算符</td>
+<td>sizeof(表达式)</td>
+<td>右到左</td>
+<td>单目运算符</td>
+</tr>
+<tr>
+<td>3</td>
+<td>/</td>
+<td>除</td>
+<td>表达式/表达式</td>
+<td>左到右</td>
+<td>双目运算符</td>
+</tr>
+<tr>
+<td>3</td>
+<td>*</td>
+<td>乘</td>
+<td>表达式*表达式</td>
+<td>左到右</td>
+<td>双目运算符</td>
+</tr>
+<tr>
+<td>3</td>
+<td>%</td>
+<td>取余</td>
+<td>整型表达式/整型表达式</td>
+<td>左到右</td>
+<td>双目运算符</td>
+</tr>
+<tr>
+<td>4</td>
+<td>+</td>
+<td>加</td>
+<td>表达式+表达式</td>
+<td>左到右</td>
+<td>双目运算符</td>
+</tr>
+<tr>
+<td>4</td>
+<td>-</td>
+<td>减</td>
+<td>表达式-表达式</td>
+<td>左到右</td>
+<td>双目运算符</td>
+</tr>
+<tr>
+<td>5</td>
+<td>&lt;&lt;</td>
+<td>左移</td>
+<td>变量&lt;&lt;表达式</td>
+<td>左到右</td>
+<td>双目运算符</td>
+</tr>
+<tr>
+<td>5</td>
+<td>&gt;&gt;</td>
+<td>右移</td>
+<td>变量&gt;&gt;表达式</td>
+<td>左到右</td>
+<td>双目运算符</td>
+</tr>
+<tr>
+<td>6</td>
+<td>&gt;</td>
+<td>大于</td>
+<td>表达式&gt;表达式</td>
+<td>左到右</td>
+<td>双目运算符</td>
+</tr>
+<tr>
+<td>6</td>
+<td>&gt;=</td>
+<td>大于等于</td>
+<td>表达式&gt;=表达式</td>
+<td>左到右</td>
+<td>双目运算符</td>
+</tr>
+<tr>
+<td>6</td>
+<td>&lt;</td>
+<td>小于</td>
+<td>表达式&lt;表达式</td>
+<td>左到右</td>
+<td>双目运算符</td>
+</tr>
+<tr>
+<td>6</td>
+<td>&lt;=</td>
+<td>小于等于</td>
+<td>表达式&lt;=表达式</td>
+<td>左到右</td>
+<td>双目运算符</td>
+</tr>
+<tr>
+<td>7</td>
+<td>==</td>
+<td>等于</td>
+<td>表达式==表达式</td>
+<td>左到右</td>
+<td>双目运算符</td>
+</tr>
+<tr>
+<td>7</td>
+<td>!=</td>
+<td>不等于</td>
+<td>表达式!=表达式</td>
+<td>左到右</td>
+<td>双目运算符</td>
+</tr>
+<tr>
+<td>8</td>
+<td>&amp;</td>
+<td>按位与</td>
+<td>表达式&amp;表达式</td>
+<td>左到右</td>
+<td>双目运算符</td>
+</tr>
+<tr>
+<td>9</td>
+<td>^</td>
+<td>按位异或</td>
+<td>表达式^表达式</td>
+<td>左到右</td>
+<td>双目运算符</td>
+</tr>
+<tr>
+<td>10</td>
+<td>l</td>
+<td>按位或</td>
+<td>表达式l表达式</td>
+<td>左到右</td>
+<td>双目运算符</td>
+</tr>
+<tr>
+<td>11</td>
+<td>&amp;&amp;</td>
+<td>逻辑与</td>
+<td>表达式&amp;&amp;表达式</td>
+<td>左到右</td>
+<td>双目运算符</td>
+</tr>
+<tr>
+<td>12</td>
+<td>ll</td>
+<td>逻辑或</td>
+<td>表达式ll表达式</td>
+<td>左到右</td>
+<td>双目运算符</td>
+</tr>
+<tr>
+<td>13</td>
+<td>?:</td>
+<td>条件运算符</td>
+<td>表达式1 ? 表达式2 : 表达式3</td>
+<td>左到右</td>
+<td>三目运算符</td>
+</tr>
+<tr>
+<td>14</td>
+<td>=</td>
+<td>赋值运算符</td>
+<td>变量=表达式</td>
+<td>右到左</td>
+<td></td>
+</tr>
+<tr>
+<td>14</td>
+<td>/=</td>
+<td>除后赋值</td>
+<td>变量/=表达式</td>
+<td>右到左</td>
+<td></td>
+</tr>
+<tr>
+<td>14</td>
+<td><code>*=</code></td>
+<td>乘后赋值</td>
+<td>变量<code>*=</code>表达式</td>
+<td>右到左</td>
+<td></td>
+</tr>
+<tr>
+<td>14</td>
+<td>%=</td>
+<td>取余后赋值</td>
+<td>变量%=表达式</td>
+<td>右到左</td>
+<td></td>
+</tr>
+<tr>
+<td>14</td>
+<td>+=</td>
+<td>加后赋值</td>
+<td>变量+=表达式</td>
+<td>右到左</td>
+<td></td>
+</tr>
+<tr>
+<td>14</td>
+<td>-=</td>
+<td>减后赋值</td>
+<td>变量==表达式</td>
+<td>右到左</td>
+<td></td>
+</tr>
+<tr>
+<td>14</td>
+<td>&lt;&lt;=</td>
+<td>左移后赋值</td>
+<td>变量&lt;&lt;=表达式</td>
+<td>右到左</td>
+<td></td>
+</tr>
+<tr>
+<td>14</td>
+<td>&gt;&gt;=</td>
+<td>右移后赋值</td>
+<td>变量&gt;&gt;=表达式</td>
+<td>右到左</td>
+<td></td>
+</tr>
+<tr>
+<td>14</td>
+<td>&amp;=</td>
+<td>按位与或后赋值</td>
+<td>变量&amp;=表达式</td>
+<td>右到左</td>
+<td></td>
+</tr>
+<tr>
+<td>14</td>
+<td>^=</td>
+<td>按位异或后赋值</td>
+<td>变量^=表达式</td>
+<td>右到左</td>
+<td></td>
+</tr>
+<tr>
+<td>14</td>
+<td>l=</td>
+<td>按位或后赋值</td>
+<td>变量l=表达式</td>
+<td>右到左</td>
+<td></td>
+</tr>
+<tr>
+<td>15</td>
+<td>,</td>
+<td>逗号表达式</td>
+<td>表达式，表达式，表达式</td>
+<td>左到右</td>
+<td>从左到右顺序运算</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>注：同一优先级的运算符，运算次序由结合方向所决定。</p>
+</blockquote>
+<h4 id="2-9-2-一些容易出错的优先级问题"><a href="#2-9-2-一些容易出错的优先级问题" class="headerlink" title="2.9.2 一些容易出错的优先级问题"></a>2.9.2 一些容易出错的优先级问题</h4><blockquote>
+<p>下表中整理了容易出错的情况：</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>优先级问题</th>
+<th>表达式</th>
+<th>经常误认为的结果</th>
+<th>实际结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.的优先级高于<code>*</code></td>
+<td><code>*p.f</code></td>
+<td>p所指对象的字段f <code>(*p).f</code></td>
+<td>对p取f偏移，作为指针，然后进行接触引用操作。<code>*(p.f)</code></td>
+</tr>
+<tr>
+<td>[]高于*</td>
+<td>int *ap[]</td>
+<td>ap是个指向int数组的指针</td>
+<td>ap是个元素为int的指针数组</td>
+</tr>
+<tr>
+<td>== 和 !=高于位操作符</td>
+<td>(val &amp; mask != 0)</td>
+<td>(val &amp; mask) != 0</td>
+<td>val &amp; (mask != 0)</td>
+</tr>
+<tr>
+<td>== 和!= 高于赋值操作符</td>
+<td>c = getchar() != EOF</td>
+<td>(c = getchar()) != EOF</td>
+<td>c = (getchar() != EOF )</td>
+</tr>
+<tr>
+<td>算术运算符高于位运算符</td>
+<td>msb &lt;&lt; 4+lsb</td>
+<td>(msb &lt;&lt; 4) + lsb</td>
+<td>msb &lt;&lt; (4 + lsb)</td>
+</tr>
+<tr>
+<td>逗号运算符在所有优先级中最低</td>
+<td>i = 1, 2</td>
+<td>i = (1, 2)</td>
+<td>(i = 1), 2</td>
+</tr>
+</tbody>
+</table>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2017/05/03/note_C语言深度解剖二 —— 符号/">C语言深度解剖二 —— 符号</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 Haven Xie 的个人博客">Haven Xie</a></p>
+        <p><span>发布时间:</span>2017年05月03日 - 16时50分</p>
+        <p><span>最后更新:</span>2017年05月03日 - 17时09分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2017/05/03/note_C语言深度解剖二 —— 符号/" title="C语言深度解剖二 —— 符号">http://yoursite.com/2017/05/03/note_C语言深度解剖二 —— 符号/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2017/05/03/note_C语言深度解剖二 —— 符号/　　作者: Haven Xie" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+  
+    <a href="/2017/04/12/note_C语言深度解剖一 —— 关键字/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">C语言深度解剖一 —— 关键字</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-注释符号"><span class="toc-number">1.</span> <span class="toc-text">2.1 注释符号</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-1-几个似是而非的注释问题"><span class="toc-number">1.1.</span> <span class="toc-text">2.1.1 几个似是而非的注释问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-2-y-x-p"><span class="toc-number">1.2.</span> <span class="toc-text">2.1.2 y = x/*p</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-3-怎样才能写出出色的注释"><span class="toc-number">1.3.</span> <span class="toc-text">2.1.3 怎样才能写出出色的注释</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2接续符和转移符"><span class="toc-number">2.</span> <span class="toc-text">2.2接续符和转移符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-单引号、双引号"><span class="toc-number">3.</span> <span class="toc-text">2.3 单引号、双引号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-逻辑运算符"><span class="toc-number">4.</span> <span class="toc-text">2.4 逻辑运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-位运算符"><span class="toc-number">5.</span> <span class="toc-text">2.5 位运算符</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-5-1-左移和右移"><span class="toc-number">5.1.</span> <span class="toc-text">2.5.1 左移和右移</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-5-2-0x01-lt-lt-2-3"><span class="toc-number">5.2.</span> <span class="toc-text">2.5.2 0x01 << 2 + 3</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-6-花括号"><span class="toc-number">6.</span> <span class="toc-text">2.6 花括号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-7-、–操作符"><span class="toc-number">7.</span> <span class="toc-text">2.7 ++、–操作符</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-7-1-i-i-i"><span class="toc-number">7.1.</span> <span class="toc-text">2.7.1 ++i+++i+++i</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-7-2-贪心法"><span class="toc-number">7.2.</span> <span class="toc-text">2.7.2 贪心法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-8-（-3）-2的值是多少？"><span class="toc-number">8.</span> <span class="toc-text">2.8 （-3）/2的值是多少？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-9-运算符的优先级"><span class="toc-number">9.</span> <span class="toc-text">2.9 运算符的优先级</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-9-1-运算符的优先级表"><span class="toc-number">9.1.</span> <span class="toc-text">2.9.1 运算符的优先级表</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-9-2-一些容易出错的优先级问题"><span class="toc-number">9.2.</span> <span class="toc-text">2.9.2 一些容易出错的优先级问题</span></a></li></ol></li></ol>
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
+    
+      <div class="duoshuo" id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="2017/05/03/note_C语言深度解剖二 —— 符号/" data-title="C语言深度解剖二 —— 符号" data-url="http://yoursite.com/2017/05/03/note_C语言深度解剖二 —— 符号/"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:"null"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = '/js/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+    <!-- 多说公共JS代码 end -->
+</div>
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2017/04/12/note_C语言深度解剖一 —— 关键字/" title="下一篇: C语言深度解剖一 —— 关键字">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/05/03/note_C语言深度解剖二 —— 符号/">C语言深度解剖二 —— 符号</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/12/note_C语言深度解剖一 —— 关键字/">C语言深度解剖一 —— 关键字</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/19/note_seajs/">模块化SeaJS笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/12/note_angularjs/">AngularJS笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/05/note_锋利的jQuery/">锋利的jQuery笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/31/note_module/">模块化开发简介笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/21/note_other/">常用命令及sublime笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/15/note_$/">jQuery笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/08/note_dom/">DOM笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/02/note_js/">JS笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/25/note_css3/">CSS3笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/11/note_css/">CSS笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/04/note_html/">HTML笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/03/note_git/">GIT基本使用笔记</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2017-05 Haven Xie
+            </div>
+            <div class="footer-right">
+                <a href="https://github.com/havenxie/" target="_blank">Demo</a>  Theme <a href="https://github.com/havenxie/" target="_blank">black</a> by Haven
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >访问用户数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 24;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>
